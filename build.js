@@ -45,7 +45,7 @@ function compileTailwind() {
   console.log('[1/6] Compiling Tailwind CSS (purged)...');
   try {
     execSync(
-      '"npx @tailwindcss/cli" -i ./css/tailwind-input.css -o ./dist/css/main.css --minify',
+      'npx @tailwindcss/cli -i ./css/tailwind-input.css -o ./dist/css/main.css --minify',
       { stdio: 'inherit' }
     );
     // Also append existing custom styles into dist
@@ -236,7 +236,7 @@ function copyAssets() {
   const dirs = ['logo', 'data', 'css/fonts'];
   for (const dir of dirs) {
     if (fs.existsSync(dir)) {
-      execSync(`xcopy "${dir}" "dist\\${dir.replace('/', '\\')}" /E /I /Y /Q`, { stdio: 'inherit' });
+      fs.cpSync(dir, path.join('dist', dir), { recursive: true, force: true });
     }
   }
   if (fs.existsSync('css/clash-display.css')) {
