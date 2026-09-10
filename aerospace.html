@@ -56,9 +56,9 @@
         </div>
 
                         <!-- Menu Body -->
-        <div class="flex flex-1 overflow-hidden">
+        <div class="flex flex-col md:flex-row flex-1 overflow-y-auto md:overflow-hidden">
             <!-- Pane 1: Groups -->
-            <div class="w-[280px] min-w-[280px] border-r border-gray-200 py-6 overflow-y-auto bg-white flex-shrink-0">
+            <div class="w-full md:w-[280px] md:min-w-[280px] md:border-r border-gray-200 py-4 md:py-6 overflow-y-auto bg-white flex-shrink-0">
                 <a href="solutions.html" class="menu-link level1-link flex justify-between items-center py-3.5 px-6 text-[15px] font-medium text-gray-700 hover:bg-gray-50 transition-colors" data-target="solutions">
                     Managed Solutions
                     <span class="arrow-icon hidden">&rarr;</span>
@@ -85,7 +85,7 @@
             </div>
 
             <!-- Pane 2: Subgroups -->
-            <div id="pane2" class="w-[50%] border-r border-gray-200 p-10 hidden bg-white overflow-y-auto">
+            <div id="pane2" class="w-full md:w-[50%] border-t md:border-t-0 md:border-r border-gray-200 p-6 md:p-10 hidden bg-white overflow-y-auto">
                 <div id="pane2-content"></div>
             </div>
 
