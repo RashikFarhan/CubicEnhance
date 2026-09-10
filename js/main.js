@@ -1,66 +1,67 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const menuToggle = document.getElementById('menu-toggle');
-    const closeMenu = document.getElementById('close-menu');
-    const megaMenu = document.getElementById('mega-menu');
-    const level1Links = document.querySelectorAll('.level1-link');
-    const pane2 = document.getElementById('pane2');
-    const pane2Content = document.getElementById('pane2-content');
-    const pane3 = document.getElementById('pane3');
-    const pane3Content = document.getElementById('pane3-content');
 
-    // ── MENU DATA (injected into pane2) ───────────────────────────────────────
-    const pane2Data = {
-        'solutions': `
-            <div class="mb-10">
-                <h2 class="text-[32px] font-bold mb-2 text-black">Managed Solutions</h2>
-                <p class="text-[15px] text-gray-500 mb-8">Discover our core workflow solutions.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8">
-                    <a href="/data-accounting" class="level2-link block p-3 -m-3 rounded-lg text-[15px] text-gray-800 hover:bg-gray-100 transition-colors" data-preview="sol-data-acct">Data &amp; Internal Accounting</a>
-                    <a href="/docs-backoffice" class="level2-link block p-3 -m-3 rounded-lg text-[15px] text-gray-800 hover:bg-gray-100 transition-colors" data-preview="sol-docs-back">Documentation &amp; Back-Office Operations</a>
-                    <a href="/ai-automation" class="level2-link block p-3 -m-3 rounded-lg text-[15px] text-gray-800 hover:bg-gray-100 transition-colors" data-preview="sol-ai-auto">AI Workflow &amp; Automation</a>
-                    <a href="/social-marketing" class="level2-link block p-3 -m-3 rounded-lg text-[15px] text-gray-800 hover:bg-gray-100 transition-colors" data-preview="sol-social-mkt">Social Media Management &amp; Marketing</a>
-                    <a href="/web-design" class="level2-link block p-3 -m-3 rounded-lg text-[15px] text-gray-800 hover:bg-gray-100 transition-colors" data-preview="sol-web-design">Website Design &amp; Maintenance</a>
-                    <a href="/graphics-design" class="level2-link block p-3 -m-3 rounded-lg text-[15px] text-gray-800 hover:bg-gray-100 transition-colors" data-preview="sol-graphics">Graphics Design</a>
-                    <a href="/media-production" class="level2-link block p-3 -m-3 rounded-lg text-[15px] text-gray-800 hover:bg-gray-100 transition-colors" data-preview="sol-media-prod">Photos &amp; Videos Production/Editing</a>
-                </div>
-            </div>
-        `,
-        'industries': `
-            <div class="mb-10">
-                <h2 class="text-[32px] font-bold mb-2 text-black">Industries</h2>
-                <p class="text-[15px] text-gray-500 mb-8">Learn how we draw on industry expertise to make companies more competitive.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8">
-                    <a href="/industries/agencies" class="level2-link block p-3 -m-3 rounded-lg text-[16px] text-gray-800 hover:bg-gray-100 transition-colors" data-preview="ind-agen">Digital &amp; Marketing Agencies</a>
-                    <a href="/industries/ecommerce" class="level2-link block p-3 -m-3 rounded-lg text-[16px] text-gray-800 hover:bg-gray-100 transition-colors" data-preview="ind-ecom">E-Commerce &amp; Retail</a>
-                    <a href="/industries/construction" class="level2-link block p-3 -m-3 rounded-lg text-[16px] text-gray-800 hover:bg-gray-100 transition-colors" data-preview="ind-cons">Construction &amp; Engineering Support</a>
-                    <a href="/industries/startups" class="level2-link block p-3 -m-3 rounded-lg text-[16px] text-gray-800 hover:bg-gray-100 transition-colors" data-preview="ind-start">Startups &amp; SaaS</a>
-                </div>
-            </div>
-        `,
-        'partnerships': `
-            <div class="mb-10">
-                <h2 class="text-[32px] font-bold mb-2 text-black">Partnerships</h2>
-                <p class="text-[15px] text-gray-500 mb-8">Explore our flexible collaboration models.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8">
-                    <a href="/partnerships/embedded" class="level2-link block p-3 -m-3 rounded-lg text-[16px] text-gray-800 hover:bg-gray-100 transition-colors" data-preview="part-embed">Embedded Operations Partnership</a>
-                    <a href="/partnerships/agency" class="level2-link block p-3 -m-3 rounded-lg text-[16px] text-gray-800 hover:bg-gray-100 transition-colors" data-preview="part-agen">Agency Delivery Partnership</a>
-                    <a href="/partnerships/dedicated" class="level2-link block p-3 -m-3 rounded-lg text-[16px] text-gray-800 hover:bg-gray-100 transition-colors" data-preview="part-dedic">Dedicated Operations Support</a>
-                    <a href="/partnerships/project" class="level2-link block p-3 -m-3 rounded-lg text-[16px] text-gray-800 hover:bg-gray-100 transition-colors" data-preview="part-proj">Project-Based Delivery</a>
-                </div>
-            </div>
-        `,
-        'company': `
-            <div class="mb-10">
-                <h2 class="text-[32px] font-bold mb-2 text-black">Our Company</h2>
-                <p class="text-[15px] text-gray-500 mb-8">Learn about our firm and how we work.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8">
-                    <a href="/about" class="level2-link block p-3 -m-3 rounded-lg text-[16px] text-gray-800 hover:bg-gray-100 transition-colors" data-preview="comp-about">About Us</a>
-                    <a href="/how-we-work" class="level2-link block p-3 -m-3 rounded-lg text-[16px] text-gray-800 hover:bg-gray-100 transition-colors" data-preview="comp-how">How We Work</a>
-                </div>
-            </div>
-        `
-    };
+    // ── ELEMENT REFS ──────────────────────────────────────────────────────────
+    const menuToggle    = document.getElementById('menu-toggle');
+    const closeMenu     = document.getElementById('close-menu');
+    const megaMenu      = document.getElementById('mega-menu');
+    const level1Links   = document.querySelectorAll('.level1-link');
+    const pane2         = document.getElementById('pane2');
+    const pane2Content  = document.getElementById('pane2-content');
+    const pane3         = document.getElementById('pane3');
+    const pane3Content  = document.getElementById('pane3-content');
 
+    // The desktop 3-pane body div — we'll hide this on mobile
+    const desktopPaneBody = megaMenu
+        ? megaMenu.querySelector('.flex.flex-1.overflow-hidden')
+        : null;
+
+    // ── ALL MENU SECTIONS + PAGES ─────────────────────────────────────────────
+    // Single source of truth used by both the mobile flat-list and the desktop pane2 data
+    const SECTIONS = [
+        {
+            id: 'solutions',
+            label: 'Managed Solutions',
+            pages: [
+                { href: '/data-accounting',   text: 'Data & Internal Accounting',            preview: 'sol-data-acct' },
+                { href: '/docs-backoffice',    text: 'Documentation & Back-Office Operations', preview: 'sol-docs-back' },
+                { href: '/ai-automation',      text: 'AI Workflow & Automation',              preview: 'sol-ai-auto'  },
+                { href: '/social-marketing',   text: 'Social Media Management & Marketing',   preview: 'sol-social-mkt'},
+                { href: '/web-design',         text: 'Website Design & Maintenance',          preview: 'sol-web-design'},
+                { href: '/graphics-design',    text: 'Graphics Design',                       preview: 'sol-graphics' },
+                { href: '/media-production',   text: 'Photos & Videos Production/Editing',    preview: 'sol-media-prod'},
+            ]
+        },
+        {
+            id: 'industries',
+            label: 'Industries',
+            pages: [
+                { href: '/industries/agencies',    text: 'Digital & Marketing Agencies',       preview: 'ind-agen'  },
+                { href: '/industries/ecommerce',   text: 'E-Commerce & Retail',                preview: 'ind-ecom'  },
+                { href: '/industries/construction',text: 'Construction & Engineering Support', preview: 'ind-cons'  },
+                { href: '/industries/startups',    text: 'Startups & SaaS',                    preview: 'ind-start' },
+            ]
+        },
+        {
+            id: 'partnerships',
+            label: 'Partnerships',
+            pages: [
+                { href: '/partnerships/embedded',  text: 'Embedded Operations Partnership', preview: 'part-embed' },
+                { href: '/partnerships/agency',    text: 'Agency Delivery Partnership',     preview: 'part-agen'  },
+                { href: '/partnerships/dedicated', text: 'Dedicated Operations Support',    preview: 'part-dedic' },
+                { href: '/partnerships/project',   text: 'Project-Based Delivery',          preview: 'part-proj'  },
+            ]
+        },
+        {
+            id: 'company',
+            label: 'Our Company',
+            pages: [
+                { href: '/about',        text: 'About Us',    preview: 'comp-about' },
+                { href: '/how-we-work',  text: 'How We Work', preview: 'comp-how'   },
+            ]
+        }
+    ];
+
+    // ── PREVIEW DATA (desktop pane3) ──────────────────────────────────────────
     const previewData = {
         'sol-data-acct': `
             <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80" class="w-full h-[220px] object-cover rounded-xl mb-6 shadow-sm" alt="Data Accounting">
@@ -166,187 +167,240 @@ document.addEventListener('DOMContentLoaded', () => {
         `
     };
 
-    // ── DETECT ACTIVE SECTION based on current URL ────────────────────────────
-    // Maps URL path segments to a level1 data-target value
-    function getActiveSection() {
-        const path = window.location.pathname;
-        const pathMap = {
-            '/data-accounting':       'solutions',
-            '/docs-backoffice':       'solutions',
-            '/ai-automation':         'solutions',
-            '/social-marketing':      'solutions',
-            '/web-design':            'solutions',
-            '/graphics-design':       'solutions',
-            '/media-production':      'solutions',
-            '/solutions':             'solutions',
-            '/industries':            'industries',
-            '/industries/agencies':   'industries',
-            '/industries/ecommerce':  'industries',
-            '/industries/construction':'industries',
-            '/industries/startups':   'industries',
-            '/partnerships':          'partnerships',
-            '/partnerships/embedded': 'partnerships',
-            '/partnerships/agency':   'partnerships',
-            '/partnerships/dedicated':'partnerships',
-            '/partnerships/project':  'partnerships',
-            '/about':                 'company',
-            '/how-we-work':           'company',
-        };
-        return pathMap[path] || null;
+    // ── DESKTOP: pane2 HTML generated from SECTIONS data ─────────────────────
+    const pane2Data = {};
+    SECTIONS.forEach(section => {
+        const links = section.pages.map(p =>
+            `<a href="${p.href}" class="level2-link block p-3 -m-3 rounded-lg text-[15px] text-gray-800 hover:bg-gray-100 transition-colors" data-preview="${p.preview}">${p.text}</a>`
+        ).join('\n                    ');
+        pane2Data[section.id] = `
+            <div class="mb-10">
+                <h2 class="text-[32px] font-bold mb-2 text-black">${section.label}</h2>
+                <p class="text-[15px] text-gray-500 mb-8">Discover our offerings.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8">
+                    ${links}
+                </div>
+            </div>
+        `;
+    });
+
+    // ── URL HELPERS ───────────────────────────────────────────────────────────
+    // Normalize the browser's current pathname to match our SECTIONS href values.
+    // Handles: trailing slashes, /index.html suffixes (for localhost dev server)
+    function normalizePath(path) {
+        // Strip /index.html
+        if (path.endsWith('/index.html')) path = path.slice(0, -'/index.html'.length);
+        // Strip trailing slash (but preserve root /)
+        if (path.length > 1 && path.endsWith('/')) path = path.slice(0, -1);
+        return path || '/';
     }
 
-    // Get the level2 preview key matching the current URL
-    function getActivePreviewKey() {
-        const path = window.location.pathname;
-        const previewMap = {
-            '/data-accounting':        'sol-data-acct',
-            '/docs-backoffice':        'sol-docs-back',
-            '/ai-automation':          'sol-ai-auto',
-            '/social-marketing':       'sol-social-mkt',
-            '/web-design':             'sol-web-design',
-            '/graphics-design':        'sol-graphics',
-            '/media-production':       'sol-media-prod',
-            '/industries/agencies':    'ind-agen',
-            '/industries/ecommerce':   'ind-ecom',
-            '/industries/construction':'ind-cons',
-            '/industries/startups':    'ind-start',
-            '/partnerships/embedded':  'part-embed',
-            '/partnerships/agency':    'part-agen',
-            '/partnerships/dedicated': 'part-dedic',
-            '/partnerships/project':   'part-proj',
-            '/about':                  'comp-about',
-            '/how-we-work':            'comp-how',
-        };
-        return previewMap[path] || null;
+    function getCurrentPath() {
+        return normalizePath(window.location.pathname);
     }
 
-    // ── BIND LEVEL 2 LINKS (desktop only) ─────────────────────────────────────
+    // Find which SECTION and PAGE the current URL belongs to
+    function detectCurrentPage() {
+        const path = getCurrentPath();
+        for (const section of SECTIONS) {
+            for (const page of section.pages) {
+                if (page.href === path) {
+                    return { section, page };
+                }
+            }
+        }
+        return null;
+    }
+
+    // ── MOBILE MENU ───────────────────────────────────────────────────────────
+    // Build a full flat-list mobile nav element (created once, cached)
+    let mobileNavEl = null;
+
+    function buildMobileNav() {
+        if (mobileNavEl) return mobileNavEl; // already built — just reuse
+
+        const currentPath = getCurrentPath();
+        const el = document.createElement('div');
+        el.id = 'mobile-nav';
+        el.setAttribute('aria-label', 'Mobile Navigation');
+
+        // Build the inner HTML using inline styles so Tailwind purging can't remove them
+        let inner = '<div style="padding:8px 16px 32px;overflow-y:auto;flex:1;">';
+
+        SECTIONS.forEach(section => {
+            inner += `<div style="margin-bottom:28px;">`;
+            // Section label — not a link, just a heading
+            inner += `<p style="font-size:11px;font-weight:700;color:#9ca3af;text-transform:uppercase;` +
+                     `letter-spacing:0.12em;padding:18px 10px 10px;border-bottom:1px solid #f3f4f6;margin-bottom:4px;">` +
+                     `${section.label}</p>`;
+
+            section.pages.forEach(page => {
+                const isActive = page.href === currentPath;
+                const activeStyle = isActive
+                    ? 'background:#eaf1e8;color:#30495f;font-weight:600;'
+                    : 'color:#1f2937;';
+                const arrow = isActive
+                    ? '<span style="color:#9cf076;font-size:20px;line-height:1;flex-shrink:0;">&#10003;</span>'
+                    : '<span style="color:#d1d5db;font-size:18px;line-height:1;flex-shrink:0;">&#8250;</span>';
+
+                inner += `<a href="${page.href}" ` +
+                    `style="display:flex;align-items:center;justify-content:space-between;` +
+                    `padding:13px 10px;border-radius:10px;font-size:15px;font-family:inherit;` +
+                    `text-decoration:none;margin-bottom:2px;${activeStyle}" ` +
+                    `onclick="this.closest('#mega-menu').classList.remove('active');document.body.style.overflow='';">` +
+                    `<span>${page.text}</span>${arrow}</a>`;
+            });
+
+            inner += `</div>`;
+        });
+
+        // CTA at bottom
+        inner += `<div style="padding:12px 10px 16px;">` +
+            `<a href="/contact" ` +
+            `style="display:block;width:100%;padding:15px 10px;border-radius:12px;` +
+            `background:#30495f;color:#fff;font-weight:700;font-size:13px;` +
+            `letter-spacing:0.1em;text-transform:uppercase;text-align:center;text-decoration:none;" ` +
+            `onclick="document.body.style.overflow='';">` +
+            `Book a Discovery Call</a></div>`;
+
+        inner += '</div>';
+
+        el.style.cssText = 'flex:1;overflow-y:auto;display:flex;flex-direction:column;';
+        el.innerHTML = inner;
+        mobileNavEl = el;
+        return el;
+    }
+
+    function openMobileMenu() {
+        if (!megaMenu) return;
+        // Hide desktop 3-pane body
+        if (desktopPaneBody) desktopPaneBody.style.display = 'none';
+        // Build (or reuse) and show mobile nav
+        const nav = buildMobileNav();
+        if (!megaMenu.contains(nav)) megaMenu.appendChild(nav);
+        nav.style.display = 'flex';
+    }
+
+    function closeMobileMenu() {
+        if (desktopPaneBody) desktopPaneBody.style.display = '';
+        if (mobileNavEl) mobileNavEl.style.display = 'none';
+    }
+
+    // ── DESKTOP: bind level2 links inside pane2 ───────────────────────────────
     function bindLevel2Links() {
         const l2Links = pane2Content.querySelectorAll('.level2-link');
         l2Links.forEach(link => {
             link.addEventListener('click', (e) => {
-                const isAlreadyActive = link.classList.contains('active-l2');
-                // Second click on an already-active link navigates to the page
-                if (isAlreadyActive) {
+                const alreadyActive = link.classList.contains('active-l2');
+                // Second click navigates
+                if (alreadyActive) {
                     window.location.href = link.getAttribute('href');
                     return;
                 }
                 e.preventDefault();
-                // Update active styling
                 l2Links.forEach(l => l.classList.remove('bg-gray-100', 'font-bold', 'active-l2'));
                 link.classList.add('bg-gray-100', 'font-bold', 'active-l2');
-                // Show preview pane
-                const previewTarget = link.getAttribute('data-preview');
-                if (previewTarget && previewData[previewTarget]) {
-                    if (pane3 && pane3Content) {
-                        pane3Content.innerHTML = previewData[previewTarget];
-                        pane3.classList.remove('hidden');
-                    }
+
+                const key = link.getAttribute('data-preview');
+                if (key && previewData[key] && pane3 && pane3Content) {
+                    pane3Content.innerHTML = previewData[key];
+                    pane3.classList.remove('hidden');
                 }
             });
         });
     }
 
-    // ── ACTIVATE A LEVEL1 SECTION (desktop only) ──────────────────────────────
-    // Highlights the section, populates pane2, and optionally pre-selects a level2 item
-    function activateLevel1(link, previewKeyToHighlight) {
-        const target = link.getAttribute('data-target');
-        if (!target || !pane2Data[target]) return;
+    // ── DESKTOP: activate a level1 section, optionally pre-select a page ──────
+    function activateDesktopSection(sectionId, previewKey) {
+        if (!pane2Data[sectionId]) return;
 
-        // Update level1 highlight
+        // Highlight the correct level1 link
         level1Links.forEach(l => {
             l.classList.remove('active', 'bg-[#eaf1e8]', 'font-semibold', 'text-black', 'rounded-lg');
             l.classList.add('text-gray-700');
             const arrow = l.querySelector('.arrow-icon');
             if (arrow) arrow.classList.add('hidden');
         });
-        link.classList.remove('text-gray-700');
-        link.classList.add('active', 'bg-[#eaf1e8]', 'font-semibold', 'text-black', 'rounded-lg');
-        const arrow = link.querySelector('.arrow-icon');
-        if (arrow) arrow.classList.remove('hidden');
+        const activeL1 = Array.from(level1Links).find(l => l.getAttribute('data-target') === sectionId);
+        if (activeL1) {
+            activeL1.classList.remove('text-gray-700');
+            activeL1.classList.add('active', 'bg-[#eaf1e8]', 'font-semibold', 'text-black', 'rounded-lg');
+            const arrow = activeL1.querySelector('.arrow-icon');
+            if (arrow) arrow.classList.remove('hidden');
+        }
 
         // Populate pane2
-        if (pane2Content) pane2Content.innerHTML = pane2Data[target];
+        if (pane2Content) pane2Content.innerHTML = pane2Data[sectionId];
         if (pane2) pane2.classList.remove('hidden');
         bindLevel2Links();
 
-        // Choose which level2 link to pre-highlight
+        // Pre-select the matching level2 item (or fall back to first)
         const allL2 = pane2Content.querySelectorAll('.level2-link');
-        let targetL2 = null;
-        if (previewKeyToHighlight) {
-            targetL2 = Array.from(allL2).find(l => l.getAttribute('data-preview') === previewKeyToHighlight);
-        }
-        if (!targetL2) targetL2 = allL2[0]; // fallback to first item
-
-        if (targetL2) {
-            targetL2.click();
-        } else {
-            if (pane3) pane3.classList.add('hidden');
-        }
+        let targetL2 = previewKey
+            ? Array.from(allL2).find(l => l.getAttribute('data-preview') === previewKey)
+            : null;
+        if (!targetL2 && allL2.length) targetL2 = allL2[0];
+        if (targetL2) targetL2.click();
     }
 
-    // ── HAMBURGER OPEN BUTTON ─────────────────────────────────────────────────
+    // ── HAMBURGER BUTTON ──────────────────────────────────────────────────────
     if (menuToggle && megaMenu && closeMenu) {
         menuToggle.addEventListener('click', (e) => {
-            // CRITICAL: stop the click from bubbling so it doesn't immediately re-close the menu
+            // Prevent the click from bubbling to document and immediately closing the menu
             e.stopPropagation();
 
             megaMenu.classList.add('active');
             document.body.style.overflow = 'hidden';
 
-            // Desktop only: auto-open the section relevant to the current page
-            if (window.innerWidth >= 768) {
-                const activeSection = getActiveSection();
-                const activePreview = getActivePreviewKey();
-                let sectionLink = null;
-                if (activeSection) {
-                    sectionLink = Array.from(level1Links).find(l => l.getAttribute('data-target') === activeSection);
+            const isMobile = window.innerWidth < 768;
+
+            if (isMobile) {
+                openMobileMenu();
+            } else {
+                closeMobileMenu(); // make sure mobile overlay is hidden on desktop
+                // Auto-open the correct section for the current page
+                const match = detectCurrentPage();
+                if (match) {
+                    activateDesktopSection(match.section.id, match.page.preview);
+                } else {
+                    // Home page or unknown page: default to first section
+                    activateDesktopSection(SECTIONS[0].id, null);
                 }
-                // If no match (e.g. homepage), default to first section
-                if (!sectionLink) sectionLink = level1Links[0];
-                if (sectionLink) activateLevel1(sectionLink, activePreview);
             }
-            // Mobile: just show pane1 — the user taps a link directly to navigate
         });
 
         closeMenu.addEventListener('click', (e) => {
             e.stopPropagation();
             megaMenu.classList.remove('active');
             document.body.style.overflow = '';
+            if (window.innerWidth < 768) closeMobileMenu();
         });
 
-        // Close on Escape key
+        // Escape key closes menu
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && megaMenu.classList.contains('active')) {
                 megaMenu.classList.remove('active');
                 document.body.style.overflow = '';
+                if (window.innerWidth < 768) closeMobileMenu();
             }
         });
     }
 
-    // ── LEVEL 1 LINK CLICKS ───────────────────────────────────────────────────
+    // ── DESKTOP: level1 link clicks ───────────────────────────────────────────
     level1Links.forEach(link => {
         link.addEventListener('click', (e) => {
             const target = link.getAttribute('data-target');
             if (!target) return;
-
-            // MOBILE: let the browser navigate to the link's href normally.
-            // The level1 links point to section index pages (e.g. /solutions, /industries).
-            if (window.innerWidth < 768) {
-                // Close the menu overlay and let natural navigation happen
-                megaMenu.classList.remove('active');
-                document.body.style.overflow = '';
-                return; // href navigation proceeds
-            }
-
-            // DESKTOP: show pane2 preview, do not navigate yet
+            // On mobile pane1 is hidden; if somehow clicked, navigate the href
+            if (window.innerWidth < 768) return;
             e.preventDefault();
-            activateLevel1(link, null);
+            activateDesktopSection(target, null);
         });
     });
+
 });
 
-// ── INTERSECTION OBSERVER for scroll-in animations ────────────────────────────
+// ── INTERSECTION OBSERVER (scroll-reveal animations) ─────────────────────────
 const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
 const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
@@ -358,7 +412,7 @@ const observer = new IntersectionObserver((entries, obs) => {
 }, observerOptions);
 document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
 
-// ── TRANSPARENT HEADER scroll behavior ────────────────────────────────────────
+// ── TRANSPARENT HEADER: scroll-to-solid behavior ──────────────────────────────
 const mainHeader = document.querySelector('header');
 if (mainHeader && mainHeader.classList.contains('transparent-header')) {
     const menuToggle = document.getElementById('menu-toggle');
@@ -375,9 +429,9 @@ if (mainHeader && mainHeader.classList.contains('transparent-header')) {
                         menuToggle.classList.remove('text-white', 'hover:bg-white/20');
                         menuToggle.classList.add('text-bcg-dark', 'hover:bg-gray-100');
                     }
-                    headerNavLinks.forEach(link => {
-                        link.classList.remove('text-white', 'text-gray-100');
-                        link.classList.add('text-bcg-dark');
+                    headerNavLinks.forEach(l => {
+                        l.classList.remove('text-white', 'text-gray-100');
+                        l.classList.add('text-bcg-dark');
                     });
                 } else {
                     mainHeader.classList.add('bg-gradient-to-b', 'from-black/40', 'via-black/15', 'to-transparent', 'py-5');
@@ -386,9 +440,9 @@ if (mainHeader && mainHeader.classList.contains('transparent-header')) {
                         menuToggle.classList.add('text-white', 'hover:bg-white/20');
                         menuToggle.classList.remove('text-bcg-dark', 'hover:bg-gray-100');
                     }
-                    headerNavLinks.forEach(link => {
-                        link.classList.add('text-white');
-                        link.classList.remove('text-bcg-dark');
+                    headerNavLinks.forEach(l => {
+                        l.classList.add('text-white');
+                        l.classList.remove('text-bcg-dark');
                     });
                 }
                 ticking = false;

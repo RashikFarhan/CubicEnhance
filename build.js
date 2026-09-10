@@ -13,6 +13,7 @@ const { minify: minifyJS } = require('terser');
 
 const seoConfig = require('./seo-config.js');
 const DOMAIN = 'https://cubicenhance.com';
+const BUILD_TS = Date.now(); // used for cache-busting the JS URL on each deploy
 
 // URL rewrite map: old href value -> new clean href
 const URL_MAP = {};
@@ -144,8 +145,8 @@ async function transformHTML(srcFile, cfg) {
   html = html.replace(/src=["']logo\/([^"']+)["']/g, 'src="/logo/$1"');
   html = html.replace(/href=["']css\/clash-display\.css["']/g, 'href="/css/clash-display.css"');
   html = html.replace(/href=["']css\/style\.css(\?[^"']*)?["']/g, 'href="/css/main.css"');
-  html = html.replace(/src=["']js\/main\.js(\?v=[^"']*)?["']/g, 'src="/js/main.min.js"');
-  html = html.replace(/src=["']js\/main\.min\.js["']/g, 'src="/js/main.min.js"');
+  html = html.replace(/src=["']js\/main\.js(\?v=[^"']*)?["']/g, `src="/js/main.min.js?v=${BUILD_TS}"`);
+  html = html.replace(/src=["']js\/main\.min\.js["']/g, `src="/js/main.min.js?v=${BUILD_TS}"`);
   html = html.replace(/fetch\(["']companies\.json["']\)/g, "fetch('/companies.json')");
   html = html.replace(/fetch\(["']reviews\.json["']\)/g, "fetch('/reviews.json')");
 
