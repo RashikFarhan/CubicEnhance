@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /data/
+Disallow: /companies.json
+Disallow: /reviews.json
+Sitemap: https://cubicenhance.com/sitemap.xml

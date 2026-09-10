@@ -1,0 +1,257 @@
+// seo-config.js
+// SEO metadata for every page.
+// IMPORTANT: Replace DOMAIN_PLACEHOLDER with your actual domain before running build.
+
+const DOMAIN = 'https://cubicenhance.com'; // <-- update this
+const DEFAULT_OG_IMAGE = `${DOMAIN}/logo/only%20logo.png`;
+
+module.exports = {
+  'index.html': {
+    slug: '',
+    title: 'CubicEnhance | Managed Remote Operations & AI-Assisted Workflows',
+    description: 'CubicEnhance provides managed remote teams for data operations, back-office administration, and digital workflows for growing businesses worldwide. Scale without overhead.',
+    ogImage: DEFAULT_OG_IMAGE,
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'CubicEnhance',
+      url: DOMAIN,
+      logo: `${DOMAIN}/logo/only%20logo.png`,
+      description: 'Managed Remote Operations & AI-Assisted Workflows',
+      contactPoint: {
+        '@type': 'ContactPoint',
+        contactType: 'customer service',
+        url: `${DOMAIN}/contact`,
+      },
+      sameAs: [],
+    },
+  },
+  'about.html': {
+    slug: 'about',
+    title: 'About Us | CubicEnhance — Managed Operations Partner',
+    description: 'Learn about CubicEnhance — a Bangladesh-based managed operations company delivering AI-assisted back-office solutions to growing businesses globally.',
+    ogImage: DEFAULT_OG_IMAGE,
+  },
+  'contact.html': {
+    slug: 'contact',
+    title: 'Contact Us | CubicEnhance',
+    description: 'Get in touch with CubicEnhance to discuss your operational challenges. Book a Workflow Discovery Call today.',
+    ogImage: DEFAULT_OG_IMAGE,
+  },
+  'services.html': {
+    slug: 'services',
+    title: 'Our Services | Managed Operations & AI Workflows | CubicEnhance',
+    description: 'Explore CubicEnhance\'s full range of managed services: data operations, back-office administration, digital content, and AI-assisted workflows.',
+    ogImage: DEFAULT_OG_IMAGE,
+  },
+  'how-we-work.html': {
+    slug: 'how-we-work',
+    title: 'How We Work | The CubicEnhance Managed Delivery Model',
+    description: 'Discover how CubicEnhance builds, manages, and scales remote operational teams through our proven Pilot Strategy and SLA-backed delivery model.',
+    ogImage: DEFAULT_OG_IMAGE,
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'How does CubicEnhance onboard a new client?',
+          acceptedAnswer: { '@type': 'Answer', text: 'We start with a Workflow Discovery Call to map your current processes, identify bottlenecks, and design a custom operational workflow — all before any commitment is required.' },
+        },
+        {
+          '@type': 'Question',
+          name: 'How long does the pilot program take?',
+          acceptedAnswer: { '@type': 'Answer', text: 'Our Pilot Strategy typically runs for 30 days, giving you a risk-free way to validate our team\'s performance against your specific SOPs before a full engagement.' },
+        },
+      ],
+    },
+  },
+  'graphics-design.html': {
+    slug: 'graphics-design',
+    title: 'Graphics, Design & Media Production | CubicEnhance',
+    description: 'Managed teams for graphic design, video editing, 3D rendering, and digital media production. Scalable creative output without the overhead of an in-house studio.',
+    ogImage: DEFAULT_OG_IMAGE,
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'Graphics Design & Media Production',
+      provider: { '@type': 'Organization', name: 'CubicEnhance', url: DOMAIN },
+      description: 'Managed teams for graphic design, video editing, 3D rendering, and digital media production.',
+    },
+  },
+  'data-accounting.html': {
+    slug: 'data-accounting',
+    title: 'Data & Internal Accounting Operations | CubicEnhance',
+    description: 'Automating accounting and data workflows can reduce processing times by up to 40%. CubicEnhance manages your document processing, CRM hygiene, AP/AR, and financial reporting.',
+    ogImage: DEFAULT_OG_IMAGE,
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'Data & Internal Accounting Operations',
+      provider: { '@type': 'Organization', name: 'CubicEnhance', url: DOMAIN },
+      description: 'Managed document processing, CRM management, AP/AR administration, and financial reporting workflows.',
+    },
+  },
+  'docs-backoffice.html': {
+    slug: 'docs-backoffice',
+    title: 'Documentation & Back-Office Operations | CubicEnhance',
+    description: 'Dedicated managed teams for documentation control, back-office administration, and compliance tracking. Keep your internal operations running without distracting your core team.',
+    ogImage: DEFAULT_OG_IMAGE,
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'Documentation & Back-Office Operations',
+      provider: { '@type': 'Organization', name: 'CubicEnhance', url: DOMAIN },
+    },
+  },
+  'social-marketing.html': {
+    slug: 'social-marketing',
+    title: 'Social Media & Digital Marketing Operations | CubicEnhance',
+    description: 'Managed teams for social media scheduling, content formatting, ad operations, and marketing back-office tasks. Scale your agency without scaling payroll.',
+    ogImage: DEFAULT_OG_IMAGE,
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'Social Media & Digital Marketing Operations',
+      provider: { '@type': 'Organization', name: 'CubicEnhance', url: DOMAIN },
+    },
+  },
+  'web-design.html': {
+    slug: 'web-design',
+    title: 'Web Design & Development Operations | CubicEnhance',
+    description: 'Managed teams for website builds, landing pages, UI updates, and digital product development. Reliable web development capacity without permanent hiring.',
+    ogImage: DEFAULT_OG_IMAGE,
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'Web Design & Development Operations',
+      provider: { '@type': 'Organization', name: 'CubicEnhance', url: DOMAIN },
+    },
+  },
+  'ai-automation.html': {
+    slug: 'ai-automation',
+    title: 'AI Automation & Intelligent Workflow Services | CubicEnhance',
+    description: 'AI-assisted automation for data processing, document extraction, workflow orchestration, and operational intelligence. Reduce manual effort across your back-office.',
+    ogImage: DEFAULT_OG_IMAGE,
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'AI Automation & Intelligent Workflow Services',
+      provider: { '@type': 'Organization', name: 'CubicEnhance', url: DOMAIN },
+    },
+  },
+  'media-production.html': {
+    slug: 'media-production',
+    title: 'Media & Video Production Operations | CubicEnhance',
+    description: 'Managed remote teams for video production, podcast editing, motion graphics, and media post-production. Consistent creative output at scale.',
+    ogImage: DEFAULT_OG_IMAGE,
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'Media & Video Production Operations',
+      provider: { '@type': 'Organization', name: 'CubicEnhance', url: DOMAIN },
+    },
+  },
+  'aerospace.html': {
+    slug: 'aerospace',
+    title: 'Aerospace & Engineering Administrative Support | CubicEnhance',
+    description: 'Specialized administrative support for aerospace and engineering firms. Document control, compliance tracking, and technical data management.',
+    ogImage: DEFAULT_OG_IMAGE,
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'Aerospace & Engineering Administrative Support',
+      provider: { '@type': 'Organization', name: 'CubicEnhance', url: DOMAIN },
+    },
+  },
+  'industries.html': {
+    slug: 'industries',
+    title: 'Industries We Serve | CubicEnhance Managed Operations',
+    description: 'CubicEnhance delivers specialized operational support across Digital Agencies, E-Commerce, Construction & Engineering, and Startups & SaaS companies.',
+    ogImage: DEFAULT_OG_IMAGE,
+  },
+  'industry-agencies.html': {
+    slug: 'industries/agencies',
+    title: 'Backend Fulfillment for Digital & Marketing Agencies | CubicEnhance',
+    description: 'Expand your agency\'s capacity without adding permanent payroll. CubicEnhance handles the back-end campaign fulfillment while you focus on client relationships.',
+    ogImage: DEFAULT_OG_IMAGE,
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'Backend Fulfillment for Digital Agencies',
+      provider: { '@type': 'Organization', name: 'CubicEnhance', url: DOMAIN },
+    },
+  },
+  'industry-ecommerce.html': {
+    slug: 'industries/ecommerce',
+    title: 'Operational Capacity for E-Commerce & Retail | CubicEnhance',
+    description: 'Manage product catalogs, customer support volume, and inventory data at scale. CubicEnhance provides flexible managed teams for e-commerce operations.',
+    ogImage: DEFAULT_OG_IMAGE,
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'Operational Capacity for E-Commerce & Retail',
+      provider: { '@type': 'Organization', name: 'CubicEnhance', url: DOMAIN },
+    },
+  },
+  'industry-construction.html': {
+    slug: 'industries/construction',
+    title: 'Administrative Control for Construction & Engineering | CubicEnhance',
+    description: 'Document control, RFI tracking, BOQ management, and 3D visualization support for construction and engineering firms. Free your engineers to build.',
+    ogImage: DEFAULT_OG_IMAGE,
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'Administrative Control for Construction & Engineering',
+      provider: { '@type': 'Organization', name: 'CubicEnhance', url: DOMAIN },
+    },
+  },
+  'industry-startups.html': {
+    slug: 'industries/startups',
+    title: 'Asset-Light Scaling for Startups & SaaS | CubicEnhance',
+    description: 'Agile operational capacity for high-growth software companies. QA testing, AI data operations, and CRM pipeline management without burning runway.',
+    ogImage: DEFAULT_OG_IMAGE,
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'Asset-Light Scaling for Startups & SaaS',
+      provider: { '@type': 'Organization', name: 'CubicEnhance', url: DOMAIN },
+    },
+  },
+  'partnerships.html': {
+    slug: 'partnerships',
+    title: 'Partnership Models | Work With CubicEnhance',
+    description: 'Explore our flexible partnership models: Agency White-Label, Dedicated Team, Embedded Operator, and Project-Based engagements.',
+    ogImage: DEFAULT_OG_IMAGE,
+  },
+  'partner-agency.html': {
+    slug: 'partnerships/agency',
+    title: 'Agency Partnership Model | CubicEnhance',
+    description: 'White-label operational fulfillment for agencies. We execute under your brand, giving you the capacity to grow without fixed headcount.',
+    ogImage: DEFAULT_OG_IMAGE,
+  },
+  'partner-dedicated.html': {
+    slug: 'partnerships/dedicated',
+    title: 'Dedicated Team Model | CubicEnhance',
+    description: 'A fully dedicated, managed remote team that operates exclusively on your workflows. Full accountability, SLA-backed delivery.',
+    ogImage: DEFAULT_OG_IMAGE,
+  },
+  'partner-embedded.html': {
+    slug: 'partnerships/embedded',
+    title: 'Embedded Operator Model | CubicEnhance',
+    description: 'Our operators work directly inside your tools and systems as embedded team members. Indistinguishable from in-house staff, without the overhead.',
+    ogImage: DEFAULT_OG_IMAGE,
+  },
+  'partner-project.html': {
+    slug: 'partnerships/project',
+    title: 'Project-Based Engagement | CubicEnhance',
+    description: 'Need operational capacity for a defined project or sprint? CubicEnhance delivers project-based teams that mobilize fast and deliver to deadline.',
+    ogImage: DEFAULT_OG_IMAGE,
+  },
+  'solutions.html': {
+    slug: 'solutions',
+    title: 'Operational Solutions | CubicEnhance',
+    description: 'Browse CubicEnhance\'s end-to-end operational solutions designed for growing businesses that need reliable, scalable back-office support.',
+    ogImage: DEFAULT_OG_IMAGE,
+  },
+};

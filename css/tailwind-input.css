@@ -1,0 +1,21 @@
+@import "tailwindcss" source("../");
+@source "../*.html";
+@source "../js/*.js";
+
+@theme {
+  --color-bcg-dark: #30495f;
+  --color-bcg-green: #5c829c;
+  --color-bcg-light-green: #c2e2eb;
+  --color-bcg-beige: #bac6c0;
+  --color-bcg-gray: #86867d;
+  --color-bcg-text: #1a1a1a;
+}
+
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes scrollRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}

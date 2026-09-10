@@ -1,0 +1,109 @@
+
+        <!-- 27. PERFORMANCE METRICS COUNTER -->
+        <div class="component-box">
+            <div class="component-header">
+                <div>
+                    <span class="text-xs font-bold uppercase text-bcg-green tracking-widest">Layout Blocks</span>
+                    <h2 class="font-serif text-xl text-bcg-dark">27. Performance Metrics Counter (IntersectionObserver)</h2>
+                </div>
+                <span class="text-xs bg-blue-100 text-bcg-dark font-bold px-3 py-1 rounded-full">JS Dynamic</span>
+            </div>
+            <div class="component-render bg-white border border-gray-100 border-t-0 rounded-b-xl overflow-hidden relative">
+                
+        <!-- Performance Metrics Counter -->
+        <section id="metrics-section" class="py-24 bg-bcg-dark relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-[#1a232b] rounded-2xl border border-gray-700/50 p-8 lg:p-12 shadow-2xl">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-0 divide-y md:divide-y-0 md:divide-x divide-gray-700/50">
+                        <!-- Column 1 -->
+                        <div class="md:px-8 first:md:pl-0 last:md:pr-0 text-center flex flex-col items-center">
+                            <div id="metric-clients" class="text-5xl lg:text-6xl font-bold text-[#70CFFF] mb-3 font-serif" data-target="91">0+</div>
+                            <h3 class="text-white font-bold uppercase tracking-[1.5px] mb-4 text-sm">TOTAL CLIENT PARTNERSHIPS</h3>
+                            <p class="text-gray-400 text-[0.9rem] leading-[1.5] max-w-sm">Businesses across North America, Europe, Asia, and Australia relying on CubicEnhance for scalable, managed operational workflows.</p>
+                        </div>
+                        <!-- Column 2 -->
+                        <div class="md:px-8 py-10 md:py-0 text-center flex flex-col items-center">
+                            <div id="metric-retention" class="text-5xl lg:text-6xl font-bold text-[#70CFFF] mb-3 font-serif" data-target="75">0+</div>
+                            <h3 class="text-white font-bold uppercase tracking-[1.5px] mb-4 text-sm">CONTRACTUAL MANAGED ACCOUNTS</h3>
+                            <p class="text-gray-400 text-[0.9rem] leading-[1.5] max-w-sm">Long-term client partnerships operating under dedicated Standard Operating Procedures (SOPs), SLAs, and ongoing operational ownership.</p>
+                        </div>
+                        <!-- Column 3 -->
+                        <div class="md:px-8 pt-10 md:pt-0 text-center flex flex-col items-center">
+                            <div id="metric-years" class="text-5xl lg:text-6xl font-bold text-[#70CFFF] mb-3 font-serif" data-target="5">0+</div>
+                            <h3 class="text-white font-bold uppercase tracking-[1.5px] mb-4 text-sm">YEARS OF OPERATIONAL DISCIPLINE</h3>
+                            <p class="text-gray-400 text-[0.9rem] leading-[1.5] max-w-sm">Since 2021, providing international B2B clients with standardized, AI-first remote teams and verified execution.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+            </div>
+        </div>
+
+        <!-- 28. VERIFIED CLIENT REVIEWS CAROUSEL -->
+        <div class="component-box">
+            <div class="component-header">
+                <div>
+                    <span class="text-xs font-bold uppercase text-bcg-green tracking-widest">Layout Blocks</span>
+                    <h2 class="font-serif text-xl text-bcg-dark">28. Dynamic Client Reviews Carousel</h2>
+                </div>
+                <span class="text-xs bg-blue-100 text-bcg-dark font-bold px-3 py-1 rounded-full">JS Dynamic</span>
+            </div>
+            <div class="component-render bg-white border border-gray-100 border-t-0 rounded-b-xl overflow-hidden relative">
+                
+        <!-- Verified Client Reviews -->
+        <section id="reviews-section" class="py-32 bg-bcg-dark relative border-t border-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="font-serif text-3xl md:text-5xl text-white mb-6">What Our Clients Say</h2>
+                    <p class="text-lg text-gray-400 max-w-2xl mx-auto font-light leading-relaxed">Verified feedback from international founders, operations managers, and agency owners who scale with CubicEnhance.</p>
+                </div>
+                
+                <!-- Dual Aggregate Bar -->
+                <div class="max-w-4xl mx-auto mb-20 bg-[#1a232b] border border-gray-700/50 rounded-2xl overflow-hidden flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-gray-700/50 shadow-xl">
+                    <!-- Left: Internal Rating -->
+                    <div class="flex-1 p-8 md:p-12 flex flex-col items-center justify-center bg-gradient-to-br from-[#1a232b] to-[#151c22]">
+                        <div class="flex items-baseline gap-2 mb-3">
+                            <span id="agg-score" class="text-5xl font-bold text-white tracking-tight">4.96</span>
+                            <span class="text-gray-400 text-xl">/ 5.0</span>
+                        </div>
+                        <div id="agg-stars" class="flex gap-1 text-bcg-light-green mb-4">
+                            <!-- filled by JS -->
+                        </div>
+                        <span id="agg-count-text" class="text-sm font-medium text-gray-400">Based on 15 Verified International Reviews</span>
+                    </div>
+                    
+                    <!-- Right: Trustpilot -->
+                    <a href="https://trustpilot.com" target="_blank" class="flex-1 p-8 md:p-12 flex flex-col items-center justify-center bg-gradient-to-br from-[#1a232b] to-[#151c22] hover:from-[#1f2a33] hover:to-[#1a232b] transition-all duration-300 group cursor-pointer relative overflow-hidden">
+                        <div class="absolute inset-0 bg-[#00b67a]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="flex items-center gap-4 mb-4 relative z-10">
+                            <!-- SVG Trustpilot Logo Custom -->
+                            <svg class="w-10 h-10 text-[#00b67a]" viewBox="0 0 512 512" fill="currentColor"><path d="M256 0c141.385 0 256 114.615 256 256S397.385 512 256 512 0 397.385 0 256 114.615 0 256 0zm0 460c112.667 0 204-91.333 204-204S368.667 52 256 52 52 143.333 52 256s91.333 204 204 204zm102.584-257.653l-81.865-11.89L240 116.32v229.471l66.903 35.17-12.78-74.604 54.218-52.846-91.757-13.33-41.01-83.076-41.01 83.075-91.756 13.33 54.218 52.846-12.78 74.604 66.903-35.17v-138.82l66.082 8.76z"/></svg>
+                            <span class="text-2xl font-bold text-white group-hover:text-[#00b67a] transition-colors">Review Us on Trustpilot</span>
+                        </div>
+                        <span class="text-sm font-medium text-gray-400 relative z-10">Official Trustpilot Company Profile — Verified Reviews Welcome.</span>
+                    </a>
+                </div>
+                
+                <!-- Carousel Nav & Track -->
+                <div class="relative max-w-[1400px] mx-auto px-4 md:px-12">
+                    <!-- Nav buttons -->
+                    <button id="review-prev" class="absolute left-0 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-[#2a3642] hover:bg-bcg-green flex items-center justify-center text-white z-20 transition-all duration-300 shadow-xl opacity-80 hover:opacity-100 disabled:opacity-30 disabled:cursor-not-allowed">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    </button>
+                    <button id="review-next" class="absolute right-0 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-[#2a3642] hover:bg-bcg-green flex items-center justify-center text-white z-20 transition-all duration-300 shadow-xl opacity-80 hover:opacity-100 disabled:opacity-30 disabled:cursor-not-allowed">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                    
+                    <div class="overflow-hidden py-4 -mx-3 px-3">
+                        <div id="reviews-track" class="flex transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
+                            <!-- populated by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+            </div>
+        </div>
