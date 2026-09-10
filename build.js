@@ -45,7 +45,7 @@ function compileTailwind() {
   console.log('[1/6] Compiling Tailwind CSS (purged)...');
   try {
     execSync(
-      '".\\\\node_modules\\\\.bin\\\\tailwindcss" -i ./css/tailwind-input.css -o ./dist/css/main.css --minify',
+      '"npx @tailwindcss/cli" -i ./css/tailwind-input.css -o ./dist/css/main.css --minify',
       { stdio: 'inherit' }
     );
     // Also append existing custom styles into dist

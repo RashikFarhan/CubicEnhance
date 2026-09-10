@@ -7,9 +7,6 @@
     "preview": "node build.js && npx serve dist",
     "dev": "python -m http.server 8000"
   },
-  "dependencies": {
-    "puppeteer": "^25.10.0"
-  },
   "devDependencies": {
     "html-minifier-terser": "^7.2.0",
     "tailwindcss": "^4.3.3",
