@@ -56,9 +56,9 @@
         </div>
 
                         <!-- Menu Body -->
-        <div class="flex flex-col md:flex-row flex-1 overflow-y-auto md:overflow-hidden">
+        <div class="flex flex-1 overflow-hidden">
             <!-- Pane 1: Groups -->
-            <div class="w-full md:w-[280px] md:min-w-[280px] md:border-r border-gray-200 py-4 md:py-6 overflow-y-auto bg-white flex-shrink-0">
+            <div class="w-[280px] min-w-[280px] border-r border-gray-200 py-6 overflow-y-auto bg-white flex-shrink-0">
                 <a href="solutions.html" class="menu-link level1-link flex justify-between items-center py-3.5 px-6 text-[15px] font-medium text-gray-700 hover:bg-gray-50 transition-colors" data-target="solutions">
                     Managed Solutions
                     <span class="arrow-icon hidden">&rarr;</span>
@@ -85,12 +85,12 @@
             </div>
 
             <!-- Pane 2: Subgroups -->
-            <div id="pane2" class="w-full md:w-[50%] border-t md:border-t-0 md:border-r border-gray-200 p-6 md:p-10 hidden bg-white overflow-y-auto">
+            <div id="pane2" class="w-[50%] border-r border-gray-200 p-10 hidden bg-white overflow-y-auto">
                 <div id="pane2-content"></div>
             </div>
 
             <!-- Pane 3: Preview -->
-            <div id="pane3" class="flex-1 p-10 hidden bg-gray-50 overflow-y-auto md:block">
+            <div id="pane3" class="flex-1 p-10 hidden bg-gray-50 overflow-y-auto">
                 <div id="pane3-content"></div>
             </div>
         </div>
@@ -574,24 +574,24 @@
         <section id="metrics-section" class="py-24 bg-bcg-dark relative">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 p-8 lg:p-12 shadow-2xl">
-                    <div class="grid grid-cols-3 gap-0 divide-x divide-white/20">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-0 divide-y md:divide-y-0 md:divide-x divide-white/20">
                         <!-- Column 1 -->
-                        <div class="px-2 md:px-8 first:md:pl-0 last:md:pr-0 text-center flex flex-col items-center py-4 md:py-0">
-                            <div id="metric-clients" class="text-3xl sm:text-4xl lg:text-6xl font-bold text-[#70CFFF] mb-1 sm:mb-3 font-serif" data-target="91">0+</div>
-                            <h3 class="text-white font-bold uppercase tracking-[1.5px] mb-2 md:mb-4 text-[10px] sm:text-sm">TOTAL CLIENT PARTNERSHIPS</h3>
-                            <p class="text-gray-400 text-[0.9rem] leading-[1.5] max-w-sm hidden md:block">Businesses across North America, Europe, Asia, and Australia relying on CubicEnhance for scalable, managed operational workflows.</p>
+                        <div class="md:px-8 first:md:pl-0 last:md:pr-0 text-center flex flex-col items-center">
+                            <div id="metric-clients" class="text-5xl lg:text-6xl font-bold text-[#70CFFF] mb-3 font-serif" data-target="91">0+</div>
+                            <h3 class="text-white font-bold uppercase tracking-[1.5px] mb-4 text-sm">TOTAL CLIENT PARTNERSHIPS</h3>
+                            <p class="text-gray-400 text-[0.9rem] leading-[1.5] max-w-sm">Businesses across North America, Europe, Asia, and Australia relying on CubicEnhance for scalable, managed operational workflows.</p>
                         </div>
                         <!-- Column 2 -->
-                        <div class="px-2 md:px-8 text-center flex flex-col items-center py-4 md:py-0">
-                            <div id="metric-retention" class="text-3xl sm:text-4xl lg:text-6xl font-bold text-[#70CFFF] mb-1 sm:mb-3 font-serif" data-target="75">0+</div>
-                            <h3 class="text-white font-bold uppercase tracking-[1.5px] mb-2 md:mb-4 text-[10px] sm:text-sm">MANAGED ACCOUNTS</h3>
-                            <p class="text-gray-400 text-[0.9rem] leading-[1.5] max-w-sm hidden md:block">Long-term client partnerships operating under dedicated Standard Operating Procedures (SOPs), SLAs, and ongoing operational ownership.</p>
+                        <div class="md:px-8 py-10 md:py-0 text-center flex flex-col items-center">
+                            <div id="metric-retention" class="text-5xl lg:text-6xl font-bold text-[#70CFFF] mb-3 font-serif" data-target="75">0+</div>
+                            <h3 class="text-white font-bold uppercase tracking-[1.5px] mb-4 text-sm">CONTRACTUAL MANAGED ACCOUNTS</h3>
+                            <p class="text-gray-400 text-[0.9rem] leading-[1.5] max-w-sm">Long-term client partnerships operating under dedicated Standard Operating Procedures (SOPs), SLAs, and ongoing operational ownership.</p>
                         </div>
                         <!-- Column 3 -->
-                        <div class="md:px-8 text-center flex flex-col items-center">
-                            <div id="metric-years" class="text-3xl sm:text-4xl lg:text-6xl font-bold text-[#70CFFF] mb-1 sm:mb-3 font-serif" data-target="5">0+</div>
-                            <h3 class="text-white font-bold uppercase tracking-[1.5px] mb-2 md:mb-4 text-[10px] sm:text-sm">YEARS EXPERIENCE</h3>
-                            <p class="text-gray-400 text-[0.9rem] leading-[1.5] max-w-sm hidden md:block">Since 2021, providing international B2B clients with standardized, AI-first remote teams and verified execution.</p>
+                        <div class="md:px-8 pt-10 md:pt-0 text-center flex flex-col items-center">
+                            <div id="metric-years" class="text-5xl lg:text-6xl font-bold text-[#70CFFF] mb-3 font-serif" data-target="5">0+</div>
+                            <h3 class="text-white font-bold uppercase tracking-[1.5px] mb-4 text-sm">YEARS OF OPERATIONAL DISCIPLINE</h3>
+                            <p class="text-gray-400 text-[0.9rem] leading-[1.5] max-w-sm">Since 2021, providing international B2B clients with standardized, AI-first remote teams and verified execution.</p>
                         </div>
                     </div>
                 </div>

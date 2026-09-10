@@ -8,36 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const pane3 = document.getElementById('pane3');
     const pane3Content = document.getElementById('pane3-content');
 
-    // Mobile Menu Toggle - Fixed to prevent event bubbling
-    if (menuToggle && megaMenu && closeMenu) {
-        menuToggle.addEventListener('click', (e) => {
-            e.stopPropagation(); // Critical: prevent the click from instantly re-closing the menu
-            megaMenu.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            // On desktop, auto-open first item to show preview
-            if (window.innerWidth >= 768) {
-                const activeLevel1 = document.querySelector('.level1-link.active');
-                if (!activeLevel1 && level1Links.length > 0) {
-                    level1Links[0].click();
-                }
-            }
-        });
-
-        closeMenu.addEventListener('click', (e) => {
-            e.stopPropagation();
-            megaMenu.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-
-        // Close on Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && megaMenu.classList.contains('active')) {
-                megaMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-    }
-
+    // ── MENU DATA (injected into pane2) ───────────────────────────────────────
     const pane2Data = {
         'solutions': `
             <div class="mb-10">
@@ -195,35 +166,79 @@ document.addEventListener('DOMContentLoaded', () => {
         `
     };
 
+    // ── DETECT ACTIVE SECTION based on current URL ────────────────────────────
+    // Maps URL path segments to a level1 data-target value
+    function getActiveSection() {
+        const path = window.location.pathname;
+        const pathMap = {
+            '/data-accounting':       'solutions',
+            '/docs-backoffice':       'solutions',
+            '/ai-automation':         'solutions',
+            '/social-marketing':      'solutions',
+            '/web-design':            'solutions',
+            '/graphics-design':       'solutions',
+            '/media-production':      'solutions',
+            '/solutions':             'solutions',
+            '/industries':            'industries',
+            '/industries/agencies':   'industries',
+            '/industries/ecommerce':  'industries',
+            '/industries/construction':'industries',
+            '/industries/startups':   'industries',
+            '/partnerships':          'partnerships',
+            '/partnerships/embedded': 'partnerships',
+            '/partnerships/agency':   'partnerships',
+            '/partnerships/dedicated':'partnerships',
+            '/partnerships/project':  'partnerships',
+            '/about':                 'company',
+            '/how-we-work':           'company',
+        };
+        return pathMap[path] || null;
+    }
+
+    // Get the level2 preview key matching the current URL
+    function getActivePreviewKey() {
+        const path = window.location.pathname;
+        const previewMap = {
+            '/data-accounting':        'sol-data-acct',
+            '/docs-backoffice':        'sol-docs-back',
+            '/ai-automation':          'sol-ai-auto',
+            '/social-marketing':       'sol-social-mkt',
+            '/web-design':             'sol-web-design',
+            '/graphics-design':        'sol-graphics',
+            '/media-production':       'sol-media-prod',
+            '/industries/agencies':    'ind-agen',
+            '/industries/ecommerce':   'ind-ecom',
+            '/industries/construction':'ind-cons',
+            '/industries/startups':    'ind-start',
+            '/partnerships/embedded':  'part-embed',
+            '/partnerships/agency':    'part-agen',
+            '/partnerships/dedicated': 'part-dedic',
+            '/partnerships/project':   'part-proj',
+            '/about':                  'comp-about',
+            '/how-we-work':            'comp-how',
+        };
+        return previewMap[path] || null;
+    }
+
+    // ── BIND LEVEL 2 LINKS (desktop only) ─────────────────────────────────────
     function bindLevel2Links() {
         const l2Links = pane2Content.querySelectorAll('.level2-link');
         l2Links.forEach(link => {
             link.addEventListener('click', (e) => {
                 const isAlreadyActive = link.classList.contains('active-l2');
-                const isMobile = window.innerWidth < 768;
-
-                // On mobile, always navigate directly
-                if (isMobile) {
-                    window.location.href = link.getAttribute('href');
-                    return;
-                }
-
-                // On desktop: first click shows preview, second click navigates
+                // Second click on an already-active link navigates to the page
                 if (isAlreadyActive) {
                     window.location.href = link.getAttribute('href');
                     return;
                 }
-
                 e.preventDefault();
-
-                l2Links.forEach(l => {
-                    l.classList.remove('bg-gray-100', 'font-bold', 'active-l2');
-                });
+                // Update active styling
+                l2Links.forEach(l => l.classList.remove('bg-gray-100', 'font-bold', 'active-l2'));
                 link.classList.add('bg-gray-100', 'font-bold', 'active-l2');
-
+                // Show preview pane
                 const previewTarget = link.getAttribute('data-preview');
                 if (previewTarget && previewData[previewTarget]) {
-                    if(pane3 && pane3Content) {
+                    if (pane3 && pane3Content) {
                         pane3Content.innerHTML = previewData[previewTarget];
                         pane3.classList.remove('hidden');
                     }
@@ -232,61 +247,118 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ── ACTIVATE A LEVEL1 SECTION (desktop only) ──────────────────────────────
+    // Highlights the section, populates pane2, and optionally pre-selects a level2 item
+    function activateLevel1(link, previewKeyToHighlight) {
+        const target = link.getAttribute('data-target');
+        if (!target || !pane2Data[target]) return;
+
+        // Update level1 highlight
+        level1Links.forEach(l => {
+            l.classList.remove('active', 'bg-[#eaf1e8]', 'font-semibold', 'text-black', 'rounded-lg');
+            l.classList.add('text-gray-700');
+            const arrow = l.querySelector('.arrow-icon');
+            if (arrow) arrow.classList.add('hidden');
+        });
+        link.classList.remove('text-gray-700');
+        link.classList.add('active', 'bg-[#eaf1e8]', 'font-semibold', 'text-black', 'rounded-lg');
+        const arrow = link.querySelector('.arrow-icon');
+        if (arrow) arrow.classList.remove('hidden');
+
+        // Populate pane2
+        if (pane2Content) pane2Content.innerHTML = pane2Data[target];
+        if (pane2) pane2.classList.remove('hidden');
+        bindLevel2Links();
+
+        // Choose which level2 link to pre-highlight
+        const allL2 = pane2Content.querySelectorAll('.level2-link');
+        let targetL2 = null;
+        if (previewKeyToHighlight) {
+            targetL2 = Array.from(allL2).find(l => l.getAttribute('data-preview') === previewKeyToHighlight);
+        }
+        if (!targetL2) targetL2 = allL2[0]; // fallback to first item
+
+        if (targetL2) {
+            targetL2.click();
+        } else {
+            if (pane3) pane3.classList.add('hidden');
+        }
+    }
+
+    // ── HAMBURGER OPEN BUTTON ─────────────────────────────────────────────────
+    if (menuToggle && megaMenu && closeMenu) {
+        menuToggle.addEventListener('click', (e) => {
+            // CRITICAL: stop the click from bubbling so it doesn't immediately re-close the menu
+            e.stopPropagation();
+
+            megaMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+            // Desktop only: auto-open the section relevant to the current page
+            if (window.innerWidth >= 768) {
+                const activeSection = getActiveSection();
+                const activePreview = getActivePreviewKey();
+                let sectionLink = null;
+                if (activeSection) {
+                    sectionLink = Array.from(level1Links).find(l => l.getAttribute('data-target') === activeSection);
+                }
+                // If no match (e.g. homepage), default to first section
+                if (!sectionLink) sectionLink = level1Links[0];
+                if (sectionLink) activateLevel1(sectionLink, activePreview);
+            }
+            // Mobile: just show pane1 — the user taps a link directly to navigate
+        });
+
+        closeMenu.addEventListener('click', (e) => {
+            e.stopPropagation();
+            megaMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && megaMenu.classList.contains('active')) {
+                megaMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+
+    // ── LEVEL 1 LINK CLICKS ───────────────────────────────────────────────────
     level1Links.forEach(link => {
         link.addEventListener('click', (e) => {
             const target = link.getAttribute('data-target');
             if (!target) return;
-            e.preventDefault();
 
-            level1Links.forEach(l => {
-                l.classList.remove('active', 'bg-[#eaf1e8]', 'font-semibold', 'text-black', 'rounded-lg');
-                l.classList.add('text-gray-700');
-                const arrow = l.querySelector('.arrow-icon');
-                if (arrow) arrow.classList.add('hidden');
-            });
-
-            link.classList.remove('text-gray-700');
-            link.classList.add('active', 'bg-[#eaf1e8]', 'font-semibold', 'text-black', 'rounded-lg');
-            const arrow = link.querySelector('.arrow-icon');
-            if (arrow) arrow.classList.remove('hidden');
-
-            if (pane2Data[target]) {
-                if(pane2Content) pane2Content.innerHTML = pane2Data[target];
-                if(pane2) pane2.classList.remove('hidden');
-
-                bindLevel2Links();
-
-                // On desktop auto-click first item to show preview immediately
-                if (window.innerWidth >= 768) {
-                    const firstL2 = pane2Content.querySelector('.level2-link');
-                    if(firstL2) {
-                        firstL2.click();
-                    } else {
-                        if(pane3) pane3.classList.add('hidden');
-                    }
-                }
-            } else {
-                if(pane2) pane2.classList.add('hidden');
-                if(pane3) pane3.classList.add('hidden');
+            // MOBILE: let the browser navigate to the link's href normally.
+            // The level1 links point to section index pages (e.g. /solutions, /industries).
+            if (window.innerWidth < 768) {
+                // Close the menu overlay and let natural navigation happen
+                megaMenu.classList.remove('active');
+                document.body.style.overflow = '';
+                return; // href navigation proceeds
             }
+
+            // DESKTOP: show pane2 preview, do not navigate yet
+            e.preventDefault();
+            activateLevel1(link, null);
         });
     });
 });
 
-// Intersection Observer for scroll animations
+// ── INTERSECTION OBSERVER for scroll-in animations ────────────────────────────
 const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
-const observer = new IntersectionObserver((entries, observer) => {
+const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
+            obs.unobserve(entry.target);
         }
     });
 }, observerOptions);
-
 document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
 
-// Transparent Header Scroll Behavior (throttled for performance)
+// ── TRANSPARENT HEADER scroll behavior ────────────────────────────────────────
 const mainHeader = document.querySelector('header');
 if (mainHeader && mainHeader.classList.contains('transparent-header')) {
     const menuToggle = document.getElementById('menu-toggle');
