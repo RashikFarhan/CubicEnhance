@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Design UI Kit | CubicEnhance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hover-lift { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body class="bg-gray-100 p-8">
+    <h1 class="text-3xl font-bold mb-8">CubicEnhance Component Library</h1>
+    
+    <h2>Partnership Comparison Matrix</h2>
+    
+<section id="comparison" class="py-20 bg-gray-50 border-t border-gray-200">
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-serif font-bold text-bcg-dark mb-12 text-center fade-in-up">Compare Our Partnership Models</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 fade-in-up">
+            <!-- Col 1 -->
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full hover-lift">
+                <h3 class="text-xl font-bold text-bcg-dark mb-4">Embedded Operations Partnership</h3>
+                <div class="mb-4">
+                    <span class="block text-xs font-bold uppercase tracking-widest text-bcg-green mb-1">Best Suited For</span>
+                    <p class="text-sm text-gray-600">Ongoing operational functions requiring deeper integration.</p>
+                </div>
+                <div class="mb-4">
+                    <span class="block text-xs font-bold uppercase tracking-widest text-bcg-green mb-1">Operating Structure</span>
+                    <p class="text-sm text-gray-600">CubicEnhance operates as a managed extension of the client’s operation.</p>
+                </div>
+                <div class="mb-8 flex-grow">
+                    <span class="block text-xs font-bold uppercase tracking-widest text-bcg-green mb-1">Typical Requirement</span>
+                    <p class="text-sm text-gray-600">An operational function managed as part of the client's broader business structure.</p>
+                </div>
+                <a href="/partner-embedded" class="mt-auto block text-center py-3 bg-bcg-light-green text-bcg-dark font-bold text-xs uppercase tracking-wider rounded-lg hover:bg-bcg-green hover:text-white transition-colors">Explore Embedded Model &rarr;</a>
+            </div>
+            
+            <!-- Col 2 -->
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full hover-lift">
+                <h3 class="text-xl font-bold text-bcg-dark mb-4">Agency Delivery Partnership</h3>
+                <div class="mb-4">
+                    <span class="block text-xs font-bold uppercase tracking-widest text-bcg-green mb-1">Best Suited For</span>
+                    <p class="text-sm text-gray-600">Agencies requiring additional delivery capacity.</p>
+                </div>
+                <div class="mb-4">
+                    <span class="block text-xs font-bold uppercase tracking-widest text-bcg-green mb-1">Operating Structure</span>
+                    <p class="text-sm text-gray-600">Agency manages the client relationship while CubicEnhance supports agreed delivery.</p>
+                </div>
+                <div class="mb-8 flex-grow">
+                    <span class="block text-xs font-bold uppercase tracking-widest text-bcg-green mb-1">Typical Requirement</span>
+                    <p class="text-sm text-gray-600">Additional capacity to accept or deliver more client work without overhead.</p>
+                </div>
+                <a href="/partner-agency" class="mt-auto block text-center py-3 bg-bcg-light-green text-bcg-dark font-bold text-xs uppercase tracking-wider rounded-lg hover:bg-bcg-green hover:text-white transition-colors">Explore Agency Model &rarr;</a>
+            </div>
+            
+            <!-- Col 3 -->
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full hover-lift">
+                <h3 class="text-xl font-bold text-bcg-dark mb-4">Dedicated Operations Support</h3>
+                <div class="mb-4">
+                    <span class="block text-xs font-bold uppercase tracking-widest text-bcg-green mb-1">Best Suited For</span>
+                    <p class="text-sm text-gray-600">Recurring operational workloads.</p>
+                </div>
+                <div class="mb-4">
+                    <span class="block text-xs font-bold uppercase tracking-widest text-bcg-green mb-1">Operating Structure</span>
+                    <p class="text-sm text-gray-600">CubicEnhance provides continuing capacity for a defined workload or function.</p>
+                </div>
+                <div class="mb-8 flex-grow">
+                    <span class="block text-xs font-bold uppercase tracking-widest text-bcg-green mb-1">Typical Requirement</span>
+                    <p class="text-sm text-gray-600">Ongoing operational support without building the entire function internally.</p>
+                </div>
+                <a href="/partner-dedicated" class="mt-auto block text-center py-3 bg-bcg-light-green text-bcg-dark font-bold text-xs uppercase tracking-wider rounded-lg hover:bg-bcg-green hover:text-white transition-colors">Explore Dedicated Model &rarr;</a>
+            </div>
+            
+            <!-- Col 4 -->
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full hover-lift">
+                <h3 class="text-xl font-bold text-bcg-dark mb-4">Project-Based Delivery</h3>
+                <div class="mb-4">
+                    <span class="block text-xs font-bold uppercase tracking-widest text-bcg-green mb-1">Best Suited For</span>
+                    <p class="text-sm text-gray-600">Defined projects with a clear scope.</p>
+                </div>
+                <div class="mb-4">
+                    <span class="block text-xs font-bold uppercase tracking-widest text-bcg-green mb-1">Operating Structure</span>
+                    <p class="text-sm text-gray-600">CubicEnhance plans, organizes, executes, and supervises the agreed project.</p>
+                </div>
+                <div class="mb-8 flex-grow">
+                    <span class="block text-xs font-bold uppercase tracking-widest text-bcg-green mb-1">Typical Requirement</span>
+                    <p class="text-sm text-gray-600">Managed execution for a specific initiative with a defined endpoint.</p>
+                </div>
+                <a href="/partner-project" class="mt-auto block text-center py-3 bg-bcg-light-green text-bcg-dark font-bold text-xs uppercase tracking-wider rounded-lg hover:bg-bcg-green hover:text-white transition-colors">Explore Project Model &rarr;</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+</body>
+</html>
