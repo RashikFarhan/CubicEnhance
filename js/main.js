@@ -58,6 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 { href: '/our-story',        text: 'Our Story',    preview: 'comp-story' },
                 { href: '/how-we-work',  text: 'How We Work', preview: 'comp-how'   },
                 { href: '/leadership',  text: 'Leadership & Organization', preview: 'comp-leadership' },
+                { href: '/culture',  text: 'Operating Principles & Culture', preview: 'comp-culture' },
+                { href: '/careers',  text: 'Talent Registry & Careers', preview: 'comp-careers' },
             ]
         }
     ];
@@ -166,7 +168,19 @@ document.addEventListener('DOMContentLoaded', () => {
             <p class="text-[14px] text-gray-600 mb-8 leading-relaxed">Learn about our mission to combine AI precision with dedicated human judgment to unlock operational freedom.</p>
             <a href="/about" class="inline-block px-6 py-3 bg-[#9cf076] text-black font-bold text-[13px] rounded hover:bg-[#8ee565] transition-colors shadow-sm">VISIT PAGE &rarr;</a>
         `,
-        'comp-leadership': `
+        'comp-culture': `
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" class="w-full h-[220px] object-cover rounded-xl mb-6 shadow-sm" alt="Culture">
+              <h3 class="text-[28px] text-black font-sans mb-3 font-semibold leading-tight">Operating Principles &amp; Culture</h3>
+              <p class="text-[14px] text-gray-600 mb-8 leading-relaxed">Discover the non-negotiable operational standards, security protocols, and ethical governance that guide every workflow.</p>
+              <a href="/culture" class="inline-block px-6 py-3 bg-[#9cf076] text-black font-bold text-[13px] rounded hover:bg-[#8ee565] transition-colors shadow-sm">VISIT PAGE &rarr;</a>
+          `,
+          'comp-careers': `
+              <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80" class="w-full h-[220px] object-cover rounded-xl mb-6 shadow-sm" alt="Careers">
+              <h3 class="text-[28px] text-black font-sans mb-3 font-semibold leading-tight">Talent Registry &amp; Careers</h3>
+              <p class="text-[14px] text-gray-600 mb-8 leading-relaxed">Join a high-discipline, global delivery network. Submit your credentials to our Global Talent Registry for future core team openings.</p>
+              <a href="/careers" class="inline-block px-6 py-3 bg-[#9cf076] text-black font-bold text-[13px] rounded hover:bg-[#8ee565] transition-colors shadow-sm">VISIT PAGE &rarr;</a>
+          `,
+'comp-leadership': `
               <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" class="w-full h-[220px] object-cover rounded-xl mb-6 shadow-sm" alt="Leadership">
               <h3 class="text-[28px] text-black font-sans mb-3 font-semibold leading-tight">Leadership &amp; Organization</h3>
               <p class="text-[14px] text-gray-600 mb-8 leading-relaxed">Explore our multi-tiered leadership structure and interactive directory of our permanent core specialists.</p>

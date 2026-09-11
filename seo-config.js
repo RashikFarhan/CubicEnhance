@@ -6,6 +6,8 @@ const DOMAIN = 'https://cubicenhance.com'; // <-- update this
 const DEFAULT_OG_IMAGE = `${DOMAIN}/logo/only%20logo.png`;
 
 module.exports = {
+  'culture.html': { slug: 'culture', title: 'Operating Principles & Culture | CubicEnhance', description: 'Discover the operational standards and cultural pillars that guide every workflow we manage.' },
+  'careers.html': { slug: 'careers', title: 'Talent Registry & Careers | CubicEnhance', description: 'Join our high-discipline global delivery network. Submit your background to our Global Talent Registry.' },
   'leadership.html': { slug: 'leadership', title: 'Operational Leadership & Global Workforce | CubicEnhance', description: 'Built on accountability, process governance, and verified execution. Our multi-tiered leadership structure pairs on-the-ground operational control with a global remote workforce.' },
   'index.html': {
     slug: '',
