@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'company',
             label: 'Our Company',
             pages: [
-                { href: '/about',        text: 'About Us',    preview: 'comp-about' },
+                { href: '/our-story',        text: 'Our Story',    preview: 'comp-story' },
                 { href: '/how-we-work',  text: 'How We Work', preview: 'comp-how'   },
                 { href: '/leadership',  text: 'Leadership & Organization', preview: 'comp-leadership' },
             ]
@@ -154,7 +154,13 @@ document.addEventListener('DOMContentLoaded', () => {
             <p class="text-[14px] text-gray-600 mb-8 leading-relaxed">Execute one-off data migrations, backlog clearouts, or rapid system audits quickly with a specialized team.</p>
             <a href="/partnerships/project" class="inline-block px-6 py-3 bg-[#9cf076] text-black font-bold text-[13px] rounded hover:bg-[#8ee565] transition-colors shadow-sm">VISIT PAGE &rarr;</a>
         `,
-        'comp-about': `
+        'comp-story': `
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" class="w-full h-[220px] object-cover rounded-xl mb-6 shadow-sm" alt="Our Story">
+              <h3 class="text-[28px] text-black font-sans mb-3 font-semibold leading-tight">Our Story</h3>
+              <p class="text-[14px] text-gray-600 mb-8 leading-relaxed">From an agile freelance collective to an international managed remote operations partner. Discover how we built an accountable delivery infrastructure.</p>
+              <a href="/our-story" class="inline-block px-6 py-3 bg-[#9cf076] text-black font-bold text-[13px] rounded hover:bg-[#8ee565] transition-colors shadow-sm">VISIT PAGE &rarr;</a>
+          `,
+          'comp-about': `
             <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=800&q=80" class="w-full h-[220px] object-cover rounded-xl mb-6 shadow-sm" alt="About Us">
             <h3 class="text-[28px] text-black font-sans mb-3 font-semibold leading-tight">About Us</h3>
             <p class="text-[14px] text-gray-600 mb-8 leading-relaxed">Learn about our mission to combine AI precision with dedicated human judgment to unlock operational freedom.</p>

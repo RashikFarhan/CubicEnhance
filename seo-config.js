@@ -27,12 +27,7 @@ module.exports = {
       sameAs: [],
     },
   },
-  'about.html': {
-    slug: 'about',
-    title: 'About Us | CubicEnhance — Managed Operations Partner',
-    description: 'Learn about CubicEnhance — a Bangladesh-based managed operations company delivering AI-assisted back-office solutions to growing businesses globally.',
-    ogImage: DEFAULT_OG_IMAGE,
-  },
+  'our-story.html': { slug: 'our-story', title: 'Our Story | CubicEnhance', description: 'From agile execution to managed operational discipline. Explore how CubicEnhance evolved into a global managed operations partner.' },
   'contact.html': {
     slug: 'contact',
     title: 'Contact Us | CubicEnhance',
