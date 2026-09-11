@@ -70,127 +70,127 @@ document.addEventListener('DOMContentLoaded', () => {
             <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80" class="w-full h-[220px] object-cover rounded-xl mb-6 shadow-sm" alt="Data Accounting">
             <h3 class="text-[28px] text-black font-sans mb-3 font-semibold leading-tight">Data &amp; Internal Accounting</h3>
             <p class="text-[14px] text-gray-600 mb-8 leading-relaxed">Turn raw numbers into actionable insights. We manage high-volume data extraction, database updates, and routine accounting support with human-verified accuracy.</p>
-            <a href="/data-accounting" class="inline-block px-6 py-3 bg-[#9cf076] text-black font-bold text-[13px] rounded hover:bg-[#8ee565] transition-colors shadow-sm">VISIT PAGE &rarr;</a>
+            <a href="/data-accounting" class="inline-block px-6 py-3 bg-bcg-dark text-white font-bold text-[13px] rounded hover:bg-bcg-green transition-colors shadow-sm">VISIT PAGE &rarr;</a>
         `,
         'sol-docs-back': `
             <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" class="w-full h-[220px] object-cover rounded-xl mb-6 shadow-sm" alt="Documentation">
             <h3 class="text-[28px] text-black font-sans mb-3 font-semibold leading-tight">Documentation &amp; Back-Office Operations</h3>
             <p class="text-[14px] text-gray-600 mb-8 leading-relaxed">Scale your administration seamlessly. We take ownership of document control, compliance tracking, and routine back-office workflows.</p>
-            <a href="/docs-backoffice" class="inline-block px-6 py-3 bg-[#9cf076] text-black font-bold text-[13px] rounded hover:bg-[#8ee565] transition-colors shadow-sm">VISIT PAGE &rarr;</a>
+            <a href="/docs-backoffice" class="inline-block px-6 py-3 bg-bcg-dark text-white font-bold text-[13px] rounded hover:bg-bcg-green transition-colors shadow-sm">VISIT PAGE &rarr;</a>
         `,
         'sol-ai-auto': `
             <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" class="w-full h-[220px] object-cover rounded-xl mb-6 shadow-sm" alt="AI Automation">
             <h3 class="text-[28px] text-black font-sans mb-3 font-semibold leading-tight">AI Workflow &amp; Automation</h3>
             <p class="text-[14px] text-gray-600 mb-8 leading-relaxed">Integrate intelligent automation into your daily operations. We build and manage AI-assisted workflows to eliminate repetitive manual tasks.</p>
-            <a href="/ai-automation" class="inline-block px-6 py-3 bg-[#9cf076] text-black font-bold text-[13px] rounded hover:bg-[#8ee565] transition-colors shadow-sm">VISIT PAGE &rarr;</a>
+            <a href="/ai-automation" class="inline-block px-6 py-3 bg-bcg-dark text-white font-bold text-[13px] rounded hover:bg-bcg-green transition-colors shadow-sm">VISIT PAGE &rarr;</a>
         `,
         'sol-social-mkt': `
             <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80" class="w-full h-[220px] object-cover rounded-xl mb-6 shadow-sm" alt="Social Marketing">
             <h3 class="text-[28px] text-black font-sans mb-3 font-semibold leading-tight">Social Media Management &amp; Marketing</h3>
             <p class="text-[14px] text-gray-600 mb-8 leading-relaxed">Elevate your brand presence. We provide dedicated remote teams to manage content scheduling, community engagement, and digital campaigns.</p>
-            <a href="/social-marketing" class="inline-block px-6 py-3 bg-[#9cf076] text-black font-bold text-[13px] rounded hover:bg-[#8ee565] transition-colors shadow-sm">VISIT PAGE &rarr;</a>
+            <a href="/social-marketing" class="inline-block px-6 py-3 bg-bcg-dark text-white font-bold text-[13px] rounded hover:bg-bcg-green transition-colors shadow-sm">VISIT PAGE &rarr;</a>
         `,
         'sol-web-design': `
             <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80" class="w-full h-[220px] object-cover rounded-xl mb-6 shadow-sm" alt="Web Design">
             <h3 class="text-[28px] text-black font-sans mb-3 font-semibold leading-tight">Website Design &amp; Maintenance</h3>
             <p class="text-[14px] text-gray-600 mb-8 leading-relaxed">Keep your digital storefront flawless. We manage ongoing CMS updates, technical maintenance, and professional web design workflows.</p>
-            <a href="/web-design" class="inline-block px-6 py-3 bg-[#9cf076] text-black font-bold text-[13px] rounded hover:bg-[#8ee565] transition-colors shadow-sm">VISIT PAGE &rarr;</a>
+            <a href="/web-design" class="inline-block px-6 py-3 bg-bcg-dark text-white font-bold text-[13px] rounded hover:bg-bcg-green transition-colors shadow-sm">VISIT PAGE &rarr;</a>
         `,
         'sol-graphics': `
             <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80" class="w-full h-[220px] object-cover rounded-xl mb-6 shadow-sm" alt="Graphics Design">
             <h3 class="text-[28px] text-black font-sans mb-3 font-semibold leading-tight">Graphics Design</h3>
             <p class="text-[14px] text-gray-600 mb-8 leading-relaxed">Professional visual assets on demand. We manage the production of high-quality graphics, marketing collateral, and brand assets.</p>
-            <a href="/graphics-design" class="inline-block px-6 py-3 bg-[#9cf076] text-black font-bold text-[13px] rounded hover:bg-[#8ee565] transition-colors shadow-sm">VISIT PAGE &rarr;</a>
+            <a href="/graphics-design" class="inline-block px-6 py-3 bg-bcg-dark text-white font-bold text-[13px] rounded hover:bg-bcg-green transition-colors shadow-sm">VISIT PAGE &rarr;</a>
         `,
         'sol-media-prod': `
             <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80" class="w-full h-[220px] object-cover rounded-xl mb-6 shadow-sm" alt="Media Production">
             <h3 class="text-[28px] text-black font-sans mb-3 font-semibold leading-tight">Photos &amp; Videos Production/Editing</h3>
             <p class="text-[14px] text-gray-600 mb-8 leading-relaxed">Streamline your media pipeline. We provide dedicated post-production teams for bulk photo editing, video formatting, and media preparation.</p>
-            <a href="/media-production" class="inline-block px-6 py-3 bg-[#9cf076] text-black font-bold text-[13px] rounded hover:bg-[#8ee565] transition-colors shadow-sm">VISIT PAGE &rarr;</a>
+            <a href="/media-production" class="inline-block px-6 py-3 bg-bcg-dark text-white font-bold text-[13px] rounded hover:bg-bcg-green transition-colors shadow-sm">VISIT PAGE &rarr;</a>
         `,
         'ind-agen': `
             <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80" class="w-full h-[220px] object-cover rounded-xl mb-6 shadow-sm" alt="Agencies">
             <h3 class="text-[28px] text-black font-sans mb-3 font-semibold leading-tight">Digital &amp; Marketing Agencies</h3>
             <p class="text-[14px] text-gray-600 mb-8 leading-relaxed">Scale your agency margins by shifting routine campaign setup, reporting, and ad-ops to a dedicated managed team.</p>
-            <a href="/industries/agencies" class="inline-block px-6 py-3 bg-[#9cf076] text-black font-bold text-[13px] rounded hover:bg-[#8ee565] transition-colors shadow-sm">VISIT PAGE &rarr;</a>
+            <a href="/industries/agencies" class="inline-block px-6 py-3 bg-bcg-dark text-white font-bold text-[13px] rounded hover:bg-bcg-green transition-colors shadow-sm">VISIT PAGE &rarr;</a>
         `,
         'ind-ecom': `
             <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" class="w-full h-[220px] object-cover rounded-xl mb-6 shadow-sm" alt="E-Commerce">
             <h3 class="text-[28px] text-black font-sans mb-3 font-semibold leading-tight">E-Commerce &amp; Retail</h3>
             <p class="text-[14px] text-gray-600 mb-8 leading-relaxed">Maintain flawless product catalogs, manage inventory data securely, and resolve order discrepancies quickly.</p>
-            <a href="/industries/ecommerce" class="inline-block px-6 py-3 bg-[#9cf076] text-black font-bold text-[13px] rounded hover:bg-[#8ee565] transition-colors shadow-sm">VISIT PAGE &rarr;</a>
+            <a href="/industries/ecommerce" class="inline-block px-6 py-3 bg-bcg-dark text-white font-bold text-[13px] rounded hover:bg-bcg-green transition-colors shadow-sm">VISIT PAGE &rarr;</a>
         `,
         'ind-cons': `
             <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80" class="w-full h-[220px] object-cover rounded-xl mb-6 shadow-sm" alt="Construction">
             <h3 class="text-[28px] text-black font-sans mb-3 font-semibold leading-tight">Construction &amp; Engineering Support</h3>
             <p class="text-[14px] text-gray-600 mb-8 leading-relaxed">Process complex estimating files, handle compliance documentation, and accelerate project administration workflows.</p>
-            <a href="/industries/construction" class="inline-block px-6 py-3 bg-[#9cf076] text-black font-bold text-[13px] rounded hover:bg-[#8ee565] transition-colors shadow-sm">VISIT PAGE &rarr;</a>
+            <a href="/industries/construction" class="inline-block px-6 py-3 bg-bcg-dark text-white font-bold text-[13px] rounded hover:bg-bcg-green transition-colors shadow-sm">VISIT PAGE &rarr;</a>
         `,
         'ind-start': `
             <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" class="w-full h-[220px] object-cover rounded-xl mb-6 shadow-sm" alt="Startups">
             <h3 class="text-[28px] text-black font-sans mb-3 font-semibold leading-tight">Startups &amp; SaaS</h3>
             <p class="text-[14px] text-gray-600 mb-8 leading-relaxed">Extend your runway by outsourcing operational overhead. Let our teams handle the repetitive scaling tasks while you build product.</p>
-            <a href="/industries/startups" class="inline-block px-6 py-3 bg-[#9cf076] text-black font-bold text-[13px] rounded hover:bg-[#8ee565] transition-colors shadow-sm">VISIT PAGE &rarr;</a>
+            <a href="/industries/startups" class="inline-block px-6 py-3 bg-bcg-dark text-white font-bold text-[13px] rounded hover:bg-bcg-green transition-colors shadow-sm">VISIT PAGE &rarr;</a>
         `,
         'part-embed': `
             <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" class="w-full h-[220px] object-cover rounded-xl mb-6 shadow-sm" alt="Embedded">
             <h3 class="text-[28px] text-black font-sans mb-3 font-semibold leading-tight">Embedded Operations Partnership</h3>
             <p class="text-[14px] text-gray-600 mb-8 leading-relaxed">Fully integrate our teams into your daily Slack channels and systems as a continuous, managed extension of your company.</p>
-            <a href="/partnerships/embedded" class="inline-block px-6 py-3 bg-[#9cf076] text-black font-bold text-[13px] rounded hover:bg-[#8ee565] transition-colors shadow-sm">VISIT PAGE &rarr;</a>
+            <a href="/partnerships/embedded" class="inline-block px-6 py-3 bg-bcg-dark text-white font-bold text-[13px] rounded hover:bg-bcg-green transition-colors shadow-sm">VISIT PAGE &rarr;</a>
         `,
         'part-agen': `
             <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" class="w-full h-[220px] object-cover rounded-xl mb-6 shadow-sm" alt="Agency Partner">
             <h3 class="text-[28px] text-black font-sans mb-3 font-semibold leading-tight">Agency Delivery Partnership</h3>
             <p class="text-[14px] text-gray-600 mb-8 leading-relaxed">White-label our operations under your brand to increase margins and deliver flawless campaigns to your clients.</p>
-            <a href="/partnerships/agency" class="inline-block px-6 py-3 bg-[#9cf076] text-black font-bold text-[13px] rounded hover:bg-[#8ee565] transition-colors shadow-sm">VISIT PAGE &rarr;</a>
+            <a href="/partnerships/agency" class="inline-block px-6 py-3 bg-bcg-dark text-white font-bold text-[13px] rounded hover:bg-bcg-green transition-colors shadow-sm">VISIT PAGE &rarr;</a>
         `,
         'part-dedic': `
             <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" class="w-full h-[220px] object-cover rounded-xl mb-6 shadow-sm" alt="Dedicated">
             <h3 class="text-[28px] text-black font-sans mb-3 font-semibold leading-tight">Dedicated Operations Support</h3>
             <p class="text-[14px] text-gray-600 mb-8 leading-relaxed">Gain a fixed, committed headcount of remote specialists focused entirely on your proprietary workflows.</p>
-            <a href="/partnerships/dedicated" class="inline-block px-6 py-3 bg-[#9cf076] text-black font-bold text-[13px] rounded hover:bg-[#8ee565] transition-colors shadow-sm">VISIT PAGE &rarr;</a>
+            <a href="/partnerships/dedicated" class="inline-block px-6 py-3 bg-bcg-dark text-white font-bold text-[13px] rounded hover:bg-bcg-green transition-colors shadow-sm">VISIT PAGE &rarr;</a>
         `,
         'part-proj': `
             <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" class="w-full h-[220px] object-cover rounded-xl mb-6 shadow-sm" alt="Project Based">
             <h3 class="text-[28px] text-black font-sans mb-3 font-semibold leading-tight">Project-Based Delivery</h3>
             <p class="text-[14px] text-gray-600 mb-8 leading-relaxed">Execute one-off data migrations, backlog clearouts, or rapid system audits quickly with a specialized team.</p>
-            <a href="/partnerships/project" class="inline-block px-6 py-3 bg-[#9cf076] text-black font-bold text-[13px] rounded hover:bg-[#8ee565] transition-colors shadow-sm">VISIT PAGE &rarr;</a>
+            <a href="/partnerships/project" class="inline-block px-6 py-3 bg-bcg-dark text-white font-bold text-[13px] rounded hover:bg-bcg-green transition-colors shadow-sm">VISIT PAGE &rarr;</a>
         `,
         'comp-story': `
               <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" class="w-full h-[220px] object-cover rounded-xl mb-6 shadow-sm" alt="Our Story">
               <h3 class="text-[28px] text-black font-sans mb-3 font-semibold leading-tight">Our Story</h3>
               <p class="text-[14px] text-gray-600 mb-8 leading-relaxed">From an agile freelance collective to an international managed remote operations partner. Discover how we built an accountable delivery infrastructure.</p>
-              <a href="/our-story" class="inline-block px-6 py-3 bg-[#9cf076] text-black font-bold text-[13px] rounded hover:bg-[#8ee565] transition-colors shadow-sm">VISIT PAGE &rarr;</a>
+              <a href="/our-story" class="inline-block px-6 py-3 bg-bcg-dark text-white font-bold text-[13px] rounded hover:bg-bcg-green transition-colors shadow-sm">VISIT PAGE &rarr;</a>
           `,
           'comp-about': `
             <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=800&q=80" class="w-full h-[220px] object-cover rounded-xl mb-6 shadow-sm" alt="About Us">
             <h3 class="text-[28px] text-black font-sans mb-3 font-semibold leading-tight">About Us</h3>
             <p class="text-[14px] text-gray-600 mb-8 leading-relaxed">Learn about our mission to combine AI precision with dedicated human judgment to unlock operational freedom.</p>
-            <a href="/about" class="inline-block px-6 py-3 bg-[#9cf076] text-black font-bold text-[13px] rounded hover:bg-[#8ee565] transition-colors shadow-sm">VISIT PAGE &rarr;</a>
+            <a href="/about" class="inline-block px-6 py-3 bg-bcg-dark text-white font-bold text-[13px] rounded hover:bg-bcg-green transition-colors shadow-sm">VISIT PAGE &rarr;</a>
         `,
         'comp-culture': `
               <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" class="w-full h-[220px] object-cover rounded-xl mb-6 shadow-sm" alt="Culture">
               <h3 class="text-[28px] text-black font-sans mb-3 font-semibold leading-tight">Operating Principles &amp; Culture</h3>
               <p class="text-[14px] text-gray-600 mb-8 leading-relaxed">Discover the non-negotiable operational standards, security protocols, and ethical governance that guide every workflow.</p>
-              <a href="/culture" class="inline-block px-6 py-3 bg-[#9cf076] text-black font-bold text-[13px] rounded hover:bg-[#8ee565] transition-colors shadow-sm">VISIT PAGE &rarr;</a>
+              <a href="/culture" class="inline-block px-6 py-3 bg-bcg-dark text-white font-bold text-[13px] rounded hover:bg-bcg-green transition-colors shadow-sm">VISIT PAGE &rarr;</a>
           `,
           'comp-careers': `
               <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80" class="w-full h-[220px] object-cover rounded-xl mb-6 shadow-sm" alt="Careers">
               <h3 class="text-[28px] text-black font-sans mb-3 font-semibold leading-tight">Talent Registry &amp; Careers</h3>
               <p class="text-[14px] text-gray-600 mb-8 leading-relaxed">Join a high-discipline, global delivery network. Submit your credentials to our Global Talent Registry for future core team openings.</p>
-              <a href="/careers" class="inline-block px-6 py-3 bg-[#9cf076] text-black font-bold text-[13px] rounded hover:bg-[#8ee565] transition-colors shadow-sm">VISIT PAGE &rarr;</a>
+              <a href="/careers" class="inline-block px-6 py-3 bg-bcg-dark text-white font-bold text-[13px] rounded hover:bg-bcg-green transition-colors shadow-sm">VISIT PAGE &rarr;</a>
           `,
 'comp-leadership': `
               <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" class="w-full h-[220px] object-cover rounded-xl mb-6 shadow-sm" alt="Leadership">
               <h3 class="text-[28px] text-black font-sans mb-3 font-semibold leading-tight">Leadership &amp; Organization</h3>
               <p class="text-[14px] text-gray-600 mb-8 leading-relaxed">Explore our multi-tiered leadership structure and interactive directory of our permanent core specialists.</p>
-              <a href="/leadership" class="inline-block px-6 py-3 bg-[#9cf076] text-black font-bold text-[13px] rounded hover:bg-[#8ee565] transition-colors shadow-sm">VISIT PAGE &rarr;</a>
+              <a href="/leadership" class="inline-block px-6 py-3 bg-bcg-dark text-white font-bold text-[13px] rounded hover:bg-bcg-green transition-colors shadow-sm">VISIT PAGE &rarr;</a>
           `,
           'comp-how': `
             <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" class="w-full h-[220px] object-cover rounded-xl mb-6 shadow-sm" alt="How We Work">
             <h3 class="text-[28px] text-black font-sans mb-3 font-semibold leading-tight">How We Work</h3>
             <p class="text-[14px] text-gray-600 mb-8 leading-relaxed">Discover our 14-day rapid deployment model, dedicated account managers, and rigorous SOP creation framework.</p>
-            <a href="/how-we-work" class="inline-block px-6 py-3 bg-[#9cf076] text-black font-bold text-[13px] rounded hover:bg-[#8ee565] transition-colors shadow-sm">VISIT PAGE &rarr;</a>
+            <a href="/how-we-work" class="inline-block px-6 py-3 bg-bcg-dark text-white font-bold text-[13px] rounded hover:bg-bcg-green transition-colors shadow-sm">VISIT PAGE &rarr;</a>
         `
     };
 
