@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             pages: [
                 { href: '/about',        text: 'About Us',    preview: 'comp-about' },
                 { href: '/how-we-work',  text: 'How We Work', preview: 'comp-how'   },
+                { href: '/leadership',  text: 'Leadership & Organization', preview: 'comp-leadership' },
             ]
         }
     ];
@@ -159,7 +160,13 @@ document.addEventListener('DOMContentLoaded', () => {
             <p class="text-[14px] text-gray-600 mb-8 leading-relaxed">Learn about our mission to combine AI precision with dedicated human judgment to unlock operational freedom.</p>
             <a href="/about" class="inline-block px-6 py-3 bg-[#9cf076] text-black font-bold text-[13px] rounded hover:bg-[#8ee565] transition-colors shadow-sm">VISIT PAGE &rarr;</a>
         `,
-        'comp-how': `
+        'comp-leadership': `
+              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" class="w-full h-[220px] object-cover rounded-xl mb-6 shadow-sm" alt="Leadership">
+              <h3 class="text-[28px] text-black font-sans mb-3 font-semibold leading-tight">Leadership &amp; Organization</h3>
+              <p class="text-[14px] text-gray-600 mb-8 leading-relaxed">Explore our multi-tiered leadership structure and interactive directory of our permanent core specialists.</p>
+              <a href="/leadership" class="inline-block px-6 py-3 bg-[#9cf076] text-black font-bold text-[13px] rounded hover:bg-[#8ee565] transition-colors shadow-sm">VISIT PAGE &rarr;</a>
+          `,
+          'comp-how': `
             <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" class="w-full h-[220px] object-cover rounded-xl mb-6 shadow-sm" alt="How We Work">
             <h3 class="text-[28px] text-black font-sans mb-3 font-semibold leading-tight">How We Work</h3>
             <p class="text-[14px] text-gray-600 mb-8 leading-relaxed">Discover our 14-day rapid deployment model, dedicated account managers, and rigorous SOP creation framework.</p>

@@ -161,7 +161,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Partner 1 -->
             <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden group hover:-translate-y-1 transition-transform duration-300 flex flex-col">
-                <div class="aspect-[4/5] w-full overflow-hidden bg-gray-100 relative">
+                <div class="w-full overflow-hidden bg-gray-100 relative" style="aspect-ratio: 4/5;"">
                     <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" alt="Tanvir Hasan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                 </div>
                 <div class="p-8 flex flex-col flex-grow">
@@ -177,7 +177,7 @@
             
             <!-- Partner 2 -->
             <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden group hover:-translate-y-1 transition-transform duration-300 flex flex-col">
-                <div class="aspect-[4/5] w-full overflow-hidden bg-gray-100 relative">
+                <div class="w-full overflow-hidden bg-gray-100 relative" style="aspect-ratio: 4/5;"">
                     <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80" alt="Abrar Chowdhury" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                 </div>
                 <div class="p-8 flex flex-col flex-grow">
@@ -193,7 +193,7 @@
             
             <!-- Partner 3 -->
             <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden group hover:-translate-y-1 transition-transform duration-300 flex flex-col">
-                <div class="aspect-[4/5] w-full overflow-hidden bg-gray-100 relative">
+                <div class="w-full overflow-hidden bg-gray-100 relative" style="aspect-ratio: 4/5;"">
                     <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?auto=format&fit=crop&w=800&q=80" alt="Marcus Vance" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                 </div>
                 <div class="p-8 flex flex-col flex-grow">
@@ -1357,9 +1357,9 @@
                 // Update button styles
                 buttons.forEach(b => {
                     b.classList.remove('bg-bcg-dark', 'text-white', 'shadow-md', 'active');
-                    b.classList.add('bg-white', 'text-gray-600');
+                    b.classList.add('bg-white', 'text-gray-600', 'hover:bg-gray-50', 'border', 'border-gray-200');
                 });
-                btn.classList.remove('bg-white', 'text-gray-600');
+                btn.classList.remove('bg-white', 'text-gray-600', 'hover:bg-gray-50', 'border', 'border-gray-200');
                 btn.classList.add('bg-bcg-dark', 'text-white', 'shadow-md', 'active');
                 
                 // Filter cards
