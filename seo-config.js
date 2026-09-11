@@ -6,6 +6,7 @@ const DOMAIN = 'https://cubicenhance.com'; // <-- update this
 const DEFAULT_OG_IMAGE = `${DOMAIN}/logo/only%20logo.png`;
 
 module.exports = {
+  'leadership.html': { slug: 'leadership', title: 'Operational Leadership & Global Workforce | CubicEnhance', description: 'Built on accountability, process governance, and verified execution. Our multi-tiered leadership structure pairs on-the-ground operational control with a global remote workforce.' },
   'index.html': {
     slug: '',
     title: 'CubicEnhance | Managed Remote Operations & AI-Assisted Workflows',

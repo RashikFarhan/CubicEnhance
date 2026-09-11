@@ -1,0 +1,411 @@
+{
+  "Executive Leadership & Delivery Governance": [
+    {
+      "name": "Tanvir Hasan",
+      "role": "Managing Partner & Head of Global Delivery",
+      "location": "Dhaka HQ",
+      "level": "Executive Leadership",
+      "focus": "Client SLA fulfillment, Standard Operating Procedure (SOP) governance, and cross-departmental operations."
+    },
+    {
+      "name": "Abrar Chowdhury",
+      "role": "Managing Partner & Head of Systems Architecture",
+      "location": "Dhaka HQ",
+      "level": "Executive Leadership",
+      "focus": "Automation infrastructure, n8n/API pipelines, and operational data security."
+    },
+    {
+      "name": "Marcus Vance",
+      "role": "Managing Partner & Head of Client Strategy",
+      "location": "Remote \u2014 United States",
+      "level": "Executive Leadership",
+      "focus": "Enterprise client onboarding, international commercial frameworks, and partnership scoping."
+    },
+    {
+      "name": "Farhana Rahman",
+      "role": "Director of Operational Quality & Compliance",
+      "location": "Dhaka HQ",
+      "level": "Senior Leadership",
+      "focus": "Human-in-the-loop QA benchmarks, compliance auditing, and multi-tier exception review."
+    },
+    {
+      "name": "Kazi Arifuzzaman",
+      "role": "Operations Integration Lead",
+      "location": "Dhaka HQ",
+      "level": "Operational Lead",
+      "focus": "Pilot workflow mapping, team allocation, and client tooling integration."
+    },
+    {
+      "name": "Sarah Jenkins",
+      "role": "Global Talent & Resource Director",
+      "location": "Remote \u2014 United Kingdom",
+      "level": "Senior Leadership",
+      "focus": "International contractor vetting, skill verification, and remote specialist deployment."
+    }
+  ],
+  "Data Operations & Internal Accounting": [
+    {
+      "name": "Shakil Ahmed",
+      "role": "Lead Data Operations Architect",
+      "location": "Dhaka HQ",
+      "level": "Principal Lead",
+      "focus": "High-volume database structures, automated ETL pipelines, and client data migrations."
+    },
+    {
+      "name": "Nusrat Jahan",
+      "role": "Senior Financial Operations Specialist",
+      "location": "Dhaka HQ",
+      "level": "Senior Associate",
+      "focus": "Master ledger spreadsheet management, custom formula systems, and balance reconciliation."
+    },
+    {
+      "name": "David Miller",
+      "role": "Senior Database Engineer",
+      "location": "Remote \u2014 Canada",
+      "level": "Senior Specialist",
+      "focus": "CRM database hygiene, automated deduplication models, and large-scale data normalization."
+    },
+    {
+      "name": "Mahmudul Karim",
+      "role": "Financial Data Analyst",
+      "location": "Dhaka HQ",
+      "level": "Mid-Level",
+      "focus": "Accounts payable tracking support, automated receipt/invoice generation pipelines, and PO matching."
+    },
+    {
+      "name": "Sultana Razia",
+      "role": "Data Verification Lead",
+      "location": "Dhaka HQ",
+      "level": "Mid-Level",
+      "focus": "Human verification of OCR invoice extractions and exception categorization."
+    },
+    {
+      "name": "Carlos Mendez",
+      "role": "Data Migration Specialist",
+      "location": "Remote \u2014 Spain",
+      "level": "Mid-Level",
+      "focus": "Legacy file structured imports, cloud database syncing, and schema standardization."
+    },
+    {
+      "name": "Zahid Hossain",
+      "role": "Spreadsheet Automation Specialist",
+      "location": "Dhaka HQ",
+      "level": "Mid-Level",
+      "focus": "Google Sheets AppScript development and Excel macro maintenance for client ledgers."
+    },
+    {
+      "name": "Tariqul Islam",
+      "role": "Junior Data Quality Analyst",
+      "location": "Dhaka HQ",
+      "level": "Associate",
+      "focus": "Entry-level validation checks, manual data spot-auditing, and ledger formatting."
+    },
+    {
+      "name": "Elena Rostova",
+      "role": "Document Extraction Analyst",
+      "location": "Remote \u2014 Poland",
+      "level": "Associate",
+      "focus": "Semi-structured document parsing, receipt OCR audit, and field correction."
+    },
+    {
+      "name": "Fahim Muntasir",
+      "role": "Junior Database Associate",
+      "location": "Dhaka HQ",
+      "level": "Associate",
+      "focus": "Spreadsheet sanitization, duplicate removal, and missing field enrichment."
+    },
+    {
+      "name": "Mehedi Hasan",
+      "role": "Junior Financial Operations Associate",
+      "location": "Dhaka HQ",
+      "level": "Associate",
+      "focus": "Routine invoice entry, transaction tagging, and discrepancy logging."
+    },
+    {
+      "name": "Anika Tabassum",
+      "role": "Data QA Associate",
+      "location": "Dhaka HQ",
+      "level": "Associate",
+      "focus": "Secondary review of finalized databases before client submission."
+    },
+    {
+      "name": "Lucas Silva",
+      "role": "Junior Data Operations Associate",
+      "location": "Remote \u2014 Brazil",
+      "level": "Associate",
+      "focus": "Scheduled reporting compilation and basic data entry validation."
+    }
+  ],
+  "Documentation & Back-Office Operations": [
+    {
+      "name": "Rashedul Huq",
+      "role": "Head of Back-Office Delivery",
+      "location": "Dhaka HQ",
+      "level": "Principal Lead",
+      "focus": "Enterprise document control architectures, administrative workflows, and client SLA compliance."
+    },
+    {
+      "name": "Syeda Samira",
+      "role": "Senior Document Control Specialist",
+      "location": "Dhaka HQ",
+      "level": "Senior Associate",
+      "focus": "Construction drawing registers, technical submittal tracking, and RFI log maintenance."
+    },
+    {
+      "name": "Liam Davies",
+      "role": "Senior CRM Operations Manager",
+      "location": "Remote \u2014 United Kingdom",
+      "level": "Senior Specialist",
+      "focus": "HubSpot/Salesforce administration, pipeline data enrichment, and sales operations."
+    },
+    {
+      "name": "Kamrul Hasan",
+      "role": "Senior Compliance Tracking Specialist",
+      "location": "Dhaka HQ",
+      "level": "Senior Associate",
+      "focus": "Vendor NDA databases, certification expiration alerts, and audit preparation files."
+    },
+    {
+      "name": "Nazmul Huda",
+      "role": "Administrative Operations Specialist",
+      "location": "Dhaka HQ",
+      "level": "Mid-Level",
+      "focus": "Executive schedule coordination, operational email routing, and operational inbox triage."
+    },
+    {
+      "name": "Chloe Bennett",
+      "role": "Digital Asset Administrator",
+      "location": "Remote \u2014 Australia",
+      "level": "Mid-Level",
+      "focus": "Cloud drive structuring (SharePoint/Google Drive), standardized file taxonomies, and folder archiving."
+    },
+    {
+      "name": "Israt Jahan",
+      "role": "E-Commerce Backend Coordinator",
+      "location": "Dhaka HQ",
+      "level": "Mid-Level",
+      "focus": "Bulk SKU data entry, supplier document verification, and return authorization logs."
+    },
+    {
+      "name": "Sabbir Rahman",
+      "role": "Document Indexing Specialist",
+      "location": "Dhaka HQ",
+      "level": "Mid-Level",
+      "focus": "High-volume PDF file conversion, metadata tagging, and legacy archive classification."
+    },
+    {
+      "name": "Sofia Alcantara",
+      "role": "Research & Data Enrichment Associate",
+      "location": "Remote \u2014 Philippines",
+      "level": "Associate",
+      "focus": "B2B prospect research, company intelligence gathering, and verified contact harvesting."
+    },
+    {
+      "name": "Ashfaqur Rahman",
+      "role": "Junior Document Controller",
+      "location": "Dhaka HQ",
+      "level": "Associate",
+      "focus": "Daily construction site progress report formatting and submittal filing."
+    },
+    {
+      "name": "Nabila Shireen",
+      "role": "Junior CRM Associate",
+      "location": "Dhaka HQ",
+      "level": "Associate",
+      "focus": "Lead list cleaning, duplicate merging, and contact field verification."
+    },
+    {
+      "name": "Imran Kabir",
+      "role": "Administrative Support Associate",
+      "location": "Dhaka HQ",
+      "level": "Associate",
+      "focus": "Meeting minute transcription, agenda preparation, and operational checklist management."
+    },
+    {
+      "name": "Farzana Yeasmin",
+      "role": "Junior Compliance Associate",
+      "location": "Dhaka HQ",
+      "level": "Associate",
+      "focus": "Vendor insurance document logging and renewal notification dispatch."
+    },
+    {
+      "name": "Jonas Weber",
+      "role": "Junior Research Associate",
+      "location": "Remote \u2014 Germany",
+      "level": "Associate",
+      "focus": "Structured market data compilation and competitor pricing documentation."
+    }
+  ],
+  "AI Automation, Web & QA Systems": [
+    {
+      "name": "Siddiqur Rahman",
+      "role": "Lead Automation Architect",
+      "location": "Dhaka HQ",
+      "level": "Principal Lead",
+      "focus": "Multi-tier n8n automation pipelines, Make integration design, and API webhook orchestration."
+    },
+    {
+      "name": "Alexei Petrov",
+      "role": "Senior AI Systems Specialist",
+      "location": "Remote \u2014 Estonia",
+      "level": "Senior Specialist",
+      "focus": "LLM prompt chaining, retrieval-augmented operational workflows, and automated triage models."
+    },
+    {
+      "name": "Tasnim Fariha",
+      "role": "Senior Web Infrastructure Lead",
+      "location": "Dhaka HQ",
+      "level": "Senior Associate",
+      "focus": "CMS staging, Webflow/WordPress engine stability, security patches, and plugin governance."
+    },
+    {
+      "name": "Julian Becker",
+      "role": "Senior Software QA Engineer",
+      "location": "Remote \u2014 Germany",
+      "level": "Senior Specialist",
+      "focus": "Cross-device browser test scripting, manual QA workflow design, and regression test suites."
+    },
+    {
+      "name": "Towhidul Alam",
+      "role": "Workflow Automation Engineer",
+      "location": "Dhaka HQ",
+      "level": "Mid-Level",
+      "focus": "Client ticket-routing webhooks, automated Slack/Teams notification bots, and CRM sync tools."
+    },
+    {
+      "name": "Shafiqul Islam",
+      "role": "Frontend Maintenance Specialist",
+      "location": "Dhaka HQ",
+      "level": "Mid-Level",
+      "focus": "Landing page speed optimization, layout bug resolution, and CMS content updates."
+    },
+    {
+      "name": "Rhea Santos",
+      "role": "AI Output Evaluation Specialist",
+      "location": "Remote \u2014 Philippines",
+      "level": "Mid-Level",
+      "focus": "Human-in-the-loop model response benchmarking, edge-case tagging, and hallucination checks."
+    },
+    {
+      "name": "Asif Adnan",
+      "role": "Automation Support Specialist",
+      "location": "Dhaka HQ",
+      "level": "Associate",
+      "focus": "Error monitoring on active n8n nodes, webhook failure resolution, and system retry logs."
+    },
+    {
+      "name": "Fariha Tasneem",
+      "role": "Manual QA Tester",
+      "location": "Dhaka HQ",
+      "level": "Associate",
+      "focus": "Responsive view validation, user journey edge testing, and bug ticket documentation."
+    },
+    {
+      "name": "Tanzeemul Haque",
+      "role": "Junior Web Maintenance Associate",
+      "location": "Dhaka HQ",
+      "level": "Associate",
+      "focus": "Routine asset uploads, staging server checks, and broken link remediation."
+    },
+    {
+      "name": "Arman Malik",
+      "role": "Junior Automation Associate",
+      "location": "Dhaka HQ",
+      "level": "Associate",
+      "focus": "Zapier/Make connection setup, data payload mapping, and basic webhook testing."
+    }
+  ],
+  "Creative Design & Media Post-Production": [
+    {
+      "name": "Rubayet Karim",
+      "role": "Creative Operations Director",
+      "location": "Dhaka HQ",
+      "level": "Principal Lead",
+      "focus": "Brand design governance, creative workflow throughput, and quality control."
+    },
+    {
+      "name": "Mateo Rossi",
+      "role": "Senior 3D Visualization Specialist",
+      "location": "Remote \u2014 Italy",
+      "level": "Senior Specialist",
+      "focus": "Architectural spatial modeling, exterior/interior 3D rendering, and product mockups."
+    },
+    {
+      "name": "Sayeed Anwar",
+      "role": "Senior Video Post-Production Lead",
+      "location": "Dhaka HQ",
+      "level": "Senior Associate",
+      "focus": "High-volume social video cutting, rhythm pacing, motion graphics, and multi-format exports."
+    },
+    {
+      "name": "Zubair Hossain",
+      "role": "Senior Brand & Marketing Designer",
+      "location": "Dhaka HQ",
+      "level": "Senior Associate",
+      "focus": "Corporate identity guidelines, multi-slide presentation decks, and vector asset generation."
+    },
+    {
+      "name": "Hannah Lindqvist",
+      "role": "Senior Digital Retoucher",
+      "location": "Remote \u2014 Sweden",
+      "level": "Senior Specialist",
+      "focus": "E-commerce color accuracy, skin tone balance, and complex product image composition."
+    },
+    {
+      "name": "Rifat Bin Sayeed",
+      "role": "Motion Graphics Designer",
+      "location": "Dhaka HQ",
+      "level": "Mid-Level",
+      "focus": "Kinetic typography, animated product cards, and transition templates."
+    },
+    {
+      "name": "Sumaiya Haque",
+      "role": "Marketing Collateral Designer",
+      "location": "Dhaka HQ",
+      "level": "Mid-Level",
+      "focus": "Large-format print layouts, marketing flyers, event banners, and social carousels."
+    },
+    {
+      "name": "Oliver Martin",
+      "role": "Video Editor & Sound Sync Specialist",
+      "location": "Remote \u2014 United Kingdom",
+      "level": "Mid-Level",
+      "focus": "Podcast slicing, short-form Reels/Shorts adaptation, and dialogue cleanup."
+    },
+    {
+      "name": "Mushfiqur Rahman",
+      "role": "3D Modeling Associate",
+      "location": "Dhaka HQ",
+      "level": "Mid-Level",
+      "focus": "Asset topology optimization, basic texture mapping, and CAD file imports."
+    },
+    {
+      "name": "Farhan Sadik",
+      "role": "Junior Video Editor",
+      "location": "Dhaka HQ",
+      "level": "Associate",
+      "focus": "Rough cuts, auto-subtitle synchronization, B-roll assembly, and format aspect ratio cropping."
+    },
+    {
+      "name": "Tasmia Akhter",
+      "role": "Junior Graphic Designer",
+      "location": "Dhaka HQ",
+      "level": "Associate",
+      "focus": "Social media template population, banner sizing adjustments, and icon asset exports."
+    },
+    {
+      "name": "Shariar Nazim",
+      "role": "Junior Image Retoucher",
+      "location": "Dhaka HQ",
+      "level": "Associate",
+      "focus": "Background isolation, clipping paths, shadow creation, and product catalog hygiene."
+    },
+    {
+      "name": "Camila Fernandez",
+      "role": "Junior Multimedia Associate",
+      "location": "Remote \u2014 Argentina",
+      "level": "Associate",
+      "focus": "Short UGC video curation, review video compilation, and creative asset tagging."
+    }
+  ]
+}
