@@ -223,76 +223,123 @@ setTimeout(() => {
         </div>
         
         <div class="bg-white border border-gray-200 rounded-2xl p-8 md:p-12 shadow-lg">
-            <form action="#" method="POST" class="space-y-6">
+                        <form id="talent-form" class="space-y-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Full Name -->
                     <div>
                         <label for="fullName" class="block text-sm font-bold text-bcg-dark mb-2">Full Name <span class="text-red-500">*</span></label>
-                        <input type="text" id="fullName" name="fullName" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-bcg-green focus:border-bcg-green transition-colors bg-gray-50 text-bcg-dark">
+                        <input type="text" id="talent-name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-bcg-green focus:border-bcg-green transition-colors bg-gray-50 text-bcg-dark">
                     </div>
-                    <!-- Email -->
                     <div>
                         <label for="email" class="block text-sm font-bold text-bcg-dark mb-2">Email Address <span class="text-red-500">*</span></label>
-                        <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-bcg-green focus:border-bcg-green transition-colors bg-gray-50 text-bcg-dark">
+                        <input type="email" id="talent-email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-bcg-green focus:border-bcg-green transition-colors bg-gray-50 text-bcg-dark">
                     </div>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Location -->
                     <div>
                         <label for="location" class="block text-sm font-bold text-bcg-dark mb-2">Location & Country <span class="text-red-500">*</span></label>
-                        <input type="text" id="location" name="location" required placeholder="e.g., Dhaka, Bangladesh" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-bcg-green focus:border-bcg-green transition-colors bg-gray-50 text-bcg-dark">
+                        <input type="text" id="talent-location" required placeholder="e.g., Dhaka, Bangladesh" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-bcg-green focus:border-bcg-green transition-colors bg-gray-50 text-bcg-dark">
                     </div>
-                    <!-- Domain -->
                     <div>
                         <label for="domain" class="block text-sm font-bold text-bcg-dark mb-2">Primary Operational Domain <span class="text-red-500">*</span></label>
-                        <select id="domain" name="domain" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-bcg-green focus:border-bcg-green transition-colors bg-gray-50 text-bcg-dark">
+                        <select id="talent-domain" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-bcg-green focus:border-bcg-green transition-colors bg-gray-50 text-bcg-dark">
                             <option value="" disabled selected>Select your domain</option>
                             <option value="data_accounting">Data & Internal Accounting</option>
-                            <option value="docs_backoffice">Documentation & Back-Office Operations</option>
-                            <option value="ai_automation">AI Workflow Automation & Integration</option>
-                            <option value="qa_web">Software QA & Web Maintenance</option>
-                            <option value="graphic_3d">Graphic Design & 3D Visualization</option>
-                            <option value="video_media">Video Post-Production & Media Editing</option>
-                            <option value="exec_governance">Executive Operational Governance</option>
+                            <option value="docs_backoffice">Documentation & Back-Office</option>
+                            <option value="ai_automation">AI & Workflow Automation</option>
+                            <option value="social_marketing">Social Media & Marketing</option>
+                            <option value="web_design">Website Design & Development</option>
+                            <option value="graphics_design">Graphics & Visual Design</option>
+                            <option value="media_production">Video & Media Production</option>
+                            <option value="project_management">Project & Client Management</option>
                         </select>
                     </div>
                 </div>
-                
+
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- LinkedIn -->
                     <div>
-                        <label for="linkedin" class="block text-sm font-bold text-bcg-dark mb-2">LinkedIn / Portfolio URL <span class="text-red-500">*</span></label>
-                        <input type="url" id="linkedin" name="linkedin" required placeholder="https://..." class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-bcg-green focus:border-bcg-green transition-colors bg-gray-50 text-bcg-dark">
+                        <label for="linkedin" class="block text-sm font-bold text-bcg-dark mb-2">LinkedIn Profile URL <span class="text-red-500">*</span></label>
+                        <input type="url" id="talent-linkedin" required placeholder="https://linkedin.com/in/yourprofile" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-bcg-green focus:border-bcg-green transition-colors bg-gray-50 text-bcg-dark">
                     </div>
-                    <!-- Resume -->
                     <div>
-                        <label for="resume" class="block text-sm font-bold text-bcg-dark mb-2">Resume / CV Link <span class="text-red-500">*</span></label>
-                        <input type="url" id="resume" name="resume" required placeholder="Link to PDF or Google Doc" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-bcg-green focus:border-bcg-green transition-colors bg-gray-50 text-bcg-dark">
+                        <label for="portfolio" class="block text-sm font-bold text-bcg-dark mb-2">Portfolio / Resume Link <span class="text-red-500">*</span></label>
+                        <input type="url" id="talent-resume" required placeholder="Google Drive, Behance, Personal Site, etc." class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-bcg-green focus:border-bcg-green transition-colors bg-gray-50 text-bcg-dark">
                     </div>
                 </div>
-                
-                <!-- Summary -->
+
                 <div>
-                    <label for="summary" class="block text-sm font-bold text-bcg-dark mb-2">Brief Operational Summary</label>
-                    <textarea id="summary" name="summary" rows="4" placeholder="Describe the complex workflows, databases, or tools you manage with confidence." class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-bcg-green focus:border-bcg-green transition-colors bg-gray-50 text-bcg-dark"></textarea>
+                    <label for="summary" class="block text-sm font-bold text-bcg-dark mb-2">Professional Summary</label>
+                    <textarea id="talent-summary" rows="4" placeholder="Briefly describe your operational expertise, standard operating procedures you've built, or major accounts you've managed." class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-bcg-green focus:border-bcg-green transition-colors bg-gray-50 text-bcg-dark resize-none"></textarea>
                 </div>
                 
-                <!-- Submit -->
-                <div class="pt-4">
-                    <button type="submit" class="w-full bg-bcg-dark text-white font-bold py-4 rounded-lg hover:bg-bcg-green transition-colors shadow-md uppercase tracking-wider text-sm">
-                        Submit Application to Talent Registry
+                <div id="talent-status" class="hidden rounded-lg p-4 text-sm font-bold text-center"></div>
+
+                <div class="pt-4 flex items-center justify-between border-t border-gray-200 flex-col md:flex-row gap-6">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-bcg-light-green/30 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-4 h-4 text-bcg-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        </div>
+                        <p class="text-xs text-gray-500 leading-tight">Your data is securely stored. We only contact candidates when operational capacity requires expansion.</p>
+                    </div>
+                    <button type="submit" id="talent-submit" class="w-full md:w-auto inline-flex justify-center items-center px-8 py-3.5 bg-bcg-dark text-white font-bold text-sm rounded-full hover:bg-bcg-green transition-colors shadow-lg disabled:opacity-50">
+                        Submit Profile to Registry &rarr;
                     </button>
                 </div>
-                
-                <!-- Footnote -->
-                <div class="text-center pt-2">
-                    <p class="text-xs text-gray-500 italic">
-                        <svg class="w-4 h-4 inline-block mr-1.5 text-bcg-green opacity-80 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="vertical-align: middle;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                        Your information is stored securely and reviewed exclusively by our internal operational leads. We never share or sell candidate data.
-                    </p>
-                </div>
             </form>
+            
+            <script type="module">
+                import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+                import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+                
+                const firebaseConfig = {
+                    apiKey: "AIzaSyD-3kMD8Cc6mqBGm3xWKhuisO2Wa5VimeI",
+                    authDomain: "cubicenhance-5fbf8.firebaseapp.com",
+                    projectId: "cubicenhance-5fbf8"
+                };
+                
+                const app = initializeApp(firebaseConfig);
+                const db = getFirestore(app);
+                
+                const form = document.getElementById('talent-form');
+                const submitBtn = document.getElementById('talent-submit');
+                const statusDiv = document.getElementById('talent-status');
+
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = 'Submitting...';
+                    statusDiv.classList.add('hidden');
+                    
+                    try {
+                        const data = {
+                            full_name: document.getElementById('talent-name').value,
+                            email: document.getElementById('talent-email').value,
+                            location: document.getElementById('talent-location').value,
+                            domain: document.getElementById('talent-domain').value,
+                            linkedin_url: document.getElementById('talent-linkedin').value,
+                            resume_url: document.getElementById('talent-resume').value,
+                            summary: document.getElementById('talent-summary').value,
+                            status: 'pending',
+                            created_at: serverTimestamp()
+                        };
+                        
+                        await addDoc(collection(db, 'talent_registry'), data);
+                        
+                        statusDiv.classList.remove('hidden');
+                        statusDiv.className = 'rounded-lg p-4 text-sm font-bold text-center bg-green-50 text-green-700 border border-green-200 mt-4';
+                        statusDiv.innerText = 'Thank you! Your profile has been added to our registry.';
+                        form.reset();
+                    } catch (error) {
+                        console.error('Firebase Error:', error);
+                        statusDiv.classList.remove('hidden');
+                        statusDiv.className = 'rounded-lg p-4 text-sm font-bold text-center bg-red-50 text-red-700 border border-red-200 mt-4';
+                        statusDiv.innerText = 'Failed to submit. Please check your connection and try again. ' + error.message;
+                    } finally {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = 'Submit Profile to Registry &rarr;';
+                    }
+                });
+            </script>
         </div>
     </div>
 </section>
@@ -446,3 +493,4 @@ setTimeout(() => {
 
 </body>
 </html>
+

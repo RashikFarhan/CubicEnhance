@@ -3738,21 +3738,7 @@ setTimeout(() => {
         // SECTION 1: Metrics Counter
         const metricsSection = document.getElementById('metrics-section');
         if(metricsSection) {
-            fetch('companies.json')
-                .then(res => res.json())
-                .then(data => {
-                    const totalCompanies = data.length;
-                    const contractual = data.filter(c => c.r_code > 0).length;
-
-                    document.getElementById('metric-clients').setAttribute('data-target', totalCompanies);
-                    document.getElementById('metric-retention').setAttribute('data-target', contractual);
-
-                    initCounters();
-                })
-                .catch(err => {
-                    console.error('Error fetching companies:', err);
-                    initCounters();
-                });
+            // companies metrics fetch delegated to firebase-hybrid.js
 
             function initCounters() {
                 const counters = document.querySelectorAll('#metrics-section [data-target]');
@@ -3791,176 +3777,66 @@ setTimeout(() => {
         // SECTION 2: Reviews Carousel
         const reviewsTrack = document.getElementById('reviews-track');
         if(reviewsTrack) {
-            fetch('reviews.json')
-                .then(res => res.json())
-                .then(data => {
-                    // Calculate Aggregates
-                    const totalReviews = data.length;
-                    const avgScore = totalReviews > 0 ? (data.reduce((sum, rev) => sum + rev.rating, 0) / totalReviews).toFixed(2) : 0;
+            // reviews fetch delegated to firebase-hybrid.js
 
-                    if(document.getElementById('agg-score')) {
-                        document.getElementById('agg-score').innerText = avgScore;
-                        document.getElementById('agg-count-text').innerText = `Based on ${totalReviews} Verified International Reviews`;
+            window.setupCarousel = () => {
+                const reviewsTrack = document.getElementById('reviews-track');
+                if(!reviewsTrack) return;
+                let currentIndex = 0;
+                const cards = reviewsTrack.children;
+                if(cards.length === 0) return;
+                const totalCards = cards.length;
+                const visibleCards = window.innerWidth >= 768 ? 3 : 1;
+                const maxIndex = Math.max(0, totalCards - visibleCards);
 
-                        let starsHTML = '';
-                        const fullStars = Math.floor(avgScore);
-                        const hasHalfStar = (avgScore % 1) >= 0.5;
-                        for(let i=0; i<5; i++) {
-                            if(i < fullStars) {
-                                starsHTML += `<svg class="w-7 h-7 text-bcg-light-green fill-current drop-shadow-sm" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>`;
-                            } else if(i === fullStars && hasHalfStar) {
-                                starsHTML += `<svg class="w-7 h-7 text-bcg-light-green fill-current drop-shadow-sm" viewBox="0 0 24 24"><path d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4V6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"/></svg>`;
-                            } else {
-                                starsHTML += `<svg class="w-7 h-7 text-gray-600 fill-current" viewBox="0 0 24 24"><path d="M22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1v9.3z"/></svg>`;
-                            }
-                        }
-                        document.getElementById('agg-stars').innerHTML = starsHTML;
-                    }
+                function updateButtons() {
+                    const prevBtn = document.getElementById('prev-review');
+                    const nextBtn = document.getElementById('next-review');
+                    if(prevBtn) prevBtn.disabled = currentIndex === 0;
+                    if(nextBtn) nextBtn.disabled = currentIndex >= maxIndex;
+                    if(prevBtn) prevBtn.style.opacity = currentIndex === 0 ? '0.5' : '1';
+                    if(nextBtn) nextBtn.style.opacity = currentIndex >= maxIndex ? '0.5' : '1';
+                }
 
-                    // Build Carousel Track
-                    data.forEach((rev, index) => {
-                        let revStars = '';
-                        for(let i=0; i<5; i++) {
-                            if(i < Math.floor(rev.rating)) {
-                                revStars += `<svg class="w-5 h-5 text-bcg-light-green fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>`;
-                            } else {
-                                revStars += `<svg class="w-5 h-5 text-gray-600 fill-current" viewBox="0 0 24 24"><path d="M22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1v9.3z"/></svg>`;
-                            }
-                        }
-
-                        const safeText = rev.text.replace(/"/g, '&quot;');
-                        const card = document.createElement('div');
-                        card.className = "flex-none w-full md:w-1/2 lg:w-1/3 px-3";
-                        card.innerHTML = `
-                            <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 h-full flex flex-col border border-white/20 hover:border-white/40 hover:bg-white/15 transition-colors shadow-lg group">
-                                <div class="flex gap-1 mb-4">${revStars}</div>
-                                <p class="text-gray-300 text-[1.05rem] leading-[1.7] italic mb-3 font-serif line-clamp-4 relative transition-colors group-hover:text-white">"${safeText}"</p>
-                                <button class="read-more-btn text-bcg-light-green text-sm font-bold uppercase tracking-wider text-left hover:text-white transition-colors mb-8 focus:outline-none" data-index="${index}">Read More &rarr;</button>
-                                <div class="flex flex-wrap items-center gap-2 mt-auto pt-6 border-t border-white/20">
-                                    <span class="text-[0.7rem] font-bold text-gray-400 uppercase tracking-widest">${rev.id}</span>
-                                    <span class="w-1 h-1 bg-gray-500 rounded-full mx-1"></span>
-                                    <span class="px-2.5 py-1 bg-white/5 text-gray-300 text-[0.75rem] rounded-md font-medium border border-white/10">${rev.country} (${rev.country_code})</span>
-                                    <span class="px-2.5 py-1 bg-bcg-green text-white text-[0.75rem] rounded-md font-bold ml-auto whitespace-nowrap">${rev.service}</span>
-                                </div>
-                            </div>
-                        `;
-                        reviewsTrack.appendChild(card);
-                    });
-
-                    // Initialize Carousel Logic
-                    let currentIndex = 0;
-                    let cardsPerView = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
-
-                    const btnPrev = document.getElementById('review-prev');
-                    const btnNext = document.getElementById('review-next');
-
-                    const updateButtons = () => {
-                        const maxIndex = data.length - cardsPerView;
-                        btnPrev.disabled = currentIndex === 0;
-                        btnNext.disabled = currentIndex >= maxIndex;
-                    };
-
-                    const updateCarousel = () => {
-                        const maxIndex = data.length - cardsPerView;
-                        if(currentIndex > maxIndex) currentIndex = maxIndex;
-                        if(currentIndex < 0) currentIndex = 0;
-
-                        const percentage = -(currentIndex * (100 / cardsPerView));
-                        reviewsTrack.style.transform = `translateX(${percentage}%)`;
+                window.nextReview = () => {
+                    if (currentIndex < maxIndex) {
+                        currentIndex++;
+                        const percentage = -(currentIndex * (100 / visibleCards));
+                        reviewsTrack.style.transform = "translateX(${percentage}%)";
                         updateButtons();
-                    };
-
-                    btnNext.addEventListener('click', () => {
-                        if (currentIndex < data.length - cardsPerView) {
-                            currentIndex++;
-                            updateCarousel();
-                        }
-                    });
-
-                    btnPrev.addEventListener('click', () => {
-                        if (currentIndex > 0) {
-                            currentIndex--;
-                            updateCarousel();
-                        }
-                    });
-
-                    // Auto-play logic
-                    let autoPlayInterval;
-                    const startAutoPlay = () => {
-                        autoPlayInterval = setInterval(() => {
-                            if (currentIndex < data.length - cardsPerView) {
-                                currentIndex++;
-                            } else {
-                                currentIndex = 0;
-                            }
-                            updateCarousel();
-                        }, 3000);
-                    };
-                    const stopAutoPlay = () => clearInterval(autoPlayInterval);
-
-                    reviewsTrack.addEventListener('mouseenter', stopAutoPlay);
-                    reviewsTrack.addEventListener('mouseleave', startAutoPlay);
-
-                    // Pause when hovering over buttons
-                    btnNext.addEventListener('mouseenter', stopAutoPlay);
-                    btnNext.addEventListener('mouseleave', startAutoPlay);
-                    btnPrev.addEventListener('mouseenter', stopAutoPlay);
-                    btnPrev.addEventListener('mouseleave', startAutoPlay);
-
-                    startAutoPlay(); // start immediately
-
-                    window.addEventListener('resize', () => {
-                        cardsPerView = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
-                        updateCarousel();
-                    });
-
-                    updateButtons();
-
-                    // Modal logic
-                    const modal = document.getElementById('review-modal');
-                    const modalClose = document.getElementById('close-review-modal');
-
-                    if(modal) {
-                        document.querySelectorAll('.read-more-btn').forEach(btn => {
-                            btn.addEventListener('click', (e) => {
-                                const idx = e.target.getAttribute('data-index');
-                                const rev = data[idx];
-
-                                let modalStars = '';
-                                for(let i=0; i<5; i++) {
-                                    if(i < Math.floor(rev.rating)) {
-                                        modalStars += `<svg class="w-6 h-6 text-bcg-light-green fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>`;
-                                    } else {
-                                        modalStars += `<svg class="w-6 h-6 text-gray-600 fill-current" viewBox="0 0 24 24"><path d="M22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1v9.3z"/></svg>`;
-                                    }
-                                }
-
-                                document.getElementById('modal-review-stars').innerHTML = modalStars;
-                                document.getElementById('modal-review-text').innerText = '"' + rev.text + '"';
-                                document.getElementById('modal-review-id').innerText = rev.id;
-                                document.getElementById('modal-review-country').innerText = rev.country + ' (' + rev.country_code + ')';
-                                document.getElementById('modal-review-service').innerText = rev.service;
-
-                                modal.classList.remove('opacity-0', 'pointer-events-none');
-                                modal.querySelector('div').classList.remove('scale-95');
-                            });
-                        });
-
-                        modalClose.addEventListener('click', () => {
-                            modal.classList.add('opacity-0', 'pointer-events-none');
-                            modal.querySelector('div').classList.add('scale-95');
-                        });
-
-                        modal.addEventListener('click', (e) => {
-                            if(e.target === modal) {
-                                modalClose.click();
-                            }
-                        });
                     }
-                })
-                .catch(err => console.error('Error fetching reviews:', err));
-        }
-    });
+                };
+
+                window.prevReview = () => {
+                    if (currentIndex > 0) {
+                        currentIndex--;
+                        const percentage = -(currentIndex * (100 / visibleCards));
+                        reviewsTrack.style.transform = "translateX(${percentage}%)";
+                        updateButtons();
+                    }
+                };
+                
+                updateButtons();
+                
+                let autoPlayInterval;
+                const startAutoPlay = () => {
+                    autoPlayInterval = setInterval(() => {
+                        if (currentIndex >= maxIndex) {
+                            currentIndex = 0;
+                            reviewsTrack.style.transform = 'translateX(0)';
+                            updateButtons();
+                        } else {
+                            window.nextReview();
+                        }
+                    }, 4000);
+                };
+                const stopAutoPlay = () => clearInterval(autoPlayInterval);
+                
+                startAutoPlay();
+                reviewsTrack.addEventListener('mouseenter', stopAutoPlay);
+                reviewsTrack.addEventListener('mouseleave', startAutoPlay);
+            };
+        });
 </script>
 
     <!-- Review Modal -->
@@ -4030,6 +3906,8 @@ setTimeout(() => {
             }
         }
     </script>
+<script type="module" src="js/firebase-hybrid.js"></script>
 </body>
 </html>
+
 

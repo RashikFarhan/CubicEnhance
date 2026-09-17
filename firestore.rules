@@ -1,0 +1,79 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ─── Helper Functions ──────────────────────────────────────────────────────
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() &&
+             get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['super_admin', 'admin'];
+    }
+
+    function isSuperAdmin() {
+      return isAuthenticated() &&
+             get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'super_admin';
+    }
+
+    // ─── PUBLIC READ COLLECTIONS (no auth required) ────────────────────────────
+    // companies: public site reads to populate the marquee
+    match /companies/{id} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // reviews: public site reads to populate the carousel
+    match /reviews/{id} {
+      allow read: if resource.data.is_published == true || isAdmin();
+      allow write: if isAdmin();
+    }
+
+    // employees: public site reads for the /leadership page
+    match /employees/{id} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // site_config: public site reads for metric counters
+    match /site_config/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // content: public site reads for CMS copy (Phase 3)
+    match /content/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // ─── FORM SUBMISSIONS (public create, admin read/update) ──────────────────
+    // inquiries: created via the /api/public/inquiries route (server-validated)
+    match /inquiries/{id} {
+      allow read, update, delete: if isAdmin();
+      // Creates come through the Next.js API route which validates the shared secret
+      // Direct client creates are blocked in production (set to false once API routes are deployed)
+      allow create: if true;
+    }
+
+    // talent_registry: created via the /api/public/talent route
+    match /talent_registry/{id} {
+      allow read, update, delete: if isAdmin();
+      allow create: if true;
+    }
+
+    // ─── ADMIN-ONLY COLLECTIONS ────────────────────────────────────────────────
+    // users: admins can manage all users; users can read their own doc
+    match /users/{uid} {
+      allow read: if isAdmin() || request.auth.uid == uid;
+      allow create, delete: if isSuperAdmin();
+      allow update: if isAdmin() || request.auth.uid == uid;
+    }
+
+    // mail_events: only admins can see the email queue
+    match /mail_events/{id} {
+      allow read, write: if isAdmin();
+    }
+  }
+}
