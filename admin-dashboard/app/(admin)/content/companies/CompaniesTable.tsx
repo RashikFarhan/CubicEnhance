@@ -1,11 +1,11 @@
 'use client';
-// app/(admin)/content/companies/CompaniesTable.tsx
 
 import { useState } from 'react';
 import { db } from '@/lib/firebase/client';
 import { doc, updateDoc } from 'firebase/firestore';
 import { cn, STATUS_COLORS } from '@/lib/utils';
 import type { Company } from '@/lib/firebase/schema';
+import { Pencil } from 'lucide-react';
 
 const CATEGORY_LABELS: Record<string, string> = {
   C1: 'Agencies', C2: 'E-Commerce', C3: 'Construction', C4: 'Startups',
@@ -19,6 +19,9 @@ export default function CompaniesTable({ initialData }: { initialData: (Company 
   const [companies, setCompanies] = useState(initialData);
   const [search, setSearch] = useState('');
   const [filterCat, setFilterCat] = useState('all');
+  
+  const [editingCompany, setEditingCompany] = useState<(Company & { id: string }) | null>(null);
+  const [isSaving, setIsSaving] = useState(false);
 
   const filtered = companies.filter(c => {
     const matchSearch = c.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -37,8 +40,32 @@ export default function CompaniesTable({ initialData }: { initialData: (Company 
     setCompanies(prev => prev.map(c => c.id === id ? { ...c, is_active: !current } : c));
   }
 
+  async function handleSaveEdit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!editingCompany) return;
+    setIsSaving(true);
+    try {
+      const ref = doc(db, 'companies', editingCompany.id);
+      const dataToSave = {
+        name: editingCompany.name,
+        description: editingCompany.description,
+        country: editingCompany.country,
+        category_code: editingCompany.category_code,
+        service_code: editingCompany.service_code,
+        revenue_code: editingCompany.revenue_code,
+        logo_url: editingCompany.logo_url
+      };
+      await updateDoc(ref, dataToSave);
+      setCompanies(prev => prev.map(c => c.id === editingCompany.id ? { ...c, ...dataToSave } : c));
+      setEditingCompany(null);
+    } catch (err) {
+      alert('Failed to save: ' + (err as any).message);
+    }
+    setIsSaving(false);
+  }
+
   return (
-    <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+    <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden relative">
       {/* Toolbar */}
       <div className="p-4 border-b border-gray-100 flex flex-col sm:flex-row gap-3">
         <input
@@ -55,17 +82,19 @@ export default function CompaniesTable({ initialData }: { initialData: (Company 
             <option key={k} value={k}>{v}</option>
           ))}
         </select>
-        <span className="self-center text-sm text-gray-500 whitespace-nowrap">{filtered.length} results</span>
       </div>
 
-      {/* Table */}
       <div className="overflow-x-auto">
-        <table className="w-full text-sm">
-          <thead className="bg-gray-50 border-b border-gray-100">
-            <tr>
-              {['Company', 'Country', 'Category', 'Service', 'Tier', 'Featured', 'Active'].map(h => (
-                <th key={h} className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">{h}</th>
-              ))}
+        <table className="w-full text-left border-collapse">
+          <thead>
+            <tr className="bg-gray-50/50 text-gray-500 text-xs uppercase tracking-wider">
+              <th className="px-4 py-3 font-medium">Company</th>
+              <th className="px-4 py-3 font-medium">Country</th>
+              <th className="px-4 py-3 font-medium">Category</th>
+              <th className="px-4 py-3 font-medium">Service</th>
+              <th className="px-4 py-3 font-medium">Featured</th>
+              <th className="px-4 py-3 font-medium">Active</th>
+              <th className="px-4 py-3 font-medium">Actions</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-50">
@@ -82,9 +111,6 @@ export default function CompaniesTable({ initialData }: { initialData: (Company 
                   </span>
                 </td>
                 <td className="px-4 py-3 text-gray-600 text-xs">{SERVICE_LABELS[c.service_code] || c.service_code}</td>
-                <td className="px-4 py-3">
-                  <span className="text-gray-600 font-mono text-xs">{c.revenue_code}</span>
-                </td>
                 <td className="px-4 py-3">
                   <button
                     onClick={() => toggleFeatured(c.id!, c.is_featured)}
@@ -107,6 +133,15 @@ export default function CompaniesTable({ initialData }: { initialData: (Company 
                     )} />
                   </button>
                 </td>
+                <td className="px-4 py-3">
+                  <button
+                    onClick={() => setEditingCompany(c)}
+                    className="p-1.5 text-gray-500 hover:text-[#5c829c] hover:bg-[#5c829c]/10 rounded-md transition-colors"
+                    title="Edit Company"
+                  >
+                    <Pencil size={16} />
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
@@ -115,6 +150,59 @@ export default function CompaniesTable({ initialData }: { initialData: (Company 
           <div className="text-center py-12 text-gray-400">No companies match your search</div>
         )}
       </div>
+
+      {/* Edit Modal */}
+      {editingCompany && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+            <div className="p-6 border-b border-gray-100 flex justify-between items-center">
+              <h2 className="text-xl font-bold text-[#30495f]">Edit Company: {editingCompany.name}</h2>
+              <button onClick={() => setEditingCompany(null)} className="text-gray-400 hover:text-gray-600">&times;</button>
+            </div>
+            <form onSubmit={handleSaveEdit} className="p-6 space-y-4">
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Company Name</label>
+                  <input type="text" value={editingCompany.name} onChange={e => setEditingCompany({...editingCompany, name: e.target.value})} className="w-full border p-2 rounded" required />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Country</label>
+                  <input type="text" value={editingCompany.country} onChange={e => setEditingCompany({...editingCompany, country: e.target.value})} className="w-full border p-2 rounded" required />
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                <textarea value={editingCompany.description} onChange={e => setEditingCompany({...editingCompany, description: e.target.value})} className="w-full border p-2 rounded" rows={3} />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Logo URL</label>
+                <input type="url" value={editingCompany.logo_url} onChange={e => setEditingCompany({...editingCompany, logo_url: e.target.value})} className="w-full border p-2 rounded" />
+              </div>
+              <div className="grid grid-cols-3 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Category Code</label>
+                  <input type="text" value={editingCompany.category_code} onChange={e => setEditingCompany({...editingCompany, category_code: e.target.value})} className="w-full border p-2 rounded" />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Service Code</label>
+                  <input type="text" value={editingCompany.service_code} onChange={e => setEditingCompany({...editingCompany, service_code: e.target.value})} className="w-full border p-2 rounded" />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Revenue Code</label>
+                  <input type="number" value={editingCompany.revenue_code} onChange={e => setEditingCompany({...editingCompany, revenue_code: parseInt(e.target.value) || 0})} className="w-full border p-2 rounded" />
+                </div>
+              </div>
+              <div className="pt-4 flex justify-end gap-3">
+                <button type="button" onClick={() => setEditingCompany(null)} className="px-4 py-2 text-sm text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-lg">Cancel</button>
+                <button type="submit" disabled={isSaving} className="px-4 py-2 text-sm text-white bg-[#5c829c] hover:bg-[#30495f] rounded-lg disabled:opacity-50">
+                  {isSaving ? 'Saving...' : 'Save Changes'}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
+

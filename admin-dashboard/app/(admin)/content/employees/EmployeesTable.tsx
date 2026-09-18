@@ -24,8 +24,11 @@ export default function EmployeesTable({ initialData }: { initialData: (Employee
       const dataToSave = {
         name: editingEmp.name,
         role: editingEmp.role,
-        bio: editingEmp.bio,
-        image_url: editingEmp.image_url,
+        department: editingEmp.department,
+        location: editingEmp.location,
+        level: editingEmp.level,
+        focus: editingEmp.focus,
+        photo_url: editingEmp.photo_url || '',
       };
       await updateDoc(ref, dataToSave);
       setEmployees(prev => prev.map(c => c.id === editingEmp.id ? { ...c, ...dataToSave } : c));
@@ -52,7 +55,7 @@ export default function EmployeesTable({ initialData }: { initialData: (Employee
             <tr className="bg-gray-50/50 text-gray-500 text-xs uppercase tracking-wider">
               <th className="px-4 py-3 font-medium">Name</th>
               <th className="px-4 py-3 font-medium">Role</th>
-              <th className="px-4 py-3 font-medium">Bio Snippet</th>
+              <th className="px-4 py-3 font-medium">Location / Dept</th>
               <th className="px-4 py-3 font-medium">Actions</th>
             </tr>
           </thead>
@@ -61,7 +64,9 @@ export default function EmployeesTable({ initialData }: { initialData: (Employee
               <tr key={e.id} className="hover:bg-gray-50 transition-colors">
                 <td className="px-4 py-3 font-semibold text-gray-900">{e.name}</td>
                 <td className="px-4 py-3 text-gray-600">{e.role}</td>
-                <td className="px-4 py-3 text-gray-500 text-xs truncate max-w-xs">{e.bio}</td>
+                <td className="px-4 py-3 text-gray-500 text-xs">
+                  {e.location} &bull; {e.department}
+                </td>
                 <td className="px-4 py-3">
                   <button
                     onClick={() => setEditingEmp(e)}
@@ -82,27 +87,41 @@ export default function EmployeesTable({ initialData }: { initialData: (Employee
 
       {editingEmp && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl shadow-xl w-full max-w-lg">
+          <div className="bg-white rounded-2xl shadow-xl w-full max-w-2xl overflow-y-auto max-h-[90vh]">
             <div className="p-6 border-b border-gray-100 flex justify-between items-center">
               <h2 className="text-xl font-bold text-[#30495f]">Edit Employee</h2>
               <button onClick={() => setEditingEmp(null)} className="text-gray-400 hover:text-gray-600">&times;</button>
             </div>
             <form onSubmit={handleSaveEdit} className="p-6 space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                <input type="text" value={editingEmp.name} onChange={e => setEditingEmp({...editingEmp, name: e.target.value})} className="w-full border p-2 rounded" required />
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                  <input type="text" value={editingEmp.name} onChange={e => setEditingEmp({...editingEmp, name: e.target.value})} className="w-full border p-2 rounded" required />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Role / Title</label>
+                  <input type="text" value={editingEmp.role} onChange={e => setEditingEmp({...editingEmp, role: e.target.value})} className="w-full border p-2 rounded" required />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Department</label>
+                  <input type="text" value={editingEmp.department} onChange={e => setEditingEmp({...editingEmp, department: e.target.value})} className="w-full border p-2 rounded" required />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Location</label>
+                  <input type="text" value={editingEmp.location} onChange={e => setEditingEmp({...editingEmp, location: e.target.value})} className="w-full border p-2 rounded" required />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Level</label>
+                  <input type="text" value={editingEmp.level} onChange={e => setEditingEmp({...editingEmp, level: e.target.value})} className="w-full border p-2 rounded" required />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Focus</label>
+                  <input type="text" value={editingEmp.focus} onChange={e => setEditingEmp({...editingEmp, focus: e.target.value})} className="w-full border p-2 rounded" required />
+                </div>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Role / Title</label>
-                <input type="text" value={editingEmp.role} onChange={e => setEditingEmp({...editingEmp, role: e.target.value})} className="w-full border p-2 rounded" required />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Bio</label>
-                <textarea value={editingEmp.bio || ''} onChange={e => setEditingEmp({...editingEmp, bio: e.target.value})} className="w-full border p-2 rounded" rows={3} />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Profile Image URL</label>
-                <input type="url" value={editingEmp.image_url || ''} onChange={e => setEditingEmp({...editingEmp, image_url: e.target.value})} className="w-full border p-2 rounded" />
+                <label className="block text-sm font-medium text-gray-700 mb-1">Photo URL</label>
+                <input type="url" value={editingEmp.photo_url || ''} onChange={e => setEditingEmp({...editingEmp, photo_url: e.target.value})} className="w-full border p-2 rounded" />
               </div>
               <div className="pt-4 flex justify-end gap-3">
                 <button type="button" onClick={() => setEditingEmp(null)} className="px-4 py-2 text-sm text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-lg">Cancel</button>
