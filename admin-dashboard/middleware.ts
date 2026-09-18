@@ -1,4 +1,4 @@
-// middleware.ts — Next.js Edge Middleware
+// middleware.ts - Next.js Edge Middleware
 // Protects all /admin routes; redirects unauthenticated users to /auth/login
 
 import { NextRequest, NextResponse } from 'next/server';
@@ -6,8 +6,9 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
-  // Allow public routes
+  // Allow public routes and auth API routes
   if (pathname.startsWith('/auth')) return NextResponse.next();
+  if (pathname.startsWith('/api/auth')) return NextResponse.next();
   if (pathname.startsWith('/api/public')) return NextResponse.next();
 
   // Check session cookie
@@ -16,7 +17,9 @@ export async function middleware(req: NextRequest) {
   if (!sessionCookie) {
     const loginUrl = req.nextUrl.clone();
     loginUrl.pathname = '/auth/login';
-    loginUrl.searchParams.set('redirect', pathname);
+    if (pathname !== '/') {
+      loginUrl.searchParams.set('redirect', pathname);
+    }
     return NextResponse.redirect(loginUrl);
   }
 
@@ -27,6 +30,6 @@ export async function middleware(req: NextRequest) {
 
 export const config = {
   matcher: [
-    '/((?!_next/static|_next/image|favicon.ico|auth).*)',
+    '/((?!_next/static|_next/image|favicon.ico).*)',
   ],
 };
