@@ -9,11 +9,15 @@ function initAdminApp(): App {
 
   if (process.env.FIREBASE_ADMIN_CLIENT_EMAIL && process.env.FIREBASE_ADMIN_PRIVATE_KEY) {
     try {
+      let pk = process.env.FIREBASE_ADMIN_PRIVATE_KEY;
+      if (pk.startsWith(") && pk.endsWith(")) pk = pk.slice(1, -1);
+      pk = pk.replace(/\\n/g, '\n');
+
       return initializeApp({
         credential: cert({
           projectId: process.env.FIREBASE_ADMIN_PROJECT_ID || 'cubicenhance-5fbf8',
           clientEmail: process.env.FIREBASE_ADMIN_CLIENT_EMAIL,
-          privateKey: process.env.FIREBASE_ADMIN_PRIVATE_KEY.replace(/\\n/g, '\n'),
+          privateKey: pk,
         }),
         storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
       });
