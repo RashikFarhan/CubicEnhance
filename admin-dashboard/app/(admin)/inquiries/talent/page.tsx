@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 // app/(admin)/inquiries/talent/page.tsx
 import { adminDb } from '@/lib/firebase/admin';
 import TalentTable from './TalentTable';
@@ -15,3 +16,4 @@ export default async function TalentPage() {
     </div>
   );
 }
+

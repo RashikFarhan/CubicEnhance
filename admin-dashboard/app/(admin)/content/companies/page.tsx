@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 // app/(admin)/content/companies/page.tsx
 import { adminDb } from '@/lib/firebase/admin';
 import CompaniesTable from './CompaniesTable';
@@ -18,3 +19,4 @@ export default async function CompaniesPage() {
     </div>
   );
 }
+

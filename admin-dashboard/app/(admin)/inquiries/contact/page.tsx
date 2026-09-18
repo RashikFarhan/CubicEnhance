@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 // app/(admin)/inquiries/contact/page.tsx
 import { adminDb } from '@/lib/firebase/admin';
 import InquiriesTable from './InquiriesTable';
@@ -15,3 +16,4 @@ export default async function ContactInquiriesPage() {
     </div>
   );
 }
+

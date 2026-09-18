@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 // app/(admin)/page.tsx — Dashboard Overview
 import { adminDb } from '@/lib/firebase/admin';
 import { formatDate } from '@/lib/utils';
@@ -113,3 +114,4 @@ export default async function DashboardPage() {
     </div>
   );
 }
+

@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 // app/(admin)/site/metrics/page.tsx
 import { adminDb } from '@/lib/firebase/admin';
 import MetricsForm from './MetricsForm';
@@ -15,3 +16,4 @@ export default async function MetricsPage() {
     </div>
   );
 }
+
