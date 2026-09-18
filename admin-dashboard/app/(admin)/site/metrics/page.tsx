@@ -1,11 +1,12 @@
 export const dynamic = 'force-dynamic';
 // app/(admin)/site/metrics/page.tsx
 import { adminDb } from '@/lib/firebase/admin';
+import { toSerializable } from '@/lib/utils';
 import MetricsForm from './MetricsForm';
 
 export default async function MetricsPage() {
   const doc = await adminDb.collection('site_config').doc('metrics').get();
-  const metrics = doc.data() || {};
+  const metrics = toSerializable(doc.data() || {});
   return (
     <div className="p-8 max-w-2xl">
       <div className="mb-8">
@@ -16,4 +17,3 @@ export default async function MetricsPage() {
     </div>
   );
 }
-

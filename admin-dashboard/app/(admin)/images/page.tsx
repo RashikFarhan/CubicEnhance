@@ -1,10 +1,11 @@
 export const dynamic = 'force-dynamic';
 import { adminDb } from '@/lib/firebase/admin';
+import { toSerializable } from '@/lib/utils';
 import ImagesManager from './ImagesManager';
 
 export default async function ImagesPage() {
   const snap = await adminDb.collection('site_images').get();
-  const images = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+  const images = toSerializable(snap.docs.map(d => ({ id: d.id, ...d.data() })));
 
   // Group images by page/section
   const groupedImages = images.reduce((acc: any, img: any) => {

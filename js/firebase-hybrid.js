@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
-import { getFirestore, collection, doc, getDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+import { getFirestore, collection, doc, getDoc, getDocs, query, where } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyD-3kMD8Cc6mqBGm3xWKhuisO2Wa5VimeI",
@@ -53,9 +53,11 @@ async function fetchCompaniesMetrics() {
 // Hybrid Fetch for Reviews
 async function fetchReviewsData() {
     try {
-        const snapshot = await getDocs(collection(db, 'reviews'));
+        // Must use 'where' because Firestore rules block fetching all reviews
+        const reviewsQuery = query(collection(db, 'reviews'), where('is_published', '==', true));
+        const snapshot = await getDocs(reviewsQuery);
         if(snapshot.empty) throw new Error('Firestore empty');
-        const data = snapshot.docs.map(d => d.data()).filter(d => d.is_published !== false);
+        const data = snapshot.docs.map(d => d.data());
         renderReviews(data);
     } catch(err) {
         console.warn('Firebase reviews fetch failed, falling back to JSON:', err);
@@ -72,8 +74,8 @@ function renderReviews(data) {
         document.getElementById('agg-count-text').innerText = `Based on ${totalReviews} Verified International Reviews`;
         
         let starsHTML = '';
-        const fullStars = Math.floor(avgScore);
-        const hasHalfStar = (avgScore % 1) >= 0.5;
+        const fullStars = Math.floor(Number(avgScore));
+        const hasHalfStar = (Number(avgScore) % 1) >= 0.5;
         for(let i=0; i<5; i++) {
             if(i < fullStars) {
                 starsHTML += `<svg class="w-7 h-7 text-bcg-light-green fill-current drop-shadow-sm" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>`;
