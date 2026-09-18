@@ -1,11 +1,11 @@
 export const dynamic = 'force-dynamic';
-// app/(admin)/inquiries/contact/page.tsx
 import { adminDb } from '@/lib/firebase/admin';
+import { toSerializable } from '@/lib/utils';
 import InquiriesTable from './InquiriesTable';
 
 export default async function ContactInquiriesPage() {
   const snap = await adminDb.collection('inquiries').orderBy('created_at', 'desc').get();
-  const inquiries = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+  const inquiries = toSerializable(snap.docs.map(d => ({ id: d.id, ...d.data() })));
   return (
     <div className="p-8">
       <div className="mb-8">
@@ -16,4 +16,3 @@ export default async function ContactInquiriesPage() {
     </div>
   );
 }
-

@@ -1,11 +1,11 @@
 export const dynamic = 'force-dynamic';
-// app/(admin)/inquiries/talent/page.tsx
 import { adminDb } from '@/lib/firebase/admin';
+import { toSerializable } from '@/lib/utils';
 import TalentTable from './TalentTable';
 
 export default async function TalentPage() {
   const snap = await adminDb.collection('talent_registry').orderBy('created_at', 'desc').get();
-  const applications = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+  const applications = toSerializable(snap.docs.map(d => ({ id: d.id, ...d.data() })));
   return (
     <div className="p-8">
       <div className="mb-8">
@@ -16,4 +16,3 @@ export default async function TalentPage() {
     </div>
   );
 }
-
