@@ -30,7 +30,13 @@ function LoginForm() {
         });
 
         if (!res.ok) {
-          const data = await res.json();
+          const text = await res.text();
+          let data;
+          try { 
+            data = JSON.parse(text); 
+          } catch (e) { 
+            throw new Error(Server Error ( + res.status + ):  + text.substring(0, 150)); 
+          }
           throw new Error(data.error || 'Session creation failed');
         }
 
@@ -66,7 +72,7 @@ function LoginForm() {
         />
       </div>
       {error && (
-        <div className="bg-red-50 border border-red-200 text-red-700 text-sm px-4 py-3 rounded-lg">
+        <div className="bg-red-50 border border-red-200 text-red-700 text-sm px-4 py-3 rounded-lg break-words">
           {error}
         </div>
       )}
