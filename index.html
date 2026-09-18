@@ -3740,7 +3740,7 @@ setTimeout(() => {
         if(metricsSection) {
             // companies metrics fetch delegated to firebase-hybrid.js
 
-            function initCounters() {
+            window.initCounters = function() {
                 const counters = document.querySelectorAll('#metrics-section [data-target]');
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {

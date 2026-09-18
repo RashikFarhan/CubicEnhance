@@ -126,9 +126,15 @@ function renderReviews(data) {
     if(window.setupCarousel) window.setupCarousel();
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+function initHybrid() {
     fetchCompaniesMetrics();
     if(document.getElementById('reviews-track')) {
         fetchReviewsData();
     }
-});
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHybrid);
+} else {
+    initHybrid();
+}
