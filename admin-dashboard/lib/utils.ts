@@ -33,3 +33,50 @@ export const STATUS_COLORS: Record<string, string> = {
   shortlisted: 'bg-green-100 text-green-800',
   rejected: 'bg-red-100 text-red-700',
 };
+
+/**
+ * Converts Firestore Timestamp objects to ISO strings so they can be safely
+ * serialized across the Next.js server→client boundary without causing
+ * React hydration error #441.
+ */
+export function toSerializable<T>(obj: T): T {
+  if (obj === null || obj === undefined) return obj;
+  if (Array.isArray(obj)) return obj.map(toSerializable) as unknown as T;
+  if (typeof obj === 'object') {
+    // Firestore Timestamp has toDate() or _seconds/_nanoseconds
+    if (typeof (obj as any).toDate === 'function') {
+      return (obj as any).toDate().toISOString() as unknown as T;
+    }
+    if ('_seconds' in (obj as any) && '_nanoseconds' in (obj as any)) {
+      return new Date((obj as any)._seconds * 1000).toISOString() as unknown as T;
+    }
+    const result: Record<string, unknown> = {};
+    for (const [key, val] of Object.entries(obj as Record<string, unknown>)) {
+      result[key] = toSerializable(val);
+    }
+    return result as unknown as T;
+  }
+  return obj;
+}
+
+/**
+ * Client-side helper to call the admin write API route.
+ * Use this in all 'use client' components instead of direct Firestore writes.
+ */
+export async function adminUpdate(
+  collection: string,
+  docId: string,
+  data: Record<string, unknown>,
+  merge = true,
+): Promise<void> {
+  const res = await fetch('/api/admin/update', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ collection, docId, data, merge }),
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({ error: res.statusText }));
+    throw new Error(err.error || 'Update failed');
+  }
+}
+

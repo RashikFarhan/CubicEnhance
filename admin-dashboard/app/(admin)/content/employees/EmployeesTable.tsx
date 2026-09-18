@@ -1,8 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { db } from '@/lib/firebase/client';
-import { doc, updateDoc } from 'firebase/firestore';
+import { adminUpdate } from '@/lib/utils';
 import { Pencil } from 'lucide-react';
 import type { Employee } from '@/lib/firebase/schema';
 
@@ -13,14 +12,13 @@ export default function EmployeesTable({ initialData }: { initialData: (Employee
   const [editingEmp, setEditingEmp] = useState<(Employee & { id: string }) | null>(null);
   const [isSaving, setIsSaving] = useState(false);
 
-  const filtered = employees.filter(e => e.name.toLowerCase().includes(search.toLowerCase()));
+  const filtered = employees.filter(e => (e.name || '').toLowerCase().includes(search.toLowerCase()));
 
   async function handleSaveEdit(e: React.FormEvent) {
     e.preventDefault();
     if (!editingEmp) return;
     setIsSaving(true);
     try {
-      const ref = doc(db, 'employees', editingEmp.id);
       const dataToSave = {
         name: editingEmp.name,
         role: editingEmp.role,
@@ -30,11 +28,11 @@ export default function EmployeesTable({ initialData }: { initialData: (Employee
         focus: editingEmp.focus,
         photo_url: editingEmp.photo_url || '',
       };
-      await updateDoc(ref, dataToSave);
+      await adminUpdate('employees', editingEmp.id, dataToSave);
       setEmployees(prev => prev.map(c => c.id === editingEmp.id ? { ...c, ...dataToSave } : c));
       setEditingEmp(null);
-    } catch (err) {
-      alert('Failed to save: ' + (err as any).message);
+    } catch (err: any) {
+      alert('Failed to save: ' + err.message);
     }
     setIsSaving(false);
   }

@@ -1,7 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { db } from '@/lib/firebase/client';
-import { doc, updateDoc, setDoc } from 'firebase/firestore';
+import { adminUpdate } from '@/lib/utils';
 
 export default function ImagesManager({ initialGroups }: { initialGroups: Record<string, any[]> }) {
   const [groups, setGroups] = useState(initialGroups);
@@ -15,8 +14,7 @@ export default function ImagesManager({ initialGroups }: { initialGroups: Record
     if (!editUrl.trim()) return;
     setIsSaving(true);
     try {
-      const ref = doc(db, 'site_images', id);
-      await setDoc(ref, { url: editUrl, page }, { merge: true });
+      await adminUpdate('site_images', id, { url: editUrl, page }, true);
       
       const updated = { ...groups };
       const imgIndex = updated[page].findIndex(i => i.id === id);
@@ -25,8 +23,8 @@ export default function ImagesManager({ initialGroups }: { initialGroups: Record
       }
       setGroups(updated);
       setEditingId(null);
-    } catch (err) {
-      alert('Failed to save image: ' + (err as any).message);
+    } catch (err: any) {
+      alert('Failed to save image: ' + err.message);
     }
     setIsSaving(false);
   }

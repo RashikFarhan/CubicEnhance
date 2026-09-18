@@ -1,7 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { db } from '@/lib/firebase/client';
-import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
+import { adminUpdate } from '@/lib/utils';
 import type { SiteMetrics } from '@/lib/firebase/schema';
 
 const METRIC_FIELDS: { key: keyof SiteMetrics; label: string; description: string }[] = [
@@ -16,14 +15,20 @@ export default function MetricsForm({ initialMetrics }: { initialMetrics: SiteMe
   const [metrics, setMetrics] = useState<SiteMetrics>(initialMetrics);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [error, setError] = useState('');
 
   async function handleSave(e: React.FormEvent) {
     e.preventDefault();
     setSaving(true);
-    await setDoc(doc(db, 'site_config', 'metrics'), { ...metrics, updated_at: serverTimestamp() });
+    setError('');
+    try {
+      await adminUpdate('site_config', 'metrics', metrics as any);
+      setSaved(true);
+      setTimeout(() => setSaved(false), 3000);
+    } catch (err: any) {
+      setError(err.message);
+    }
     setSaving(false);
-    setSaved(true);
-    setTimeout(() => setSaved(false), 3000);
   }
 
   return (
@@ -41,10 +46,11 @@ export default function MetricsForm({ initialMetrics }: { initialMetrics: SiteMe
         </div>
       ))}
 
+      {error && <p className="text-red-600 text-sm bg-red-50 p-3 rounded-lg">{error}</p>}
       <div className="pt-4">
         <button type="submit" disabled={saving}
           className="w-full py-3 bg-[#30495f] text-white font-bold text-sm rounded-lg hover:bg-[#5c829c] transition-colors disabled:opacity-60">
-          {saving ? 'Saving…' : saved ? '✓ Saved!' : 'Save Metrics to Firestore'}
+          {saving ? 'Saving.' : saved ? '✓ Saved!' : 'Save Metrics to Firestore'}
         </button>
         {saved && <p className="text-center text-xs text-green-600 mt-2">Live site counters will update on next page load.</p>}
       </div>

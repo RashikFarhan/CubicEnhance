@@ -1,11 +1,11 @@
 export const dynamic = 'force-dynamic';
-// app/(admin)/content/reviews/page.tsx
 import { adminDb } from '@/lib/firebase/admin';
+import { toSerializable } from '@/lib/utils';
 import ReviewsTable from './ReviewsTable';
 
 export default async function ReviewsPage() {
   const snap = await adminDb.collection('reviews').orderBy('created_at', 'desc').get();
-  const reviews = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+  const reviews = toSerializable(snap.docs.map(d => ({ id: d.id, ...d.data() })));
   return (
     <div className="p-8">
       <div className="mb-8">
@@ -16,4 +16,3 @@ export default async function ReviewsPage() {
     </div>
   );
 }
-

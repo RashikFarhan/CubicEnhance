@@ -1,8 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { db } from '@/lib/firebase/client';
-import { doc, updateDoc } from 'firebase/firestore';
-import { cn, formatDate, STATUS_COLORS } from '@/lib/utils';
+import { adminUpdate, cn, formatDate, STATUS_COLORS } from '@/lib/utils';
 import type { TalentApplication, TalentStatus } from '@/lib/firebase/schema';
 
 const STATUSES: TalentStatus[] = ['pending', 'reviewed', 'shortlisted', 'rejected'];
@@ -16,15 +14,23 @@ export default function TalentTable({ initialData }: { initialData: (TalentAppli
   const filtered = apps.filter(a => filterStatus === 'all' || a.status === filterStatus);
 
   async function updateStatus(id: string, status: TalentStatus) {
-    await updateDoc(doc(db, 'talent_registry', id), { status });
-    setApps(prev => prev.map(a => a.id === id ? { ...a, status } : a));
-    if (selected?.id === id) setSelected(prev => prev ? { ...prev, status } : null);
+    try {
+      await adminUpdate('talent_registry', id, { status });
+      setApps(prev => prev.map(a => a.id === id ? { ...a, status } : a));
+      if (selected?.id === id) setSelected(prev => prev ? { ...prev, status } : null);
+    } catch (err: any) {
+      alert('Failed to update status: ' + err.message);
+    }
   }
 
   async function saveNotes(id: string) {
-    await updateDoc(doc(db, 'talent_registry', id), { reviewer_notes: notes });
-    setApps(prev => prev.map(a => a.id === id ? { ...a, reviewer_notes: notes } : a));
-    alert('Notes saved!');
+    try {
+      await adminUpdate('talent_registry', id, { reviewer_notes: notes });
+      setApps(prev => prev.map(a => a.id === id ? { ...a, reviewer_notes: notes } : a));
+      alert('Notes saved!');
+    } catch (err: any) {
+      alert('Failed to save notes: ' + err.message);
+    }
   }
 
   return (
@@ -68,7 +74,7 @@ export default function TalentTable({ initialData }: { initialData: (TalentAppli
                       {STATUSES.map(s => <option key={s} value={s}>{s}</option>)}
                     </select>
                   </td>
-                  <td className="px-4 py-3 text-xs text-gray-400 whitespace-nowrap">{formatDate(app.created_at as any)}</td>
+                  <td className="px-4 py-3 text-xs text-gray-400 whitespace-nowrap">{typeof app.created_at === 'string' ? new Date(app.created_at).toLocaleDateString() : formatDate(app.created_at as any)}</td>
                 </tr>
               ))}
             </tbody>
@@ -81,7 +87,7 @@ export default function TalentTable({ initialData }: { initialData: (TalentAppli
         <div className="w-80 bg-white rounded-2xl border border-gray-200 shadow-sm p-6 flex-shrink-0 space-y-4">
           <div className="flex items-center justify-between">
             <h3 className="font-bold text-gray-900">Applicant Detail</h3>
-            <button onClick={() => setSelected(null)} className="text-gray-400 hover:text-gray-700">✕</button>
+            <button onClick={() => setSelected(null)} className="text-gray-400 hover:text-gray-700">&times;</button>
           </div>
           <div className="space-y-3 text-sm">
             <div><span className="text-xs font-bold text-gray-400 uppercase">Name</span><p className="font-semibold">{selected.full_name}</p></div>
