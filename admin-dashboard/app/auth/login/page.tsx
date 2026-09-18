@@ -35,7 +35,7 @@ function LoginForm() {
           try { 
             data = JSON.parse(text); 
           } catch (e) { 
-            throw new Error(Server Error ( + res.status + ):  + text.substring(0, 150)); 
+            throw new Error('Server Error (' + res.status + '): ' + text.substring(0, 150)); 
           }
           throw new Error(data.error || 'Session creation failed');
         }
@@ -116,3 +116,4 @@ export default function LoginPage() {
     </div>
   );
 }
+
