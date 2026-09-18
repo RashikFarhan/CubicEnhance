@@ -1,13 +1,11 @@
-// app/auth/login/page.tsx
 'use client';
-export const dynamic = 'force-dynamic';
 
-import { useState, useTransition } from 'react';
+import { useState, useTransition, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/lib/firebase/client';
 
-export default function LoginPage() {
+function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const redirect = searchParams.get('redirect') || '/';
@@ -25,7 +23,6 @@ export default function LoginPage() {
         const userCred = await signInWithEmailAndPassword(auth, email, password);
         const idToken = await userCred.user.getIdToken();
 
-        // Exchange ID token for a server-side session cookie
         const res = await fetch('/api/auth/session', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -49,9 +46,44 @@ export default function LoginPage() {
   }
 
   return (
+    <form onSubmit={handleSubmit} className="space-y-5">
+      <div>
+        <label className="block text-sm font-semibold text-gray-700 mb-1.5">Email Address</label>
+        <input
+          type="email" required value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="w-full px-4 py-3 rounded-lg border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#5c829c] focus:border-transparent transition-colors"
+          placeholder="admin@cubicenhance.com"
+        />
+      </div>
+      <div>
+        <label className="block text-sm font-semibold text-gray-700 mb-1.5">Password</label>
+        <input
+          type="password" required value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="w-full px-4 py-3 rounded-lg border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#5c829c] focus:border-transparent transition-colors"
+          placeholder="            "
+        />
+      </div>
+      {error && (
+        <div className="bg-red-50 border border-red-200 text-red-700 text-sm px-4 py-3 rounded-lg">
+          {error}
+        </div>
+      )}
+      <button
+        type="submit" disabled={isPending}
+        className="w-full py-3 bg-[#30495f] text-white font-bold text-sm rounded-lg hover:bg-[#5c829c] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+      >
+        {isPending ? 'Signing in...' : 'Sign In to Dashboard'}
+      </button>
+    </form>
+  );
+}
+
+export default function LoginPage() {
+  return (
     <div className="min-h-screen bg-[#f0f4f8] flex items-center justify-center px-4">
       <div className="w-full max-w-md">
-        {/* Logo */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center gap-3 mb-4">
             <div className="w-10 h-10 bg-[#30495f] rounded-xl flex items-center justify-center">
@@ -62,49 +94,19 @@ export default function LoginPage() {
             <span className="text-2xl font-bold text-[#30495f]">CubicEnhance</span>
           </div>
           <h1 className="text-xl font-semibold text-gray-800">Admin Dashboard</h1>
-          <p className="text-sm text-gray-500 mt-1">Restricted access — authorized personnel only</p>
+          <p className="text-sm text-gray-500 mt-1">Restricted access - authorized personnel only</p>
         </div>
 
-        {/* Card */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8">
-          <form onSubmit={handleSubmit} className="space-y-5">
-            <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-1.5">Email Address</label>
-              <input
-                type="email" required value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#5c829c] focus:border-transparent transition-colors"
-                placeholder="admin@cubicenhance.com"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-1.5">Password</label>
-              <input
-                type="password" required value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#5c829c] focus:border-transparent transition-colors"
-                placeholder="••••••••••••"
-              />
-            </div>
-            {error && (
-              <div className="bg-red-50 border border-red-200 text-red-700 text-sm px-4 py-3 rounded-lg">
-                {error}
-              </div>
-            )}
-            <button
-              type="submit" disabled={isPending}
-              className="w-full py-3 bg-[#30495f] text-white font-bold text-sm rounded-lg hover:bg-[#5c829c] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
-            >
-              {isPending ? 'Signing in…' : 'Sign In to Dashboard'}
-            </button>
-          </form>
+          <Suspense fallback={<div className="text-center text-sm text-gray-500 py-4">Loading form...</div>}>
+            <LoginForm />
+          </Suspense>
         </div>
 
         <p className="text-center text-xs text-gray-400 mt-6">
-          CubicEnhance Operations Platform · Admin Console
+          CubicEnhance Operations Platform &copy; Admin Console
         </p>
       </div>
     </div>
   );
 }
-
