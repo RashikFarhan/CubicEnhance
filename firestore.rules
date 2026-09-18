@@ -48,19 +48,22 @@ service cloud.firestore {
       allow write: if isAdmin();
     }
 
-    // ─── FORM SUBMISSIONS (public create, admin read/update) ──────────────────
-    // inquiries: created via the /api/public/inquiries route (server-validated)
-    match /inquiries/{id} {
-      allow read, update, delete: if isAdmin();
-      // Creates come through the Next.js API route which validates the shared secret
-      // Direct client creates are blocked in production (set to false once API routes are deployed)
-      allow create: if true;
+    match /site_images/{id} {
+      allow read: if true;
+      allow write: if isAdmin();
     }
 
-    // talent_registry: created via the /api/public/talent route
+    // ─── FORM SUBMISSIONS (public create, admin read/update) ──────────────────
+    // inquiries: created via the /api/public/inquiries route (server-validated, uses Admin SDK which bypasses rules)
+    match /inquiries/{id} {
+      allow read, update, delete: if isAdmin();
+      allow create: if false; // API routes use Admin SDK — client writes not needed
+    }
+
+    // talent_registry: created via the /api/public/talent route (server-validated, uses Admin SDK)
     match /talent_registry/{id} {
       allow read, update, delete: if isAdmin();
-      allow create: if true;
+      allow create: if false; // API routes use Admin SDK — client writes not needed
     }
 
     // ─── ADMIN-ONLY COLLECTIONS ────────────────────────────────────────────────
@@ -77,3 +80,4 @@ service cloud.firestore {
     }
   }
 }
+

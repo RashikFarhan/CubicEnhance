@@ -4,39 +4,39 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { useState } from 'react';
+import { LayoutDashboard, List, Image, Activity, Mail, Users, Settings, ExternalLink, LogOut } from 'lucide-react';
 
 const NAV_GROUPS = [
   {
     label: 'Overview',
     items: [
-      { href: '/', label: 'Dashboard', icon: '?' },
+      { href: '/', label: 'Dashboard', icon: <LayoutDashboard size={20} /> },
     ],
   },
   {
     label: 'Content Management',
     items: [
-      { href: '/content', label: 'Lists (Companies, Reviews)', icon: '?' },
-      { href: '/images', label: 'Images & Assets', icon: '?' },
+      { href: '/content', label: 'Lists (Companies, Reviews)', icon: <List size={20} /> },
+      { href: '/images', label: 'Images & Assets', icon: <Image size={20} /> },
     ],
   },
   {
     label: 'Site Config',
     items: [
-      { href: '/site/metrics', label: 'Metrics', icon: '??' },
+      { href: '/site/metrics', label: 'Metrics', icon: <Activity size={20} /> },
     ],
   },
   {
     label: 'Inquiries',
     items: [
-      { href: '/inquiries/contact', label: 'Contact Forms', icon: '??' },
-      { href: '/inquiries/talent', label: 'Talent Registry', icon: '??' },
+      { href: '/inquiries/contact', label: 'Contact Forms', icon: <Mail size={20} /> },
+      { href: '/inquiries/talent', label: 'Talent Registry', icon: <Users size={20} /> },
     ],
   },
   {
     label: 'Access & Integrations',
     items: [
-      { href: '/users', label: 'Users & Roles', icon: '??' },
-      { href: '/settings', label: 'Settings', icon: '??' },
+      { href: '/users', label: 'Users & Roles', icon: <Settings size={20} /> },
     ],
   },
 ];
@@ -54,13 +54,10 @@ export default function Sidebar() {
 
   return (
     <aside className="w-64 min-h-screen bg-[#30495f] text-white flex flex-col shadow-xl">
-      {/* Logo */}
       <div className="p-6 border-b border-white/10">
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
-            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-            </svg>
+            <LayoutDashboard className="w-5 h-5 text-white" />
           </div>
           <div>
             <p className="font-bold text-sm leading-tight">CubicEnhance</p>
@@ -69,7 +66,6 @@ export default function Sidebar() {
         </div>
       </div>
 
-      {/* Navigation */}
       <nav className="flex-1 p-4 overflow-y-auto space-y-6">
         {NAV_GROUPS.map((group) => (
           <div key={group.label}>
@@ -90,7 +86,7 @@ export default function Sidebar() {
                           : 'text-white/70 hover:bg-white/10 hover:text-white'
                       )}
                     >
-                      <span className="text-base">{item.icon}</span>
+                      <span className="text-base flex-shrink-0">{item.icon}</span>
                       {item.label}
                     </Link>
                   </li>
@@ -101,7 +97,6 @@ export default function Sidebar() {
         ))}
       </nav>
 
-      {/* Footer */}
       <div className="p-4 border-t border-white/10">
         <a
           href="/"
@@ -109,14 +104,14 @@ export default function Sidebar() {
           rel="noopener noreferrer"
           className="flex items-center gap-2 px-3 py-2 text-white/50 hover:text-white text-xs transition-colors mb-2"
         >
-          <span>??</span> View Public Site
+          <ExternalLink size={16} /> View Public Site
         </a>
         <button
           onClick={handleLogout}
           disabled={isLoggingOut}
           className="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-white/70 hover:bg-red-500/20 hover:text-red-300 text-sm transition-colors disabled:opacity-50"
         >
-          <span>??</span> {isLoggingOut ? 'Signing out...' : 'Sign Out'}
+          <LogOut size={16} /> {isLoggingOut ? 'Signing out...' : 'Sign Out'}
         </button>
       </div>
     </aside>
