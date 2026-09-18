@@ -48,9 +48,9 @@ async function fetchCompaniesMetrics() {
         const metricsDoc = await getDoc(doc(db, 'site_config', 'metrics'));
         if (metricsDoc.exists()) {
             const data = metricsDoc.data();
-            if (data.total_clients) document.getElementById('metric-clients')?.setAttribute('data-target', data.total_clients);
-            if (data.contractual_accounts) document.getElementById('metric-retention')?.setAttribute('data-target', data.contractual_accounts);
-            if (data.years_operational) document.getElementById('metric-years')?.setAttribute('data-target', data.years_operational);
+            if (data.total_clients !== undefined) document.getElementById('metric-clients')?.setAttribute('data-target', data.total_clients);
+            if (data.contractual_accounts !== undefined) document.getElementById('metric-retention')?.setAttribute('data-target', data.contractual_accounts);
+            if (data.years_operational !== undefined) document.getElementById('metric-years')?.setAttribute('data-target', data.years_operational);
             if(window.initCounters) window.initCounters();
             return;
         }
@@ -117,34 +117,31 @@ function renderReviews(data) {
     const reviewsTrack = document.getElementById('reviews-track');
     if(!reviewsTrack) return;
     reviewsTrack.innerHTML = ''; // clear existing
-    data.forEach(rev => {
+    data.forEach((rev, index) => {
         const card = document.createElement('div');
-        card.className = 'w-full md:w-1/3 flex-shrink-0 px-4 group';
+        card.className = "flex-none w-full md:w-1/2 lg:w-1/3 px-3";
         let rstars = '';
         for(let i=0; i<5; i++) {
             rstars += i < (Number(rev.rating) || 5) 
-                ? `<svg class="w-4 h-4 text-bcg-light-green fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>` 
-                : `<svg class="w-4 h-4 text-gray-600 fill-current" viewBox="0 0 24 24"><path d="M22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1v9.3z"/></svg>`;
+                ? `<svg class="w-5 h-5 text-bcg-light-green fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>` 
+                : `<svg class="w-5 h-5 text-gray-600 fill-current" viewBox="0 0 24 24"><path d="M22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1v9.3z"/></svg>`;
         }
         
-        const reviewerInitial = (rev.reviewer_name || '?').charAt(0).toUpperCase();
-        const reviewerName = rev.reviewer_name || 'Anonymous';
-        const reviewerCountry = rev.country || 'Unknown';
+        const safeText = (rev.text || '').replace(/"/g, '&quot;');
         
         card.innerHTML = `
-            <div class="bg-[#1a2b3c] rounded-2xl p-8 border border-gray-700 h-full flex flex-col hover:border-bcg-green transition-colors">
+            <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 h-full flex flex-col border border-white/20 hover:border-white/40 hover:bg-white/15 transition-colors shadow-lg group">
                 <div class="flex gap-1 mb-4">${rstars}</div>
-                <p class="text-gray-300 text-[0.95rem] leading-relaxed mb-8 flex-grow font-light text-left">"${rev.text || ''}"</p>
-                <div class="flex items-center gap-3 pt-6 border-t border-gray-700 mt-auto">
-                    <div class="w-8 h-8 rounded-full bg-bcg-dark flex items-center justify-center flex-shrink-0 border border-gray-600">
-                        <span class="text-xs font-bold text-gray-400">${reviewerInitial}</span>
-                    </div>
-                    <div>
-                        <p class="text-white text-xs font-bold capitalize tracking-wider">${reviewerName}</p>
-                        <p class="text-bcg-green text-[10px] uppercase tracking-widest font-bold mt-0.5">${reviewerCountry}</p>
-                    </div>
+                <p class="text-gray-300 text-[1.05rem] leading-[1.7] italic mb-3 font-serif line-clamp-4 relative transition-colors group-hover:text-white">"${safeText}"</p>
+                <button class="read-more-btn text-bcg-light-green text-sm font-bold uppercase tracking-wider text-left hover:text-white transition-colors mb-8 focus:outline-none" data-index="${index}">Read More &rarr;</button>
+                <div class="flex flex-wrap items-center gap-2 mt-auto pt-6 border-t border-white/20">
+                    <span class="text-[0.7rem] font-bold text-gray-400 uppercase tracking-widest">${rev.id || '#00'}</span>
+                    <span class="w-1 h-1 bg-gray-500 rounded-full mx-1"></span>
+                    <span class="px-2.5 py-1 bg-white/5 text-gray-300 text-[0.75rem] rounded-md font-medium border border-white/10">${rev.country || 'Unknown'} (${rev.country_code || 'N/A'})</span>
+                    <span class="px-2.5 py-1 bg-bcg-green text-white text-[0.75rem] rounded-md font-bold ml-auto whitespace-nowrap">${rev.service || ''}</span>
                 </div>
-            </div>`;
+            </div>
+        `;
         reviewsTrack.appendChild(card);
     });
     
