@@ -1,4 +1,3 @@
-// components/admin/Sidebar.tsx
 'use client';
 
 import Link from 'next/link';
@@ -10,40 +9,34 @@ const NAV_GROUPS = [
   {
     label: 'Overview',
     items: [
-      { href: '/', label: 'Dashboard', icon: '⬜' },
+      { href: '/', label: 'Dashboard', icon: '?' },
     ],
   },
   {
-    label: 'Content',
+    label: 'Content Management',
     items: [
-      { href: '/content/companies', label: 'Companies', icon: '🏢' },
-      { href: '/content/reviews', label: 'Reviews', icon: '⭐' },
-      { href: '/content/employees', label: 'Employees', icon: '👥' },
+      { href: '/content', label: 'Lists (Companies, Reviews)', icon: '?' },
+      { href: '/images', label: 'Images & Assets', icon: '?' },
     ],
   },
   {
     label: 'Site Config',
     items: [
-      { href: '/site/metrics', label: 'Metrics', icon: '📊' },
+      { href: '/site/metrics', label: 'Metrics', icon: '??' },
     ],
   },
   {
     label: 'Inquiries',
     items: [
-      { href: '/inquiries/contact', label: 'Contact Forms', icon: '📨' },
-      { href: '/inquiries/talent', label: 'Talent Registry', icon: '🎯' },
+      { href: '/inquiries/contact', label: 'Contact Forms', icon: '??' },
+      { href: '/inquiries/talent', label: 'Talent Registry', icon: '??' },
     ],
   },
   {
-    label: 'Access',
+    label: 'Access & Integrations',
     items: [
-      { href: '/users', label: 'Users & Roles', icon: '🔐' },
-    ],
-  },
-  {
-    label: 'Integrations',
-    items: [
-      { href: '/settings', label: 'Settings', icon: '⚙️' },
+      { href: '/users', label: 'Users & Roles', icon: '??' },
+      { href: '/settings', label: 'Settings', icon: '??' },
     ],
   },
 ];
@@ -111,19 +104,19 @@ export default function Sidebar() {
       {/* Footer */}
       <div className="p-4 border-t border-white/10">
         <a
-          href="https://cubicenhance.com"
+          href="/"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 px-3 py-2 text-white/50 hover:text-white text-xs transition-colors mb-2"
         >
-          <span>🌐</span> View Public Site
+          <span>??</span> View Public Site
         </a>
         <button
           onClick={handleLogout}
           disabled={isLoggingOut}
           className="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-white/70 hover:bg-red-500/20 hover:text-red-300 text-sm transition-colors disabled:opacity-50"
         >
-          <span>🚪</span> {isLoggingOut ? 'Signing out…' : 'Sign Out'}
+          <span>??</span> {isLoggingOut ? 'Signing out...' : 'Sign Out'}
         </button>
       </div>
     </aside>
