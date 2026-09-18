@@ -147,6 +147,7 @@ async function transformHTML(srcFile, cfg) {
   html = html.replace(/href=["']css\/style\.css(\?[^"']*)?["']/g, 'href="/css/main.css"');
   html = html.replace(/src=["']js\/main\.js(\?v=[^"']*)?["']/g, `src="/js/main.min.js?v=${BUILD_TS}"`);
   html = html.replace(/src=["']js\/main\.min\.js["']/g, `src="/js/main.min.js?v=${BUILD_TS}"`);
+  html = html.replace(/src=["']js\/firebase-hybrid\.js(\?v=[^"']*)?["']/g, `src="/js/firebase-hybrid.js?v=${BUILD_TS}"`);
   html = html.replace(/fetch\(["']companies\.json["']\)/g, "fetch('/companies.json')");
   html = html.replace(/fetch\(["']reviews\.json["']\)/g, "fetch('/reviews.json')");
 

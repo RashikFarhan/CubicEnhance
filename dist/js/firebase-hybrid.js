@@ -1,18 +1,49 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
-import { getFirestore, collection, doc, getDoc, getDocs, query, where } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
-
 const firebaseConfig = {
     apiKey: "AIzaSyD-3kMD8Cc6mqBGm3xWKhuisO2Wa5VimeI",
     authDomain: "cubicenhance-5fbf8.firebaseapp.com",
     projectId: "cubicenhance-5fbf8"
 };
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+let db = null;
+let firestoreExports = null;
+
+async function initFirebase() {
+    try {
+        const { initializeApp } = await import("https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js");
+        firestoreExports = await import("https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js");
+        const app = initializeApp(firebaseConfig);
+        db = firestoreExports.getFirestore(app);
+        return true;
+    } catch(err) {
+        console.warn('Firebase blocked or failed to load. Falling back to JSON.', err);
+        return false;
+    }
+}
+
+// Fallback logic for companies
+function fallbackCompaniesJSON() {
+    fetch('/companies.json').then(res => res.json()).then(data => {
+        const totalCompanies = data.length;
+        const contractual = data.filter(c => c.r_code > 0).length;
+        document.getElementById('metric-clients')?.setAttribute('data-target', totalCompanies);
+        document.getElementById('metric-retention')?.setAttribute('data-target', contractual);
+        if(window.initCounters) window.initCounters();
+    }).catch(e => {
+        if(window.initCounters) window.initCounters();
+    });
+}
+
+// Fallback logic for reviews
+function fallbackReviewsJSON() {
+    fetch('/reviews.json').then(res => res.json()).then(data => renderReviews(data)).catch(e => console.error("Reviews JSON failed", e));
+}
 
 // Hybrid Fetch for Metrics
 async function fetchCompaniesMetrics() {
+    if (!db || !firestoreExports) return fallbackCompaniesJSON();
+    
     try {
+        const { doc, getDoc, getDocs, collection } = firestoreExports;
         // Try getting site_config/metrics first
         const metricsDoc = await getDoc(doc(db, 'site_config', 'metrics'));
         if (metricsDoc.exists()) {
@@ -38,21 +69,16 @@ async function fetchCompaniesMetrics() {
         if(window.initCounters) window.initCounters();
     } catch(err) {
         console.warn('Firebase companies fetch failed, falling back to JSON:', err);
-        fetch('/companies.json').then(res => res.json()).then(data => {
-            const totalCompanies = data.length;
-            const contractual = data.filter(c => c.r_code > 0).length;
-            document.getElementById('metric-clients')?.setAttribute('data-target', totalCompanies);
-            document.getElementById('metric-retention')?.setAttribute('data-target', contractual);
-            if(window.initCounters) window.initCounters();
-        }).catch(e => {
-            if(window.initCounters) window.initCounters();
-        });
+        fallbackCompaniesJSON();
     }
 }
 
 // Hybrid Fetch for Reviews
 async function fetchReviewsData() {
+    if (!db || !firestoreExports) return fallbackReviewsJSON();
+
     try {
+        const { query, collection, where, getDocs } = firestoreExports;
         // Must use 'where' because Firestore rules block fetching all reviews
         const reviewsQuery = query(collection(db, 'reviews'), where('is_published', '==', true));
         const snapshot = await getDocs(reviewsQuery);
@@ -61,7 +87,7 @@ async function fetchReviewsData() {
         renderReviews(data);
     } catch(err) {
         console.warn('Firebase reviews fetch failed, falling back to JSON:', err);
-        fetch('/reviews.json').then(res => res.json()).then(data => renderReviews(data));
+        fallbackReviewsJSON();
     }
 }
 
@@ -85,7 +111,7 @@ function renderReviews(data) {
                 starsHTML += `<svg class="w-7 h-7 text-gray-600 fill-current" viewBox="0 0 24 24"><path d="M22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1v9.3z"/></svg>`;
             }
         }
-        document.getElementById('agg-stars-container').innerHTML = starsHTML;
+        document.getElementById('agg-stars').innerHTML = starsHTML;
     }
     
     const reviewsTrack = document.getElementById('reviews-track');
@@ -126,7 +152,8 @@ function renderReviews(data) {
     if(window.setupCarousel) window.setupCarousel();
 }
 
-function initHybrid() {
+async function initHybrid() {
+    await initFirebase(); // Safe now, won't crash if blocked
     fetchCompaniesMetrics();
     if(document.getElementById('reviews-track')) {
         fetchReviewsData();
