@@ -52,13 +52,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 const GA_HEAD = `
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XNZS8WZ22B"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3JP2540X8C"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-XNZS8WZ22B');
+  gtag('config', 'G-3JP2540X8C');
 </script>
 `;
 
