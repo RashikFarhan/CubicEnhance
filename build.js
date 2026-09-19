@@ -33,6 +33,23 @@ URL_MAP['services.html'] = '/solutions';
 URL_MAP['./services.html'] = '/solutions';
 
 // Resource hints to inject into every <head>
+const GTM_HEAD = `
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K66XJFDH');</script>
+<!-- End Google Tag Manager -->
+`;
+
+const GTM_BODY = `
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K66XJFDH"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+`;
+
 const META_PIXEL = `
 <!-- Meta Pixel Code -->
 <script>
@@ -171,6 +188,9 @@ async function transformHTML(srcFile, cfg) {
   html = html.replace(/fetch\(["']reviews\.json["']\)/g, "fetch('/reviews.json')");
 
   // 4h. Add lazy loading to non-hero images
+  // Inject GTM Body
+  html = html.replace(/(<body[^>]*>)/i, `$1\n${GTM_BODY}`);
+
   let imgCount = 0;
   html = html.replace(/<img\s/g, (match) => {
     imgCount++;
