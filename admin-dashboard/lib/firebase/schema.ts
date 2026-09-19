@@ -51,11 +51,13 @@ export interface Employee {
 
 // ─── site_config/ ─────────────────────────────────────────────────────────────
 export interface SiteMetrics {
-  total_clients: number;
+  total_tasks: number;
   contractual_accounts: number;
   years_operational: number;
-  total_employees_core: number;
-  contractual_fleet_size: number;
+  employee_experience: number;
+  total_clients?: number;
+  total_employees_core?: number;
+  contractual_fleet_size?: number;
 }
 
 // ─── content/ ─────────────────────────────────────────────────────────────────

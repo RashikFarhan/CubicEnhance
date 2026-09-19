@@ -4,11 +4,10 @@ import { adminUpdate } from '@/lib/utils';
 import type { SiteMetrics } from '@/lib/firebase/schema';
 
 const METRIC_FIELDS: { key: keyof SiteMetrics; label: string; description: string }[] = [
-  { key: 'total_clients', label: 'Total Client Partnerships', description: 'Drives the "Total Client Partnerships" counter on the homepage' },
-  { key: 'contractual_accounts', label: 'Contractual Managed Accounts', description: 'Drives the "Contractual Managed Accounts" counter' },
-  { key: 'years_operational', label: 'Years of Operational Discipline', description: 'Drives the "Years" counter' },
-  { key: 'total_employees_core', label: 'Core Team Size', description: 'Internal figure for leadership page' },
-  { key: 'contractual_fleet_size', label: 'Contractual Fleet Size', description: 'Total managed operators across all engagements' },
+  { key: 'total_tasks', label: 'Total Tasks Completed', description: 'Drives the far-left counter on the homepage' },
+  { key: 'contractual_accounts', label: 'Contractual Managed Accounts', description: 'Drives the second counter. Must be manually updated here or calculated.' },
+  { key: 'years_operational', label: 'Years in Operation', description: 'Drives the third counter' },
+  { key: 'employee_experience', label: 'Years Employee Experience', description: 'Drives the fourth counter' }
 ];
 
 export default function MetricsForm({ initialMetrics }: { initialMetrics: SiteMetrics }) {

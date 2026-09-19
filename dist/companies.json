@@ -1,730 +1,268 @@
 [
-    {
-        "name": "L. Hughes Digital",
-        "c_code": "C1",
-        "s_code": "S4",
-        "r_code": 2.5,
-        "country": "United States",
-        "description": "A boutique social media agency managing accounts for local dental practices."
-    },
-    {
-        "name": "Riverbend Goods LLC",
-        "c_code": "C2",
-        "s_code": "S2",
-        "r_code": 1.75,
-        "country": "United States",
-        "description": "A small family-owned apparel brand needing high-volume SKU and product data management."
-    },
-    {
-        "name": "M.C. Structural",
-        "c_code": "C3",
-        "s_code": "S2",
-        "r_code": 3.0,
-        "country": "United States",
-        "description": "A three-person civil engineering consultancy outsourcing their RFI and submittal tracking."
-    },
-    {
-        "name": "Alloy Metrics",
-        "c_code": "C4",
-        "s_code": "S1",
-        "r_code": 0.5,
-        "country": "United States",
-        "description": "An early-stage SaaS startup requiring internal data cleanup and ledger organization."
-    },
-    {
-        "name": "Bright Path Media",
-        "c_code": "C1",
-        "s_code": "S6",
-        "r_code": 1.2,
-        "country": "United States",
-        "description": "A regional marketing firm outsourcing their overflow graphic design and flyer production."
-    },
-    {
-        "name": "Henderson & Co. Retail",
-        "c_code": "C2",
-        "s_code": "S1",
-        "r_code": 4.1,
-        "country": "United States",
-        "description": "A brick-and-mortar hardware store expanding online, needing custom receipt automation."
-    },
-    {
-        "name": "Oak Valley Civil",
-        "c_code": "C3",
-        "s_code": "S2",
-        "r_code": 0.0,
-        "country": "United States",
-        "description": "A local surveying team that required a one-off digital archive organization for legacy project files."
-    },
-    {
-        "name": "Syntax Shift",
-        "c_code": "C4",
-        "s_code": "S3",
-        "r_code": 2.0,
-        "country": "United States",
-        "description": "A B2B software tool utilizing our team to build automated n8n workflows for customer onboarding."
-    },
-    {
-        "name": "The Carter Agency",
-        "c_code": "C1",
-        "s_code": "S5",
-        "r_code": 1.8,
-        "country": "United States",
-        "description": "A traditional PR firm that contracts us to maintain and update their clients' WordPress sites."
-    },
-    {
-        "name": "Weston Home Goods",
-        "c_code": "C2",
-        "s_code": "S7",
-        "r_code": 0.75,
-        "country": "United States",
-        "description": "An online furniture retailer requiring bulk background removal and product video formatting."
-    },
-    {
-        "name": "Pioneer Drafting",
-        "c_code": "C3",
-        "s_code": "S6",
-        "r_code": 2.25,
-        "country": "United States",
-        "description": "A residential architecture firm that uses us for 3D modeling and conceptual rendering."
-    },
-    {
-        "name": "Nimble Ops",
-        "c_code": "C4",
-        "s_code": "S2",
-        "r_code": 1.1,
-        "country": "United States",
-        "description": "A fast-growing tech startup outsourcing their vendor NDA and compliance expiry tracking."
-    },
-    {
-        "name": "Fletcher Digital",
-        "c_code": "C1",
-        "s_code": "S7",
-        "r_code": 0.0,
-        "country": "United States",
-        "description": "An ad agency that needed a one-time bulk edit of raw smartphone footage for a local campaign."
-    },
-    {
-        "name": "Summit Ridge Trading",
-        "c_code": "C2",
-        "s_code": "S1",
-        "r_code": 3.5,
-        "country": "United States",
-        "description": "A dropshipping operation relying on our custom Google Sheets management systems."
-    },
-    {
-        "name": "H&B Builders",
-        "c_code": "C3",
-        "s_code": "S2",
-        "r_code": 4.5,
-        "country": "United States",
-        "description": "A commercial contractor that has used our back-office team for drawing registers since our inception."
-    },
-    {
-        "name": "Logic Spark",
-        "c_code": "C4",
-        "s_code": "S3",
-        "r_code": 1.4,
-        "country": "United States",
-        "description": "A data analytics startup needing human-in-the-loop oversight for their proprietary AI model training."
-    },
-    {
-        "name": "Crestview Marketing",
-        "c_code": "C1",
-        "s_code": "S4",
-        "r_code": 2.8,
-        "country": "United States",
-        "description": "A real estate marketing firm outsourcing daily post scheduling and digital asset organization."
-    },
-    {
-        "name": "T.J. Apparel",
-        "c_code": "C2",
-        "s_code": "S5",
-        "r_code": 1.0,
-        "country": "United States",
-        "description": "An independent streetwear label needing ongoing Shopify maintenance and front-end design tweaks."
-    },
-    {
-        "name": "Apex Groundworks",
-        "c_code": "C3",
-        "s_code": "S1",
-        "r_code": 0.6,
-        "country": "United States",
-        "description": "A local excavation company requiring custom internal accounting spreadsheets to track equipment costs."
-    },
-    {
-        "name": "Foundry SaaS",
-        "c_code": "C4",
-        "s_code": "S5",
-        "r_code": 2.1,
-        "country": "United States",
-        "description": "A subscription software company that contracts us for continuous manual QA testing and bug reporting."
-    },
-    {
-        "name": "D.W. Creative",
-        "c_code": "C1",
-        "s_code": "S6",
-        "r_code": 3.2,
-        "country": "United States",
-        "description": "A brand consultancy outsourcing large-format print design and corporate brochures."
-    },
-    {
-        "name": "Blue Pine Retail",
-        "c_code": "C2",
-        "s_code": "S3",
-        "r_code": 1.9,
-        "country": "United States",
-        "description": "An online outdoor gear shop using our AI workflows to categorize customer support tickets."
-    },
-    {
-        "name": "Harrison Civil",
-        "c_code": "C3",
-        "s_code": "S2",
-        "r_code": 0.0,
-        "country": "United States",
-        "description": "An engineering team that outsourced a one-time compliance folder audit."
-    },
-    {
-        "name": "Venture Loop",
-        "c_code": "C4",
-        "s_code": "S1",
-        "r_code": 2.4,
-        "country": "United States",
-        "description": "An angel investment syndicate needing CRM data cleaning and lead database enrichment."
-    },
-    {
-        "name": "North Star Media",
-        "c_code": "C1",
-        "s_code": "S7",
-        "r_code": 1.3,
-        "country": "United States",
-        "description": "A podcast production company outsourcing the slicing of long-form audio into short social clips."
-    },
-    {
-        "name": "O'Connor Web Studio",
-        "c_code": "C1",
-        "s_code": "S5",
-        "r_code": 3.1,
-        "country": "United Kingdom",
-        "description": "A local web shop using our team as their backend CMS management and maintenance arm."
-    },
-    {
-        "name": "Thames Valley Traders",
-        "c_code": "C2",
-        "s_code": "S2",
-        "r_code": 2.6,
-        "country": "United Kingdom",
-        "description": "A mid-sized e-commerce merchant outsourcing their returns authorization logs and inventory reconciliation."
-    },
-    {
-        "name": "BuildRight UK",
-        "c_code": "C3",
-        "s_code": "S2",
-        "r_code": 4.0,
-        "country": "United Kingdom",
-        "description": "A regional property developer relying on our team for daily progress report compilation."
-    },
-    {
-        "name": "Fintech Node",
-        "c_code": "C4",
-        "s_code": "S3",
-        "r_code": 1.5,
-        "country": "United Kingdom",
-        "description": "A financial tech startup using our human operators to verify automated compliance decisions."
-    },
-    {
-        "name": "S. Clark Marketing",
-        "c_code": "C1",
-        "s_code": "S4",
-        "r_code": 0.8,
-        "country": "United Kingdom",
-        "description": "An independent consultant outsourcing social media formatting and scheduling for pub clients."
-    },
-    {
-        "name": "Wellington Goods",
-        "c_code": "C2",
-        "s_code": "S1",
-        "r_code": 2.7,
-        "country": "United Kingdom",
-        "description": "A boutique home decor brand utilizing our master Excel sheets for internal ledger visibility."
-    },
-    {
-        "name": "Highland Structural",
-        "c_code": "C3",
-        "s_code": "S6",
-        "r_code": 1.1,
-        "country": "United Kingdom",
-        "description": "A Scottish engineering firm contracting us for architectural visualization on new bids."
-    },
-    {
-        "name": "CloudShift UK",
-        "c_code": "C4",
-        "s_code": "S2",
-        "r_code": 0.0,
-        "country": "United Kingdom",
-        "description": "A cloud storage startup that needed a one-time onboarding document structuring project."
-    },
-    {
-        "name": "The London Ad Co.",
-        "c_code": "C1",
-        "s_code": "S7",
-        "r_code": 3.4,
-        "country": "United Kingdom",
-        "description": "A busy ad agency outsourcing bulk video transcription and subtitle generation."
-    },
-    {
-        "name": "G. Mitchell Retail",
-        "c_code": "C2",
-        "s_code": "S5",
-        "r_code": 2.0,
-        "country": "United Kingdom",
-        "description": "An antique dealer needing continuous updates and security patches for their custom website."
-    },
-    {
-        "name": "Avon Civil Engineering",
-        "c_code": "C3",
-        "s_code": "S1",
-        "r_code": 1.6,
-        "country": "United Kingdom",
-        "description": "A groundwork contractor using our customized spreadsheet systems for subcontractor cost tracking."
-    },
-    {
-        "name": "DataSphere SaaS",
-        "c_code": "C4",
-        "s_code": "S3",
-        "r_code": 0.5,
-        "country": "United Kingdom",
-        "description": "A machine learning startup outsourcing image annotation and AI dataset preparation."
-    },
-    {
-        "name": "Pennine Digital",
-        "c_code": "C1",
-        "s_code": "S6",
-        "r_code": 2.9,
-        "country": "United Kingdom",
-        "description": "A small agency outsourcing the creation of social media carousels and email templates."
-    },
-    {
-        "name": "B. Davis E-Commerce",
-        "c_code": "C2",
-        "s_code": "S4",
-        "r_code": 1.2,
-        "country": "United Kingdom",
-        "description": "An independent cosmetics brand needing human verification for AI-generated SEO meta-data."
-    },
-    {
-        "name": "Yorkshire Draftworks",
-        "c_code": "C3",
-        "s_code": "S2",
-        "r_code": 3.8,
-        "country": "United Kingdom",
-        "description": "An architectural drafting business outsourcing their heavy RFI and document classification workload."
-    },
-    {
-        "name": "Outback Digital Pty Ltd",
-        "c_code": "C1",
-        "s_code": "S4",
-        "r_code": 2.3,
-        "country": "Australia",
-        "description": "A regional agency managing content calendars for agricultural equipment suppliers."
-    },
-    {
-        "name": "Sydney Harbour Retail",
-        "c_code": "C2",
-        "s_code": "S1",
-        "r_code": 1.4,
-        "country": "Australia",
-        "description": "A surfwear brand requiring automated receipt generation and PO matching workflows."
-    },
-    {
-        "name": "K. Patel Construction",
-        "c_code": "C3",
-        "s_code": "S2",
-        "r_code": 3.7,
-        "country": "Australia",
-        "description": "A commercial builder outsourcing safety compliance logs and site meeting minute transcription."
-    },
-    {
-        "name": "Tasman SaaS",
-        "c_code": "C4",
-        "s_code": "S2",
-        "r_code": 0.9,
-        "country": "Australia",
-        "description": "A logistics software startup needing routine CRM data entry and duplicate removal."
-    },
-    {
-        "name": "Melbourne Creative",
-        "c_code": "C1",
-        "s_code": "S6",
-        "r_code": 4.2,
-        "country": "Australia",
-        "description": "A high-volume marketing firm outsourcing basic illustration and flyer design."
-    },
-    {
-        "name": "Golden Wattle Goods",
-        "c_code": "C2",
-        "s_code": "S7",
-        "r_code": 1.8,
-        "country": "Australia",
-        "description": "A local crafts retailer requiring product video editing and in-built styling for online listings."
-    },
-    {
-        "name": "Brisbane Civil",
-        "c_code": "C3",
-        "s_code": "S5",
-        "r_code": 0.0,
-        "country": "Australia",
-        "description": "A small surveying firm that needed a one-time corporate B2B website build."
-    },
-    {
-        "name": "Kiwi Tech Solutions",
-        "c_code": "C4",
-        "s_code": "S3",
-        "r_code": 1.0,
-        "country": "New Zealand",
-        "description": "An AI startup using our remote operators for RLHF (Reinforcement Learning from Human Feedback)."
-    },
-    {
-        "name": "Auckland Media",
-        "c_code": "C1",
-        "s_code": "S5",
-        "r_code": 2.5,
-        "country": "New Zealand",
-        "description": "An agency contracting us for routine plugin updates and vulnerability patching on client sites."
-    },
-    {
-        "name": "Southern Alps E-Commerce",
-        "c_code": "C2",
-        "s_code": "S2",
-        "r_code": 1.7,
-        "country": "New Zealand",
-        "description": "An outdoor equipment retailer outsourcing supplier compliance document tracking."
-    },
-    {
-        "name": "W. Reid Engineering",
-        "c_code": "C3",
-        "s_code": "S1",
-        "r_code": 3.0,
-        "country": "Australia",
-        "description": "An engineering consultancy using our team to clean and migrate legacy project data."
-    },
-    {
-        "name": "NextGen Workflow",
-        "c_code": "C4",
-        "s_code": "S3",
-        "r_code": 1.1,
-        "country": "Australia",
-        "description": "A B2B integration company utilizing us to build Make and Zapier API pipelines."
-    },
-    {
-        "name": "Perth Digital Group",
-        "c_code": "C1",
-        "s_code": "S7",
-        "r_code": 0.4,
-        "country": "Australia",
-        "description": "A communications firm outsourcing the editing of raw corporate event footage."
-    },
-    {
-        "name": "Coral Coast Trading",
-        "c_code": "C2",
-        "s_code": "S4",
-        "r_code": 2.2,
-        "country": "Australia",
-        "description": "A jewelry brand needing cross-platform social media scheduling and community engagement."
-    },
-    {
-        "name": "Hobart Draft & Design",
-        "c_code": "C3",
-        "s_code": "S6",
-        "r_code": 1.9,
-        "country": "Australia",
-        "description": "A boutique design firm outsourcing product mockups and 3D conceptual assets."
-    },
-    {
-        "name": "Maple Ridge Digital",
-        "c_code": "C1",
-        "s_code": "S2",
-        "r_code": 2.8,
-        "country": "Canada",
-        "description": "An SEO agency outsourcing weekly reporting templates and client CRM enrichment."
-    },
-    {
-        "name": "Toronto Brickworks Retail",
-        "c_code": "C2",
-        "s_code": "S1",
-        "r_code": 1.5,
-        "country": "Canada",
-        "description": "A building supplies merchant needing high-volume invoice data extraction."
-    },
-    {
-        "name": "L. Tremblay Civil",
-        "c_code": "C3",
-        "s_code": "S2",
-        "r_code": 3.6,
-        "country": "Canada",
-        "description": "A francophone engineering team outsourcing digital archive organization and file naming."
-    },
-    {
-        "name": "Northern SaaS",
-        "c_code": "C4",
-        "s_code": "S5",
-        "r_code": 1.2,
-        "country": "Canada",
-        "description": "A software firm contracting our dedicated testing teams for pre-deployment QA."
-    },
-    {
-        "name": "Calgary Creative",
-        "c_code": "C1",
-        "s_code": "S6",
-        "r_code": 0.0,
-        "country": "Canada",
-        "description": "An agency that utilized us for a one-off large-format billboard design project."
-    },
-    {
-        "name": "Pacific Coast Goods",
-        "c_code": "C2",
-        "s_code": "S7",
-        "r_code": 2.1,
-        "country": "Canada",
-        "description": "An activewear retailer outsourcing bulk photo retouching for their seasonal catalog."
-    },
-    {
-        "name": "Yukon Builders",
-        "c_code": "C3",
-        "s_code": "S1",
-        "r_code": 1.0,
-        "country": "Canada",
-        "description": "A remote construction firm needing customized internal accounting spreadsheets."
-    },
-    {
-        "name": "Nova Tech Labs",
-        "c_code": "C4",
-        "s_code": "S3",
-        "r_code": 2.7,
-        "country": "Canada",
-        "description": "A health-tech startup requiring human review of unstructured data extracted by their AI."
-    },
-    {
-        "name": "B. MacDonald Media",
-        "c_code": "C1",
-        "s_code": "S4",
-        "r_code": 1.8,
-        "country": "Canada",
-        "description": "A solo marketing consultant outsourcing blog formatting and tagging."
-    },
-    {
-        "name": "St. Lawrence Retail",
-        "c_code": "C2",
-        "s_code": "S2",
-        "r_code": 3.3,
-        "country": "Canada",
-        "description": "A mid-sized e-commerce distributor outsourcing marketplace fee reconciliations."
-    },
-    {
-        "name": "Al-Farsi Marketing",
-        "c_code": "C1",
-        "s_code": "S5",
-        "r_code": 2.4,
-        "country": "United Arab Emirates",
-        "description": "A Dubai-based agency outsourcing custom landing pages for marketing campaigns."
-    },
-    {
-        "name": "Gulf Coast Trading",
-        "c_code": "C2",
-        "s_code": "S2",
-        "r_code": 1.6,
-        "country": "United Arab Emirates",
-        "description": "A luxury goods importer needing vendor contract collection and tracking."
-    },
-    {
-        "name": "N. Youssef Engineering",
-        "c_code": "C3",
-        "s_code": "S6",
-        "r_code": 3.9,
-        "country": "Saudi Arabia",
-        "description": "A rapidly expanding construction firm contracting us for high-fidelity 3D property renderings."
-    },
-    {
-        "name": "Oasis SaaS Solutions",
-        "c_code": "C4",
-        "s_code": "S3",
-        "r_code": 1.1,
-        "country": "Bahrain",
-        "description": "A tech firm using our operators to verify AI-generated Arabic-to-English translations."
-    },
-    {
-        "name": "Crescent Digital",
-        "c_code": "C1",
-        "s_code": "S7",
-        "r_code": 0.5,
-        "country": "Qatar",
-        "description": "A PR firm outsourcing the compilation of customer product review videos."
-    },
-    {
-        "name": "Badr E-Commerce",
-        "c_code": "C2",
-        "s_code": "S1",
-        "r_code": 2.0,
-        "country": "Oman",
-        "description": "An online electronics retailer relying on our custom internal ledgers."
-    },
-    {
-        "name": "Emirates Civil Support",
-        "c_code": "C3",
-        "s_code": "S2",
-        "r_code": 4.2,
-        "country": "United Arab Emirates",
-        "description": "A massive contracting firm outsourcing their heavy submittal tracking workflow."
-    },
-    {
-        "name": "Levant Tech",
-        "c_code": "C4",
-        "s_code": "S2",
-        "r_code": 0.0,
-        "country": "Jordan",
-        "description": "A startup that outsourced a one-time competitor pricing matrix research project."
-    },
-    {
-        "name": "M. Tariq Media",
-        "c_code": "C1",
-        "s_code": "S4",
-        "r_code": 1.7,
-        "country": "Saudi Arabia",
-        "description": "An ad agency needing dedicated remote teams for campaign analytics and CRM entry."
-    },
-    {
-        "name": "Dune Retail",
-        "c_code": "C2",
-        "s_code": "S5",
-        "r_code": 2.5,
-        "country": "Kuwait",
-        "description": "A fashion marketplace outsourcing inventory data reconciliation on their Shopify backend."
-    },
-    {
-        "name": "Tanaka Digital Studio",
-        "c_code": "C1",
-        "s_code": "S6",
-        "r_code": 3.0,
-        "country": "Japan",
-        "description": "A Tokyo agency outsourcing basic digital ad creatives and email templates."
-    },
-    {
-        "name": "Golden Pearl Retail",
-        "c_code": "C2",
-        "s_code": "S7",
-        "r_code": 1.9,
-        "country": "Singapore",
-        "description": "An online cosmetics brand needing high-volume image background removal."
-    },
-    {
-        "name": "L. Chen Structural",
-        "c_code": "C3",
-        "s_code": "S2",
-        "r_code": 2.6,
-        "country": "Malaysia",
-        "description": "A civil engineering group outsourcing drawing register maintenance."
-    },
-    {
-        "name": "Nexus Tech SG",
-        "c_code": "C4",
-        "s_code": "S3",
-        "r_code": 1.3,
-        "country": "Singapore",
-        "description": "A SaaS company using our human operators to handle exceptions for their automated payment systems."
-    },
-    {
-        "name": "Seoul Media Group",
-        "c_code": "C1",
-        "s_code": "S4",
-        "r_code": 0.8,
-        "country": "South Korea",
-        "description": "A boutique marketing firm outsourcing SEO meta-data generation and posting."
-    },
-    {
-        "name": "Mekong Traders",
-        "c_code": "C2",
-        "s_code": "S1",
-        "r_code": 2.1,
-        "country": "Vietnam",
-        "description": "An import/export business needing PDF invoice indexing and database updates."
-    },
-    {
-        "name": "Shibuya Draftworks",
-        "c_code": "C3",
-        "s_code": "S6",
-        "r_code": 0.0,
-        "country": "Japan",
-        "description": "An architectural firm that outsourced a one-time 3D modeling project."
-    },
-    {
-        "name": "Jakarta SaaS",
-        "c_code": "C4",
-        "s_code": "S2",
-        "r_code": 1.5,
-        "country": "Indonesia",
-        "description": "A tech startup needing routine inbox triage and email routing for their sales team."
-    },
-    {
-        "name": "P. Sharma Marketing",
-        "c_code": "C1",
-        "s_code": "S5",
-        "r_code": 3.2,
-        "country": "India",
-        "description": "A fast-growing digital agency utilizing us as a white-label web maintenance team."
-    },
-    {
-        "name": "Taipei E-Commerce",
-        "c_code": "C2",
-        "s_code": "S2",
-        "r_code": 2.8,
-        "country": "Taiwan",
-        "description": "An electronics retailer outsourcing customer support ticket classification to our AI/Human workflow."
-    },
-    {
-        "name": "Berlin Software GmbH",
-        "c_code": "C4",
-        "s_code": "S5",
-        "r_code": 2.5,
-        "country": "Germany",
-        "description": "A B2B software firm outsourcing ongoing UI/UX front-end design tweaks."
-    },
-    {
-        "name": "Alpine Gear Retail",
-        "c_code": "C2",
-        "s_code": "S7",
-        "r_code": 1.4,
-        "country": "Switzerland",
-        "description": "An outdoor brand needing formatting of internal product showcase videos."
-    },
-    {
-        "name": "J. Dubois Digital",
-        "c_code": "C1",
-        "s_code": "S4",
-        "r_code": 3.1,
-        "country": "France",
-        "description": "A solo marketing consultant outsourcing their entire digital asset organization workflow."
-    },
-    {
-        "name": "Nordic Civil Support",
-        "c_code": "C3",
-        "s_code": "S1",
-        "r_code": 0.7,
-        "country": "Sweden",
-        "description": "A construction management team using our automated receipt generation systems."
-    },
-    {
-        "name": "M. Rossi Trading",
-        "c_code": "C2",
-        "s_code": "S2",
-        "r_code": 2.0,
-        "country": "Italy",
-        "description": "A boutique fashion distributor needing unstructured files and legacy data migrated to a clean cloud drive."
-    },
-    {
-        "name": "Vienna Tech Labs",
-        "c_code": "C4",
-        "s_code": "S3",
-        "r_code": 1.8,
-        "country": "Austria",
-        "description": "A machine learning startup outsourcing text classification and labeling to our human-in-the-loop team."
-    }
+  {
+    "name": "Crestview Marketing",
+    "country": "United States",
+    "country_code": "UNK",
+    "category_code": "C1",
+    "category_label": "Digital & Marketing Agencies",
+    "service_code": "S4",
+    "service_label": "Social Media Management & Marketing",
+    "description": "A real estate marketing firm outsourcing daily post scheduling and digital asset organization.",
+    "logo_url": null,
+    "is_featured": true,
+    "is_active": true,
+    "created_at": {
+      "_seconds": 1789677310,
+      "_nanoseconds": 283000000
+    },
+    "is_contractual": true,
+    "revenue_code": 1
+  },
+  {
+    "name": "Weston Home Goods",
+    "country": "United States",
+    "country_code": "UNK",
+    "category_code": "C2",
+    "category_label": "E-Commerce & Retail",
+    "service_code": "S7",
+    "service_label": "Photos & Videos Production",
+    "description": "An online furniture retailer requiring bulk background removal and product video formatting.",
+    "logo_url": null,
+    "is_featured": true,
+    "is_active": true,
+    "created_at": {
+      "_seconds": 1789677310,
+      "_nanoseconds": 283000000
+    },
+    "is_contractual": true,
+    "revenue_code": 1
+  },
+  {
+    "name": "Northern SaaS",
+    "country": "Canada",
+    "country_code": "UNK",
+    "category_code": "C4",
+    "category_label": "Startups & SaaS",
+    "service_code": "S5",
+    "service_label": "Website Design & Maintenance",
+    "description": "A software firm contracting our dedicated testing teams for pre-deployment QA.",
+    "logo_url": null,
+    "is_featured": true,
+    "is_active": true,
+    "created_at": {
+      "_seconds": 1789677310,
+      "_nanoseconds": 283000000
+    },
+    "is_contractual": true,
+    "revenue_code": 1
+  },
+  {
+    "name": "Alpine Gear Retail",
+    "country": "Switzerland",
+    "country_code": "UNK",
+    "category_code": "C2",
+    "category_label": "E-Commerce & Retail",
+    "service_code": "S7",
+    "service_label": "Photos & Videos Production",
+    "description": "An outdoor brand needing formatting of internal product showcase videos.",
+    "logo_url": null,
+    "is_featured": true,
+    "is_active": true,
+    "created_at": {
+      "_seconds": 1789677310,
+      "_nanoseconds": 283000000
+    },
+    "is_contractual": true,
+    "revenue_code": 1
+  },
+  {
+    "name": "Henderson & Co. Retail",
+    "country": "United States",
+    "country_code": "UNK",
+    "category_code": "C2",
+    "category_label": "E-Commerce & Retail",
+    "service_code": "S1",
+    "service_label": "Data & Internal Accounting",
+    "description": "A brick-and-mortar hardware store expanding online, needing custom receipt automation.",
+    "logo_url": null,
+    "is_featured": true,
+    "is_active": true,
+    "created_at": {
+      "_seconds": 1789677310,
+      "_nanoseconds": 283000000
+    },
+    "is_contractual": true,
+    "revenue_code": 1
+  },
+  {
+    "name": "K. Patel Construction",
+    "country": "Australia",
+    "country_code": "UNK",
+    "category_code": "C3",
+    "category_label": "Construction & Engineering",
+    "service_code": "S2",
+    "service_label": "Documentation & Back-Office Operations",
+    "description": "A commercial builder outsourcing safety compliance logs and site meeting minute transcription.",
+    "logo_url": null,
+    "is_featured": true,
+    "is_active": true,
+    "created_at": {
+      "_seconds": 1789677310,
+      "_nanoseconds": 283000000
+    },
+    "is_contractual": true,
+    "revenue_code": 1
+  },
+  {
+    "name": "Berlin Software GmbH",
+    "country": "Germany",
+    "country_code": "UNK",
+    "category_code": "C4",
+    "category_label": "Startups & SaaS",
+    "service_code": "S5",
+    "service_label": "Website Design & Maintenance",
+    "description": "A B2B software firm outsourcing ongoing UI/UX front-end design tweaks.",
+    "logo_url": null,
+    "is_featured": true,
+    "is_active": true,
+    "created_at": {
+      "_seconds": 1789677310,
+      "_nanoseconds": 283000000
+    },
+    "is_contractual": true,
+    "revenue_code": 1
+  },
+  {
+    "name": "Alloy Metrics",
+    "country": "United States",
+    "country_code": "UNK",
+    "category_code": "C4",
+    "category_label": "Startups & SaaS",
+    "service_code": "S1",
+    "service_label": "Data & Internal Accounting",
+    "description": "An early-stage SaaS startup requiring internal data cleanup and ledger organization.",
+    "logo_url": null,
+    "is_featured": true,
+    "is_active": true,
+    "created_at": {
+      "_seconds": 1789677310,
+      "_nanoseconds": 283000000
+    },
+    "is_contractual": true,
+    "revenue_code": 1
+  },
+  {
+    "name": "The London Ad Co.",
+    "country": "United Kingdom",
+    "country_code": "UNK",
+    "category_code": "C1",
+    "category_label": "Digital & Marketing Agencies",
+    "service_code": "S7",
+    "service_label": "Photos & Videos Production",
+    "description": "A busy ad agency outsourcing bulk video transcription and subtitle generation.",
+    "logo_url": null,
+    "is_featured": true,
+    "is_active": true,
+    "created_at": {
+      "_seconds": 1789677310,
+      "_nanoseconds": 283000000
+    },
+    "is_contractual": true,
+    "revenue_code": 1
+  },
+  {
+    "name": "Highland Structural",
+    "country": "United Kingdom",
+    "country_code": "UNK",
+    "category_code": "C3",
+    "category_label": "Construction & Engineering",
+    "service_code": "S6",
+    "service_label": "Graphics Design",
+    "description": "A Scottish engineering firm contracting us for architectural visualization on new bids.",
+    "logo_url": null,
+    "is_featured": true,
+    "is_active": true,
+    "created_at": {
+      "_seconds": 1789677310,
+      "_nanoseconds": 283000000
+    },
+    "is_contractual": true,
+    "revenue_code": 1
+  },
+  {
+    "name": "Levant Tech",
+    "country": "Jordan",
+    "country_code": "UNK",
+    "category_code": "C4",
+    "category_label": "Startups & SaaS",
+    "service_code": "S2",
+    "service_label": "Documentation & Back-Office Operations",
+    "description": "A startup that outsourced a one-time competitor pricing matrix research project.",
+    "logo_url": null,
+    "is_featured": true,
+    "is_active": true,
+    "created_at": {
+      "_seconds": 1789677310,
+      "_nanoseconds": 283000000
+    },
+    "is_contractual": true,
+    "revenue_code": 1
+  },
+  {
+    "name": "Dune Retail",
+    "country": "Kuwait",
+    "country_code": "UNK",
+    "category_code": "C2",
+    "category_label": "E-Commerce & Retail",
+    "service_code": "S5",
+    "service_label": "Website Design & Maintenance",
+    "description": "A fashion marketplace outsourcing inventory data reconciliation on their Shopify backend.",
+    "logo_url": null,
+    "is_featured": true,
+    "is_active": true,
+    "created_at": {
+      "_seconds": 1789677310,
+      "_nanoseconds": 283000000
+    },
+    "is_contractual": true,
+    "revenue_code": 1
+  },
+  {
+    "name": "DataSphere SaaS",
+    "country": "United Kingdom",
+    "country_code": "UNK",
+    "category_code": "C4",
+    "category_label": "Startups & SaaS",
+    "service_code": "S3",
+    "service_label": "AI Workflow Automation",
+    "description": "A machine learning startup outsourcing image annotation and AI dataset preparation.",
+    "logo_url": null,
+    "is_featured": true,
+    "is_active": true,
+    "created_at": {
+      "_seconds": 1789677310,
+      "_nanoseconds": 283000000
+    },
+    "is_contractual": true,
+    "revenue_code": 1
+  },
+  {
+    "name": "St. Lawrence Retail",
+    "country": "Canada",
+    "country_code": "UNK",
+    "category_code": "C2",
+    "category_label": "E-Commerce & Retail",
+    "service_code": "S2",
+    "service_label": "Documentation & Back-Office Operations",
+    "description": "A mid-sized e-commerce distributor outsourcing marketplace fee reconciliations.",
+    "logo_url": null,
+    "is_featured": true,
+    "is_active": true,
+    "created_at": {
+      "_seconds": 1789677310,
+      "_nanoseconds": 283000000
+    },
+    "is_contractual": true,
+    "revenue_code": 1
+  }
 ]
