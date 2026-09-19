@@ -50,6 +50,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 `;
 
+const GA_HEAD = `
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XNZS8WZ22B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XNZS8WZ22B');
+</script>
+`;
+
 const META_PIXEL = `
 <!-- Meta Pixel Code -->
 <script>
@@ -164,6 +176,11 @@ async function transformHTML(srcFile, cfg) {
   // 4d. Inject SEO tags after </title>
   const seoHead = buildSEOHead(srcFile, cfg);
   html = html.replace(/<\/title>/, `</title>${seoHead}`);
+
+  // Inject GTM Head
+  html = html.replace(/(<head[^>]*>)/i, `$1\n${GA_HEAD}`);
+
+  html = html.replace(/(<head[^>]*>)/i, `$1\n${GTM_HEAD}`);
 
   // 4e. Inject resource hints before </head>
   html = html.replace(/<\/head>/, `${RESOURCE_HINTS}\n${META_PIXEL}\n</head>`);
