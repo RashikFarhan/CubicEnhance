@@ -308,6 +308,7 @@ function copyAssets() {
   // Copy Firebase JS modules to dist/js/ (critical — without this, firebase-hybrid.js 404s in production)
   if (fs.existsSync('js/firebase-hybrid.js')) fs.copyFileSync('js/firebase-hybrid.js', 'dist/js/firebase-hybrid.js');
   if (fs.existsSync('js/firebase-init.js')) fs.copyFileSync('js/firebase-init.js', 'dist/js/firebase-init.js');
+  if (fs.existsSync('js/gallery-expand.js')) fs.copyFileSync('js/gallery-expand.js', 'dist/js/gallery-expand.js');
   console.log('    ✓ Static assets copied (incl. Firebase JS modules)');
 }
 
