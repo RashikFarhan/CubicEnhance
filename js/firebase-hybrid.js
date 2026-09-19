@@ -187,9 +187,37 @@ function renderReviews(data) {
     if(window.setupCarousel) window.setupCarousel();
 }
 
+async function fetchSiteImages() {
+    if (!db || !firestoreExports) return;
+    try {
+        const { doc, getDoc } = firestoreExports;
+        const imgDoc = await getDoc(doc(db, 'site_config', 'images'));
+        if (imgDoc.exists()) {
+            const mappings = imgDoc.data();
+            const allImages = document.querySelectorAll('img');
+            allImages.forEach(img => {
+                const alt = img.getAttribute('alt');
+                if (alt && mappings[alt]) {
+                    img.src = mappings[alt];
+                }
+            });
+            const allBgs = document.querySelectorAll('[data-alt]');
+            allBgs.forEach(el => {
+                const alt = el.getAttribute('data-alt');
+                if (alt && mappings[alt]) {
+                    el.style.backgroundImage = 'url(' + mappings[alt] + ')';
+                }
+            });
+        }
+    } catch(err) {
+        console.warn('Images fetch failed:', err);
+    }
+}
+
 async function initHybrid() {
     await initFirebase(); // Safe now, won't crash if blocked
     fetchCompaniesMetrics();
+    fetchSiteImages();
     if(document.getElementById('reviews-track')) {
         fetchReviewsData();
     }
