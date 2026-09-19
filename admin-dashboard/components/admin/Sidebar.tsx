@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { useState } from 'react';
-import { LayoutDashboard, List, Image, Activity, Mail, Users, Settings, ExternalLink, LogOut } from 'lucide-react';
+import { LayoutDashboard, List, Image, Activity, Mail, Users, Settings, ExternalLink, LogOut, Link as LinkIcon, Share2 } from 'lucide-react';
 
 const NAV_GROUPS = [
   {
@@ -26,6 +26,7 @@ const NAV_GROUPS = [
       { href: '/site/metrics', label: 'Metrics', icon: <Activity size={20} /> },
         { href: '/site/images', label: 'Images', icon: <Image size={20} /> },
         { href: '/site/links', label: 'Links', icon: <LinkIcon size={20} /> },
+        { href: '/site/socials', label: 'Socials', icon: <Share2 size={20} /> },
     ],
   },
   {
