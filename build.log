@@ -1,0 +1,314 @@
+
+≡ƒö¿ CubicEnhance ΓÇö Production Build
+========================================
+[1/6] Compiling Tailwind CSS (purged)...
+Γëê tailwindcss v4.3.3
+
+Done in 204ms
+    Γ£ô Tailwind CSS compiled and merged with style.css
+[2/6] Minifying main.js...
+    Γ£ô main.js: 34.5 KB ΓåÆ 25.0 KB (saved 27%)
+[3/6] Processing HTML files...
+    Γ£ô privacy.html ΓåÆ /privacy (15 KB ΓåÆ 14 KB, -1 KB)
+    Γ£ô terms.html ΓåÆ /terms (16 KB ΓåÆ 14 KB, -2 KB)
+    Γ£ô culture.html ΓåÆ /culture (24 KB ΓåÆ 21 KB, -3 KB)
+    Γ£ô careers.html ΓåÆ /careers (34 KB ΓåÆ 28 KB, -6 KB)
+    Γ£ô leadership.html ΓåÆ /leadership (118 KB ΓåÆ 96 KB, -22 KB)
+Error: Parse Error: <a href="mailto:admin@cubicenhance.com" class="social-em  class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.725v15.438h24v-15.438l-12 9.725z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+              <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
+                <div class="flex flex-col sm:flex-row items-center gap-4 mb-4 md:mb-0">
+                <a href="/" class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white shadow-sm border border-white/80 transition-transform hover:scale-105">
+                    <img loading="lazy" src="/logo/only logo.png" alt="CubicEnhance Logo" class="h-6 md:h-7 object-contain">
+                    <span class="font-serif font-bold text-sm md:text-base text-black" style="color: #000 !important;">CubicEnhance</span>
+                </a>
+                <span class="opacity-50 hidden sm:inline">|</span>
+                <div class="flex items-center gap-4">
+                    <a href="/privacy" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="/terms" class="hover:text-white transition-colors">Terms of Use</a>
+                </div>
+            </div>
+                <p>&copy; 2026 CubicEnhance. All rights reserved.</p>
+            </div>
+        </footer>
+    </main>
+
+    <script src="/js/main.min.js?v=1789843264022"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // SECTION 1: Metrics Counter
+        const metricsSection = document.getElementById('metrics-section');
+        if(metricsSection) {
+            window.initCounters = function() {
+                const counters = document.querySelectorAll('#metrics-section [data-target]');
+                if(!counters || counters.length === 0) return;
+                
+                let animated = false;
+                
+                const animateCounters = () => {
+                    if (animated) return;
+                    animated = true;
+                    
+                    counters.forEach(target => {
+                        const endValue = parseInt(target.getAttribute('data-target')) || 0;
+                        const duration = 1800;
+                        const startTime = performance.now();
+
+                        function updateCounter(currentTime) {
+                            const elapsedTime = currentTime - startTime;
+                            const progress = Math.min(elapsedTime / duration, 1);
+                            const easeOut = 1 - Math.pow(1 - progress, 4);
+                            const currentVal = Math.floor(easeOut * endValue);
+
+                            target.innerText = currentVal + '+';
+
+                            if (progress < 1) {
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                target.innerText = endValue + '+';
+                            }
+                        }
+                        requestAnimationFrame(updateCounter);
+                    });
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateCounters();
+                            observer.disconnect();
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                counters.forEach(c => observer.observe(c));
+                
+                setTimeout(() => {
+                    if (!animated) animateCounters();
+                }, 3000);
+            }
+        }
+
+        // SECTION 2: Reviews Carousel
+        const reviewsTrack = document.getElementById('reviews-track');
+        if(reviewsTrack) {
+            window.setupCarousel = () => {
+                const reviewsTrack = document.getElementById('reviews-track');
+                if(!reviewsTrack) return;
+                
+                const cards = reviewsTrack.children;
+                if(cards.length === 0) return;
+                
+                let currentIndex = 0;
+                let cardsPerView = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
+                
+                const btnPrev = document.getElementById('review-prev');
+                const btnNext = document.getElementById('review-next');
+                
+                const updateButtons = () => {
+                    const maxIndex = cards.length - cardsPerView;
+                    if(btnPrev) btnPrev.disabled = currentIndex === 0;
+                    if(btnNext) btnNext.disabled = currentIndex >= maxIndex;
+                };
+
+                const updateCarousel = () => {
+                    const maxIndex = cards.length - cardsPerView;
+                    if(currentIndex > maxIndex) currentIndex = maxIndex;
+                    if(currentIndex < 0) currentIndex = 0;
+
+                    const percentage = -(currentIndex * (100 / cardsPerView));
+                    reviewsTrack.style.transform = `translateX(${percentage}%)`;
+                    updateButtons();
+                };
+
+                if(btnNext) {
+                    btnNext.addEventListener('click', () => {
+                        if (currentIndex < cards.length - cardsPerView) {
+                            currentIndex++;
+                            updateCarousel();
+                        }
+                    });
+                }
+
+                if(btnPrev) {
+                    btnPrev.addEventListener('click', () => {
+                        if (currentIndex > 0) {
+                            currentIndex--;
+                            updateCarousel();
+                        }
+                    });
+                }
+
+                let autoPlayInterval;
+                const startAutoPlay = () => {
+                    autoPlayInterval = setInterval(() => {
+                        if (currentIndex < cards.length - cardsPerView) {
+                            currentIndex++;
+                        } else {
+                            currentIndex = 0;
+                        }
+                        updateCarousel();
+                    }, 4000);
+                };
+                const stopAutoPlay = () => clearInterval(autoPlayInterval);
+
+                reviewsTrack.addEventListener('mouseenter', stopAutoPlay);
+                reviewsTrack.addEventListener('mouseleave', startAutoPlay);
+
+                if(btnNext) {
+                    btnNext.addEventListener('mouseenter', stopAutoPlay);
+                    btnNext.addEventListener('mouseleave', startAutoPlay);
+                }
+                if(btnPrev) {
+                    btnPrev.addEventListener('mouseenter', stopAutoPlay);
+                    btnPrev.addEventListener('mouseleave', startAutoPlay);
+                }
+
+                startAutoPlay();
+
+                window.addEventListener('resize', () => {
+                    cardsPerView = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
+                    updateCarousel();
+                });
+
+                updateButtons();
+
+                const modal = document.getElementById('review-modal');
+                const modalClose = document.getElementById('close-review-modal');
+
+                if(modal) {
+                    document.querySelectorAll('.read-more-btn').forEach(btn => {
+                        btn.addEventListener('click', (e) => {
+                            const card = e.target.closest('.group');
+                            if(!card) return;
+                            
+                            const text = card.querySelector('p').innerText;
+                            const starsHtml = card.querySelector('.flex.gap-1').innerHTML;
+                            const spans = card.querySelectorAll('span');
+                            const id = spans[0].innerText;
+                            const country = spans[2].innerText;
+                            const service = spans[3].innerText;
+                            
+                            const filledCount = (starsHtml.match(/text-bcg-light-green/g) || []).length;
+                            let modalStars = '';
+                            for(let i=0; i<5; i++) {
+                                if(i < filledCount) {
+                                    modalStars += `<svg class="w-6 h-6 text-bcg-light-green fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>`;
+                                } else {
+                                    modalStars += `<svg class="w-6 h-6 text-gray-600 fill-current" viewBox="0 0 24 24"><path d="M22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1v9.3z"/></svg>`;
+                                }
+                            }
+
+                            document.getElementById('modal-review-stars').innerHTML = modalStars;
+                            document.getElementById('modal-review-text').innerText = text;
+                            document.getElementById('modal-review-id').innerText = id;
+                            document.getElementById('modal-review-country').innerText = country;
+                            document.getElementById('modal-review-service').innerText = service;
+
+                            modal.classList.remove('opacity-0', 'pointer-events-none');
+                            modal.querySelector('div').classList.remove('scale-95');
+                        });
+                    });
+
+                    if (modalClose) {
+                        modalClose.addEventListener('click', () => {
+                            modal.classList.add('opacity-0', 'pointer-events-none');
+                            modal.querySelector('div').classList.add('scale-95');
+                        });
+                    }
+
+                    modal.addEventListener('click', (e) => {
+                        if(e.target === modal && modalClose) {
+                            modalClose.click();
+                        }
+                    });
+                }
+            };
+        }
+    });
+</script>
+
+    <!-- Review Modal -->
+    <div id="review-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm px-4">
+        <div class="bg-bcg-dark border border-gray-700 w-full max-w-2xl rounded-2xl shadow-2xl p-8 transform scale-95 transition-transform duration-300 flex flex-col max-h-[90vh]">
+            <button id="close-review-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <div id="modal-review-stars" class="flex gap-1 mb-4"></div>
+            <div class="overflow-y-auto pr-2 flex-grow">
+                <p id="modal-review-text" class="text-white text-lg md:text-xl leading-relaxed italic font-serif mb-6"></p>
+            </div>
+            <div class="flex flex-wrap items-center gap-3 mt-6 pt-6 border-t border-gray-700/50 shrink-0">
+                <span id="modal-review-id" class="text-sm font-bold text-gray-400 uppercase tracking-widest"></span>
+                <span class="w-1.5 h-1.5 bg-gray-600 rounded-full mx-1"></span>
+                <span id="modal-review-country" class="px-3 py-1 bg-white/10 text-white text-sm rounded-md font-medium border border-white/10"></span>
+                <span id="modal-review-service" class="px-3 py-1 bg-bcg-green/20 text-bcg-light-green text-sm rounded-md font-bold border border-bcg-green/30 ml-auto"></span>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+        let ytPlayer;
+        function onYouTubeIframeAPIReady() {
+            ytPlayer = new YT.Player('youtube-player', {
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            const muteBtn = document.getElementById('yt-mute-btn');
+            const fsBtn = document.getElementById('yt-fs-btn');
+            const iconMuted = document.getElementById('yt-icon-muted');
+            const iconUnmuted = document.getElementById('yt-icon-unmuted');
+            const iframe = document.getElementById('youtube-player');
+
+            if(muteBtn) {
+                muteBtn.addEventListener('click', () => {
+                    if (ytPlayer.isMuted()) {
+                        ytPlayer.unMute();
+                        iconMuted.classList.add('hidden');
+                        iconUnmuted.classList.remove('hidden');
+                    } else {
+                        ytPlayer.mute();
+                        iconMuted.classList.remove('hidden');
+                        iconUnmuted.classList.add('hidden');
+                    }
+                });
+            }
+
+            if(fsBtn) {
+                fsBtn.addEventListener('click', () => {
+                    if (iframe.requestFullscreen) {
+                        iframe.requestFullscreen();
+                    } else if (iframe.mozRequestFullScreen) {
+                        iframe.mozRequestFullScreen();
+                    } else if (iframe.webkitRequestFullscreen) {
+                        iframe.webkitRequestFullscreen();
+                    } else if (iframe.msRequestFullscreen) {
+                        iframe.msRequestFullscreen();
+                    }
+                });
+            }
+        }
+    </script>
+<script type="module" src="/js/firebase-hybrid.js?v=1789843264022"></script>
+</body>
+</html>
+
+
+<!-- webhook test -->
+    at HTMLParser.parse (C:\All Files\04_Work\Antigravity\cubicenhanced 3\node_modules\html-minifier-terser\dist\htmlminifier.cjs:245:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async minifyHTML (C:\All Files\04_Work\Antigravity\cubicenhanced 3\node_modules\html-minifier-terser\dist\htmlminifier.cjs:1764:3)
+    at async minify (C:\All Files\04_Work\Antigravity\cubicenhanced 3\node_modules\html-minifier-terser\dist\htmlminifier.cjs:1849:18)
+    at async transformHTML (C:\All Files\04_Work\Antigravity\cubicenhanced 3\build.js:219:20)
+    at async main (C:\All Files\04_Work\Antigravity\cubicenhanced 3\build.js:355:25)
