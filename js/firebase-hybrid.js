@@ -69,8 +69,11 @@ function renderTrustedBy(companies) {
       </div>`;
     }
     
-    topHalf.forEach(c => topTrack.innerHTML += buildCard(c));
-    bottomHalf.forEach(c => bottomTrack.innerHTML += buildCard(c));
+    // Duplicate cards to ensure smooth infinite marquee scroll
+    for (let i = 0; i < 4; i++) {
+        topHalf.forEach(c => topTrack.innerHTML += buildCard(c));
+        bottomHalf.forEach(c => bottomTrack.innerHTML += buildCard(c));
+    }
 }
 
 async function fetchCompaniesMetrics() {
