@@ -113,6 +113,21 @@ async function fetchCompaniesMetrics() {
         }
         
         // 2. Fetch companies for the Trusted By section and to override contractual_accounts
+        
+        // Fetch custom links
+        try {
+            const linksDoc = await getDoc(doc(db, 'site_config', 'links'));
+            if (linksDoc.exists()) {
+                const linksData = linksDoc.data();
+                if (linksData.footer_discovery) {
+                    const el = document.getElementById('footer-discovery-link');
+                    if (el) el.setAttribute('href', linksData.footer_discovery);
+                }
+            }
+        } catch (e) {
+            console.error("Could not fetch footer link:", e);
+        }
+
         const snapshot = await getDocs(collection(db, 'companies'));
         if(snapshot.empty) throw new Error('Firestore empty');
         

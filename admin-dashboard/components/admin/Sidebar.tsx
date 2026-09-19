@@ -25,6 +25,7 @@ const NAV_GROUPS = [
     items: [
       { href: '/site/metrics', label: 'Metrics', icon: <Activity size={20} /> },
         { href: '/site/images', label: 'Images', icon: <Image size={20} /> },
+        { href: '/site/links', label: 'Links', icon: <LinkIcon size={20} /> },
     ],
   },
   {
