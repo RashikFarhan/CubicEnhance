@@ -81,6 +81,8 @@ export default function InquiriesTable({ initialData }: { initialData: (Inquiry 
             <div><span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-1">Email</span><p className="text-gray-600">{selected.email}</p></div>
             {selected.company && <div><span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-1">Company</span><p className="text-gray-600">{selected.company}</p></div>}
             {selected.service_interest && <div><span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-1">Service</span><p className="text-gray-600">{selected.service_interest}</p></div>}
+            {selected.preferred_date && <div><span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-1">Preferred Date / Company Type</span><p className="text-gray-600">{selected.preferred_date}</p></div>}
+            {selected.timezone && <div><span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-1">Time Zone</span><p className="text-gray-600">{selected.timezone}</p></div>}
             {selected.budget && <div><span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-1">Budget</span><p className="text-gray-600">{selected.budget}</p></div>}
             <div><span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-1">Message</span><p className="text-gray-700 leading-relaxed bg-gray-50 p-3 rounded-lg text-xs mt-1">{selected.message}</p></div>
           </div>

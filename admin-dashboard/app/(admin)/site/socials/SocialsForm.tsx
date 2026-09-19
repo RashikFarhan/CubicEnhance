@@ -15,7 +15,7 @@ export default function SocialsForm() {
     instagram: 'https://www.instagram.com/cubicenhance?stkn=MXQ4ZHV0aXNsenphYg==',
     facebook: 'https://www.facebook.com/share/1JUVDfCqAi/',
     threads: 'https://www.threads.com/@cubicenhance',
-    whatsapp: 'https://wa.me/8801846408737',
+    whatsapp: 'https://wa.me/message/TTWXPOAAZUDJB1',
     gmail: 'mailto:admin@cubicenhance.com'
   });
 

@@ -78,6 +78,8 @@ export interface Inquiry {
   email: string;
   company?: string;
   service_interest?: string;
+  preferred_date?: string;
+  timezone?: string;
   budget?: string;
   message: string;
   inquiry_type: 'discovery_call' | 'partnership' | 'quote' | 'general';
