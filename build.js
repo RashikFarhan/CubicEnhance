@@ -33,6 +33,25 @@ URL_MAP['services.html'] = '/solutions';
 URL_MAP['./services.html'] = '/solutions';
 
 // Resource hints to inject into every <head>
+const META_PIXEL = `
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1626661235479036');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1626661235479036&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->`;
+
 const RESOURCE_HINTS = `
     <link rel="preconnect" href="https://www.youtube.com">
     <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
@@ -130,7 +149,7 @@ async function transformHTML(srcFile, cfg) {
   html = html.replace(/<\/title>/, `</title>${seoHead}`);
 
   // 4e. Inject resource hints before </head>
-  html = html.replace(/<\/head>/, `${RESOURCE_HINTS}\n</head>`);
+  html = html.replace(/<\/head>/, `${RESOURCE_HINTS}\n${META_PIXEL}\n</head>`);
 
   // 4f. Rewrite .html internal links to clean URLs
   for (const [oldHref, newHref] of Object.entries(URL_MAP)) {
